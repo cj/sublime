@@ -1,5 +1,5 @@
-[submodule "coffee-script"]
-	path = coffee-script
+[submodule "CoffeeScript"]
+	path = CoffeeScript
 	url = git://github.com/jashkenas/coffee-script-tmbundle.git
 [submodule "github-gist"]
   path = github-gist
@@ -10,3 +10,15 @@
 [submodule "jshint"]
 	path = jshint
 	url = git://github.com/uipoet/sublime-jshint.git
+[submodule "WordHighlight"]
+	path = WordHighlight
+	url = git://github.com/SublimeText/WordHighlight.git
+[submodule "sniptastic"]
+	path = sniptastic
+	url = git://github.com/bobthecow/sublime-sniptastic.git
+[submodule "SaneSnippets"]
+	path = SaneSnippets
+	url = git://github.com/bobthecow/sublime-sane-snippets.git
+[submodule "SyntaxGet"]
+	path = SyntaxGet
+	url = git://github.com/lunixbochs/sublime-syntaxget.git

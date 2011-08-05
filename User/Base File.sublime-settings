@@ -18,5 +18,6 @@
   "highlight_line": true,
   "trim_trailing_white_space_on_save": true,
   "autoMatchEnabled" : true,
-  "matchBrackets" : true
+  "matchBrackets" : true,
+  "draw_outlined" : false
 }
