@@ -4,3 +4,6 @@
 [submodule "github-gist"]
   path = github-gist
   url = git@github.com:cj/sublime-github.git
+[submodule "Alignment"]
+	path = Alignment
+	url = git://github.com/wbond/sublime_alignment.git
