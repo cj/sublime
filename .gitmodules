@@ -22,3 +22,9 @@
 [submodule "SyntaxGet"]
 	path = SyntaxGet
 	url = git://github.com/lunixbochs/sublime-syntaxget.git
+[submodule "CTags"]
+	path = CTags
+	url = git://github.com/SublimeText/CTags.git
+[submodule "IndentGuides"]
+	path = IndentGuides
+	url = git://github.com/SublimeText/IndentGuides.git
