@@ -7,3 +7,6 @@
 [submodule "Alignment"]
 	path = Alignment
 	url = git://github.com/wbond/sublime_alignment.git
+[submodule "jshint"]
+	path = jshint
+	url = git://github.com/uipoet/sublime-jshint.git
