@@ -1,0 +1,10 @@
+{
+	"rulers": [],
+	"translate_tabs_to_spaces": false,
+	"gutter": false,
+	"syntax": "Packages/Text/Plain text.tmLanguage",
+	"is_widget": true,
+	"word_wrap": false,
+	"auto_match_enabled": false,
+	"scroll_past_end": false
+}

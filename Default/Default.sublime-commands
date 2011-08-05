@@ -1,0 +1,103 @@
+[
+    {
+        "caption": "Word Wrap: Toggle",
+        "command": "toggle_setting",
+        "args": {"setting": "word_wrap"}
+    },
+    {
+        "caption": "Convert Case: Upper Case",
+        "command": "upper_case"
+    },
+    {
+        "caption": "Convert Case: Lower Case",
+        "command": "lower_case"
+    },
+    {
+        "caption": "Convert Case: Title Case",
+        "command": "title_case"
+    },
+    {
+        "caption": "Convert Case: Swap Case",
+        "command": "swap_case"
+    },
+
+    { "command": "unexpand_tabs", "caption": "Indentation: Convert to Tabs", "args": {"set_translate_tabs": true} },
+    { "command": "expand_tabs", "caption": "Indentation: Convert to Spaces", "args": {"set_translate_tabs": true} },
+
+    { "caption": "View: Toggle Side Bar", "command": "toggle_side_bar" },
+    { "caption": "View: Toggle Minimap", "command": "toggle_minimap" },
+    { "caption": "View: Toggle Tabs", "command": "toggle_tabs" },
+    { "caption": "View: Toggle Status Bar", "command": "toggle_status_bar" },
+    { "caption": "View: Toggle Menu", "command": "toggle_menu" },
+
+    { "caption": "Project: Save As", "command": "save_project_as" },
+    { "caption": "Project: Close", "command": "close_project" },
+    { "caption": "Project: Add Folder", "command": "prompt_add_folder" },
+
+    { "caption": "Preferences: Default File Settings", "command": "open_file", "args": {"file": "${packages}/Default/Base File.sublime-settings"} },
+    { "caption": "Preferences: User File Settings", "command": "open_file", "args": {"file": "${packages}/User/Base File.sublime-settings"} },
+    { "caption": "Preferences: Default Global Settings", "command": "open_file", "args": {"file": "${packages}/Default/Global.sublime-settings"} },
+    { "caption": "Preferences: User Global Settings", "command": "open_file", "args": {"file": "${packages}/User/Global.sublime-settings"} },
+    { "caption": "Preferences: Browse Packages", "command": "open_dir", "args": {"dir": "$packages"} },
+
+    {
+        "caption": "Preferences: Default Key Bindings",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/Default/Default (Windows).sublime-keymap",
+            "platform": "Windows"
+        }
+    },
+    {
+        "caption": "Preferences: Default Key Bindings",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/Default/Default (OSX).sublime-keymap",
+            "platform": "OSX"
+        }
+    },
+    {
+        "caption": "Preferences: Default Key Bindings",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/Default/Default (Linux).sublime-keymap",
+            "platform": "Linux"
+        }
+    },
+    {
+        "caption": "Preferences: User Key Bindings",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/User/Default (Windows).sublime-keymap",
+            "platform": "Windows"
+        }
+    },
+    {
+        "caption": "Preferences: User Key Bindings",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/User/Default (OSX).sublime-keymap",
+            "platform": "OSX"
+        }
+    },
+    {
+        "caption": "Preferences: User Key Bindings",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/User/Default (Linux).sublime-keymap",
+            "platform": "Linux"
+        }
+    },
+
+    { "caption": "File: Save All", "command": "save_all" },
+    { "caption": "File: Revert", "command": "revert" },
+    { "caption": "File: Clone", "command": "clone_file" },
+    { "caption": "File: Close All", "command": "close_all" },
+
+    { "caption": "HTML: Wrap Selection With Tag", "command": "insert_snippet", "args": { "name": "Packages/XML/long-tag.sublime-snippet" } },
+    { "caption": "HTML: Encode Special Characters", "command": "encode_html_entities" },
+
+    { "caption": "Rot13 Selection", "command": "rot13" },
+
+    { "caption": "About", "command": "show_about_window" }
+]

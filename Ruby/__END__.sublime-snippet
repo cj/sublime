@@ -1,0 +1,7 @@
+<snippet>
+    <content><![CDATA[__END__
+]]></content>
+    <tabTrigger>end</tabTrigger>
+    <scope>source.ruby</scope>
+    <description>__END__</description>
+</snippet>

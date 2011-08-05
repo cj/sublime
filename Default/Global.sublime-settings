@@ -1,0 +1,32 @@
+{
+	"theme": "Default.sublime-theme",
+
+	"remember_open_files": true,
+
+	"folder_exclude_patterns": [".svn", ".git", ".hg", "CVS"],
+	"file_exclude_patterns": ["*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj","*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", "*.class", "*.psd", "*.db"],
+	// These files will still show up in the side bar, but won't be included in
+	// Goto Anything or Find in Files
+	"binary_file_patterns": ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf"],
+
+	// Set to 0 to disable smooth scrolling. Set to a value between 0 and 1 to
+	// scroll slower, or set to larger than 1 to scroll faster
+	"scroll_speed": 1.0,
+
+	"show_tab_close_buttons": true,
+
+	// OS X only: When files are opened from finder, or by dragging onto the
+	// dock icon, this controls if a new window is created or not.
+	"open_files_in_new_window": true,
+
+	// OS X 10.7 only: Set to true to disable Lion style full screen support.
+	// Sublime Text must be restarted for this to take effect.
+	"use_simple_full_screen": false,
+
+	// Valid values are "system", "enabled" and "disabled"
+	"overlay_scroll_bars": "system",
+
+	// List any packages to ignore here. When removing entries from this list,
+	// a restart may be required if the package contains plugins.
+	"ignored_packages": ["Vintage"]
+}
