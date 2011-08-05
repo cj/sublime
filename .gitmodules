@@ -1,0 +1,6 @@
+[submodule "coffee-script/coffee-script.tmbundle"]
+	path = coffee-script/coffee-script.tmbundle
+	url = git://github.com/jashkenas/coffee-script-tmbundle.git
+[submodule "github-gist"]
+	path = github-gist
+	url = git@github.com:cj/sublime-github.git
