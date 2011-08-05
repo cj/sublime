@@ -83,13 +83,13 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	{ "keys": ["super+]"], "command": "indent" },
 	{ "keys": ["super+["], "command": "unindent" },
 
-	{ "keys": ["tab"], "command": "insert_best_completion", "args": {"default": "\t", "exact": true} },
-	{ "keys": ["tab"], "command": "insert_best_completion", "args": {"default": "\t", "exact": false},
-		"context":
-		[
-			{ "key": "setting.tab_completion", "operator": "equal", "operand": true }
-		]
-	},
+	// { "keys": ["tab"], "command": "insert_best_completion", "args": {"default": "\t", "exact": true} },
+	// { "keys": ["tab"], "command": "insert_best_completion", "args": {"default": "\t", "exact": false},
+	// 	"context":
+	// 	[
+	// 		{ "key": "setting.tab_completion", "operator": "equal", "operand": true }
+	// 	]
+	// },
 	{ "keys": ["tab"], "command": "reindent", "context":
 		[
 			{ "key": "setting.auto_indent", "operator": "equal", "operand": true },
