@@ -11,7 +11,7 @@
   { "keys": ["tab"], "command": "indent", "context":
     [
       { "key": "text", "operator": "regex_contains", "operand": "\n" }
-    ] 
+    ]
   },
   { "keys": ["tab"], "command": "next_field", "context":
     [
@@ -24,5 +24,6 @@
       { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
       { "key": "setting.tab_completion", "operator": "equal", "operand": true }
     ]
-  }
+  },
+  { "keys": ["super+s"], "command": "build" }
 ]
