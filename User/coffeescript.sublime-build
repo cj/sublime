@@ -1,4 +1,5 @@
 {
    "cmd": ["/usr/local/bin/coffee", "-c", "$file"],
-   "selector": "source.coffee"
+   "selector": "source.coffee",
+   "path": "/usr/local/bin:$PATH"
 }
