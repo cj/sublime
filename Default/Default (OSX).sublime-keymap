@@ -83,13 +83,13 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	{ "keys": ["super+]"], "command": "indent" },
 	{ "keys": ["super+["], "command": "unindent" },
 
-	// { "keys": ["tab"], "command": "insert_best_completion", "args": {"default": "\t", "exact": true} },
-	// { "keys": ["tab"], "command": "insert_best_completion", "args": {"default": "\t", "exact": false},
-	// 	"context":
-	// 	[
-	// 		{ "key": "setting.tab_completion", "operator": "equal", "operand": true }
-	// 	]
-	// },
+	{ "keys": ["tab"], "command": "insert_best_completion", "args": {"default": "\t", "exact": true} },
+	{ "keys": ["tab"], "command": "insert_best_completion", "args": {"default": "\t", "exact": false},
+		"context":
+		[
+			{ "key": "setting.tab_completion", "operator": "equal", "operand": true }
+		]
+	},
 	{ "keys": ["tab"], "command": "reindent", "context":
 		[
 			{ "key": "setting.auto_indent", "operator": "equal", "operand": true },
@@ -517,38 +517,38 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 
 	// Find panel key bindings
 	{ "keys": ["enter"], "command": "find_next", "context":
-		[{"key": "panel", "operand": "find"}]
+		[{"key": "panel", "operand": "find"}, {"key": "panel_has_focus"}]
 	},
 	{ "keys": ["shift+enter"], "command": "find_prev", "context":
-		[{"key": "panel", "operand": "find"}]
+		[{"key": "panel", "operand": "find"}, {"key": "panel_has_focus"}]
 	},
 	{ "keys": ["alt+enter"], "command": "find_all", "args": {"close_panel": true},
-		 "context": [{"key": "panel", "operand": "find"}]
+		 "context": [{"key": "panel", "operand": "find"}, {"key": "panel_has_focus"}]
 	},
 
 	// Replace panel key bindings
 	{ "keys": ["enter"], "command": "find_next", "context":
-		[{"key": "panel", "operand": "replace"}]
+		[{"key": "panel", "operand": "replace"}, {"key": "panel_has_focus"}]
 	},
 	{ "keys": ["shift+enter"], "command": "find_prev", "context":
-		[{"key": "panel", "operand": "replace"}]
+		[{"key": "panel", "operand": "replace"}, {"key": "panel_has_focus"}]
 	},
 	{ "keys": ["alt+enter"], "command": "find_all", "args": {"close_panel": true},
-		"context": [{"key": "panel", "operand": "replace"}]
+		"context": [{"key": "panel", "operand": "replace"}, {"key": "panel_has_focus"}]
 	},
 	{ "keys": ["ctrl+alt+enter"], "command": "replace_all", "args": {"close_panel": true},
-		 "context": [{"key": "panel", "operand": "replace"}]
+		 "context": [{"key": "panel", "operand": "replace"}, {"key": "panel_has_focus"}]
 	},
 
 	// Incremental find panel key bindings
 	{ "keys": ["enter"], "command": "hide_panel", "context":
-		[{"key": "panel", "operand": "incremental_find"}]
+		[{"key": "panel", "operand": "incremental_find"}, {"key": "panel_has_focus"}]
 	},
 	{ "keys": ["shift+enter"], "command": "find_prev", "context":
-		[{"key": "panel", "operand": "incremental_find"}]
+		[{"key": "panel", "operand": "incremental_find"}, {"key": "panel_has_focus"}]
 	},
 	{ "keys": ["alt+enter"], "command": "find_all", "args": {"close_panel": true},
-		"context": [{"key": "panel", "operand": "incremental_find"}]
+		"context": [{"key": "panel", "operand": "incremental_find"}, {"key": "panel_has_focus"}]
 	},
 
 	{ "keys": ["super+,"], "command": "open_file", "args": {"file": "${packages}/User/Base File.sublime-settings"} },

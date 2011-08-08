@@ -2,24 +2,23 @@ import sublime, sublime_plugin
 from vintage import transform_selection
 
 class ViMoveByCharactersInLine(sublime_plugin.TextCommand):
-    def run(self, edit, forward = True, extend = False):
+    def run(self, edit, forward = True, extend = False, visual = False):
         delta = 1 if forward else -1
+
         transform_selection(self.view, lambda pt: pt + delta, extend=extend,
-            clip_to_line=True)
+            clip_to_line=(not visual))
 
 class ViMoveByCharacters(sublime_plugin.TextCommand):
-    def advance(self, delta, pt):
+    def advance(self, delta, visual, pt):
         pt += delta
-        if self.view.substr(pt) == '\n':
+        if not visual and self.view.substr(pt) == '\n':
             pt += delta
 
-        if pt < 0: return 0
-        if pt > self.view.size(): return self.view.size()
         return pt
 
-    def run(self, edit, forward = True, extend = False):
+    def run(self, edit, forward = True, extend = False, visual = False):
         delta = 1 if forward else -1
-        transform_selection(self.view, lambda pt: self.advance(delta, pt),
+        transform_selection(self.view, lambda pt: self.advance(delta, visual, pt),
             extend=extend)
 
 class ViMoveToHardEol(sublime_plugin.TextCommand):
@@ -105,15 +104,23 @@ class SetRepeatMoveToCharacterMotion(sublime_plugin.TextCommand):
                 'inclusive': True })
 
 class ViMoveToBrackets(sublime_plugin.TextCommand):
-    def run(self, edit):
-        bracket_chars = ")]}"
-        def adj(pt):
-            if (self.view.substr(pt) in bracket_chars):
-                return pt + 1
-            else:
-                return pt
-        transform_selection(self.view, adj)
-        self.view.run_command("move_to", {"to": "brackets", "extend": True, "force_outer": True})
+    def move_by_percent(self, percent):
+        destination = int(self.view.size() * (percent / 100.0))
+        transform_selection(self.view, lambda pt: destination)
+
+    def run(self, edit, repeat=1):
+        repeat = int(repeat)
+        if repeat == 1:
+            bracket_chars = ")]}"
+            def adj(pt):
+                if (self.view.substr(pt) in bracket_chars):
+                    return pt + 1
+                else:
+                    return pt
+            transform_selection(self.view, adj)
+            self.view.run_command("move_to", {"to": "brackets", "extend": True, "force_outer": True})
+        else:
+            self.move_by_percent(repeat)
 
 class ViGotoLine(sublime_plugin.TextCommand):
     def run(self, edit, repeat = 1, extend = False):
@@ -124,3 +131,20 @@ class ViGotoLine(sublime_plugin.TextCommand):
             target_pt = self.view.text_point(repeat - 1, 0)
             transform_selection(self.view, lambda pt: target_pt,
                 extend=extend)
+
+class MoveCaretToScreenCenter(sublime_plugin.TextCommand):
+    def run(self, edit, extend = True):
+        screenful = self.view.visible_region()
+        middle = (screenful.begin() + screenful.end()) / 2
+
+        transform_selection(self.view, lambda pt: middle, extend=extend)
+
+class MoveCaretToScreenTop(sublime_plugin.TextCommand):
+    def run(self, edit, extend = True):
+        screenful = self.view.visible_region()
+        transform_selection(self.view, lambda pt: screenful.begin(), extend=extend)
+
+class MoveCaretToScreenBottom(sublime_plugin.TextCommand):
+    def run(self, edit, extend = True):
+        screenful = self.view.visible_region()
+        transform_selection(self.view, lambda pt: screenful.end(), extend=extend)

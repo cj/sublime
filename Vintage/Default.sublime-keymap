@@ -157,11 +157,11 @@
 		"context": [{"key": "setting.command_mode"}]
 	},
 
-	{ "keys": [">"], "command": "set_action", "args": {"action": "indent", "description": "Indent", "motion_mode": "auto_line"},
+	{ "keys": [">"], "command": "set_action", "args": {"action": "vi_indent", "description": "Indent", "motion_mode": "auto_line"},
 		"context": [{"key": "setting.command_mode"}]
 	},
 
-	{ "keys": ["<"], "command": "set_action", "args": {"action": "unindent", "description": "Indent"},
+	{ "keys": ["<"], "command": "set_action", "args": {"action": "vi_unindent", "description": "Unindent"},
 		"context": [{"key": "setting.command_mode"}]
 	},
 
@@ -222,7 +222,7 @@
 
 	{ "keys": [" "], "command": "set_motion", "args": {
 		"motion": "vi_move_by_characters",
-		"motion_args": {"forward": true, "extend": true }},
+		"motion_args": {"forward": true, "extend": true, "visual": false }},
 		"context": [{"key": "setting.command_mode"}]
 	},
 
@@ -239,7 +239,7 @@
 
 	{ "keys": ["l"], "command": "set_motion", "args": {
 		"motion": "vi_move_by_characters_in_line",
-		"motion_args": {"forward": true, "extend": true }},
+		"motion_args": {"forward": true, "extend": true, "visual": false }},
 		"context": [{"key": "setting.command_mode"}]
 	},
 
@@ -311,6 +311,7 @@
 
 	{ "keys": ["%"], "command": "set_motion", "args": {
 		"motion": "vi_move_to_brackets",
+		"motion_args": {"repeat": 1},
 		"inclusive": true },
 		"context": [{"key": "setting.command_mode"}]
 	},
@@ -325,6 +326,19 @@
 		"motion": "move",
 		"motion_args": {"by": "pages", "forward": false, "extend": true }},
 		"context": [{"key": "setting.command_mode"}]
+	},
+
+	{ "keys": ["H"], "command": "set_motion", "args": {
+		"motion": "move_caret_to_screen_top"},
+		"context": [{ "key": "setting.command_mode" }]
+	},
+	{ "keys": ["M"], "command": "set_motion", "args": {
+		"motion": "move_caret_to_screen_center"},
+		"context": [{ "key": "setting.command_mode" }]
+	},
+	{ "keys": ["L"], "command": "set_motion", "args": {
+		"motion": "move_caret_to_screen_bottom"},
+		"context": [{ "key": "setting.command_mode" }]
 	},
 
 	// Motions to allow double press to mean entire line
@@ -365,7 +379,7 @@
 		"context":
 		[
 			{"key": "setting.command_mode"},
-			{"key": "vi_action", "operand": "indent"}
+			{"key": "vi_action", "operand": "vi_indent"}
 		]
 	},
 
@@ -373,7 +387,7 @@
 		"context":
 		[
 			{"key": "setting.command_mode"},
-			{"key": "vi_action", "operand": "unindent"}
+			{"key": "vi_action", "operand": "vi_unindent"}
 		]
 	},
 

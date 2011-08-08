@@ -311,12 +311,16 @@ def clip_point_to_line(view, f, pt):
 def transform_selection(view, f, extend = False, clip_to_line = False):
     new_sel = []
     sel = view.sel()
+    size = view.size()
 
     for r in sel:
         if clip_to_line:
             new_pt = clip_point_to_line(view, f, r.b)
         else:
             new_pt = f(r.b)
+
+        if new_pt < 0: new_pt = 0
+        elif new_pt > size: new_pt = size
 
         if extend:
             new_sel.append(sublime.Region(r.a, new_pt))
@@ -431,6 +435,27 @@ def shrink_exclusive(r):
 # other than what's passed on its arguments. This allows it to operate correctly
 # in macros, and when running via repeat.
 class ViEval(sublime_plugin.TextCommand):
+    def run_(self, args):
+        was_visual = self.view.has_non_empty_selection_region()
+
+        if 'action_command' in args and args['action_command'] == "visual":
+            self.view.run_command('maybe_mark_undo_groups_for_gluing')
+
+        edit = self.view.begin_edit(self.name(), args)
+        try:
+            self.run(edit, **args)
+        finally:
+            self.view.end_edit(edit)
+
+        # Call after end_edit(), to ensure the final entry in the glued undo
+        # group is 'exit_insert_mode'.
+        if self.view.settings().get('command_mode') == True:
+            is_visual = self.view.has_non_empty_selection_region()
+            if was_visual and not is_visual:
+                self.view.run_command('glue_marked_undo_groups')
+            elif not is_visual:
+                self.view.run_command('unmark_undo_groups_for_gluing')
+
     def run(self, edit, prefix_repeat, action_command, action_args,
             motion_repeat, motion_command, motion_args, motion_mode,
             motion_inclusive):
@@ -456,6 +481,10 @@ class ViEval(sublime_plugin.TextCommand):
         visual_mode = ((self.view.has_non_empty_selection_region() and not action_command) or
             (motion_mode == MOTION_MODE_LINE and not action_command) or
             (action_command and action_command == "visual"))
+
+        # Let the motion know if we're in visual mode, if it wants to know
+        if motion_args and 'visual' in motion_args:
+            motion_args['visual'] = visual_mode
 
         for i in xrange(prefix_repeat):
             # Run the motion command, extending the selection to the range of
@@ -532,7 +561,7 @@ class EnterInsertMode(sublime_plugin.TextCommand):
         # mark_undo_groups_for_gluing allows all commands run while in insert
         # mode to comprise a single undo group, which is important for '.' to
         # work as desired.
-        self.view.run_command('mark_undo_groups_for_gluing')
+        self.view.run_command('maybe_mark_undo_groups_for_gluing')
         if insert_command:
             self.view.run_command(insert_command, insert_args)
 
@@ -569,21 +598,24 @@ class Visual(sublime_plugin.TextCommand):
     def run(self, edit):
         pass
 
-class ExitVisualLineMode(sublime_plugin.TextCommand):
-    def run(self, edit):
-        set_motion_mode(self.view, MOTION_MODE_NORMAL)
-
-class EnterVisualLineMode(sublime_plugin.TextCommand):
-    def run(self, edit):
-        set_motion_mode(self.view, MOTION_MODE_LINE)
-        self.view.run_command('expand_selection', {'to': 'line_without_eol'})
-
 class ExitVisualMode(sublime_plugin.TextCommand):
     def run(self, edit):
         if g_input_state.motion_mode != MOTION_MODE_NORMAL:
             set_motion_mode(self.view, MOTION_MODE_NORMAL)
         else:
             self.view.run_command('shrink_selections')
+        self.view.run_command('unmark_undo_groups_for_gluing')
+
+class EnterVisualLineMode(sublime_plugin.TextCommand):
+    def run(self, edit):
+        set_motion_mode(self.view, MOTION_MODE_LINE)
+        self.view.run_command('expand_selection', {'to': 'line_without_eol'})
+        self.view.run_command('maybe_mark_undo_groups_for_gluing')
+
+class ExitVisualLineMode(sublime_plugin.TextCommand):
+    def run(self, edit):
+        set_motion_mode(self.view, MOTION_MODE_NORMAL)
+        self.view.run_command('unmark_undo_groups_for_gluing')
 
 class ShrinkSelections(sublime_plugin.TextCommand):
     def shrink(self, r):
@@ -607,23 +639,26 @@ class Sequence(sublime_plugin.TextCommand):
 
 class ViDelete(sublime_plugin.TextCommand):
     def run(self, edit):
+        kill_ring.seal()
         self.view.run_command('add_to_kill_ring', {'forward': False})
         self.view.run_command('left_delete')
 
 class ViRightDelete(sublime_plugin.TextCommand):
     def run(self, edit):
+        kill_ring.seal()
         self.view.run_command('add_to_kill_ring', {'forward': True})
         self.view.run_command('right_delete')
         clip_empty_selection_to_line_contents(self.view)
 
 class ViCopy(sublime_plugin.TextCommand):
     def run(self, edit):
+        kill_ring.seal()
         self.view.run_command('add_to_kill_ring', {'forward': True})
         transform_selection_regions(self.view, lambda r: sublime.Region(r.a))
 
 class ViPasteRight(sublime_plugin.TextCommand):
     def advance(self, pt):
-        if self.view.substr(pt) == '\n':
+        if self.view.substr(pt) == '\n' or pt >= self.view.size():
             return pt
         else:
             return pt + 1
@@ -683,3 +718,13 @@ class ReplaceCharacter(sublime_plugin.TextCommand):
 
             # TODO: Should leave the selection to the left of the character if it was empty
             self.view.replace(edit, s, character * len(s))
+
+class ViIndent(sublime_plugin.TextCommand):
+    def run(self, edit):
+        self.view.run_command('indent')
+        transform_selection_regions(self.view, lambda r: sublime.Region(r.a))
+
+class ViUnindent(sublime_plugin.TextCommand):
+    def run(self, edit):
+        self.view.run_command('unindent')
+        transform_selection_regions(self.view, lambda r: sublime.Region(r.a))

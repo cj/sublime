@@ -1,8 +1,0 @@
-<snippet>
-    <content><![CDATA[else {
-	${0:# code...}
-}]]></content>
-    <tabTrigger>else</tabTrigger>
-    <scope>source.php</scope>
-    <description>else …</description>
-</snippet>
