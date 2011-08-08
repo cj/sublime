@@ -28,3 +28,6 @@
 [submodule "IndentGuides"]
 	path = IndentGuides
 	url = git://github.com/SublimeText/IndentGuides.git
+[submodule "apache"]
+	path = apache
+	url = https://github.com/textmate/apache.tmbundle.git

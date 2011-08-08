@@ -20,5 +20,6 @@
   "autoMatchEnabled" : true,
   "matchBrackets" : true,
   "draw_outlined" : false,
-  "show_indent_guides": true
+  "show_indent_guides": true,
+  "scroll_past_end": true
 }
