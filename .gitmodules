@@ -31,6 +31,3 @@
 [submodule "apache"]
 	path = apache
 	url = https://github.com/textmate/apache.tmbundle.git
-[submodule "PHP"]
-	path = PHP
-	url = https://github.com/textmate/php.tmbundle.git
