@@ -1,0 +1,47 @@
+[
+    {
+        "caption": "SFTP: Upload File",
+        "command": "sftp_file"
+    },
+    {
+        "caption": "SFTP: Upload VCS Changed Files",
+        "command": "sftp_vcs_changed_files"
+    },
+    {
+        "caption": "SFTP: Show Panel",
+        "command": "sftp_show_panel"
+    },
+    {
+        "caption": "SFTP: Cancel Upload",
+        "command": "sftp_cancel_upload"
+    },
+    {
+        "caption": "Preferences: SFTP Settings",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/SFTP/SFTP.sublime-settings"} },
+    {
+        "caption": "Preferences: SFTP Key Bindings",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/SFTP/Default (Windows).sublime-keymap",
+            "platform": "Windows"
+        }
+    },
+    {
+        "caption": "Preferences: SFTP Key Bindings",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/SFTP/Default (OSX).sublime-keymap",
+            "platform": "OSX"
+        }
+    },
+    {
+        "caption": "Preferences: SFTP Key Bindings",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/SFTP/Default (Linux).sublime-keymap",
+            "platform": "Linux"
+        }
+    }
+]

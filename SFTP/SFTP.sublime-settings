@@ -1,0 +1,15 @@
+{
+	// Setting this value to true will cause unsaved changes to be saved
+	// before uploading the file
+	"save_before_upload": true,
+
+	// The connection timeout
+	"timeout": 5
+
+	// On Windows machines, git and hg are often not in the path and if they
+	// are not in one of the default install locations, their path must be
+	// specified here for the VCS-based commands to work
+	//,"git_binary_path": "C:\\Program Files\\Msysgit\\bin\\git.exe"
+	//,"hg_binary_path": "C:\\Program Files\\Mercurial\\hg.exe"
+	//,"svn_binary_path": "/usr/bin/svn"
+}

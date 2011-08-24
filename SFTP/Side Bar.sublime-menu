@@ -1,0 +1,9 @@
+[
+	{ "caption": "-" },
+	{ "caption": "Edit SFTP Remote…", "command": "sftp_edit_config", "args": {"dirs": []} },
+	{ "caption": "Create SFTP Remote…", "command": "sftp_create_config", "args": {"dirs": []} },
+	{ "caption": "Create Subfolder SFTP Remote…", "command": "sftp_create_sub_config", "args": {"dirs": []} },
+	{ "caption": "Upload File", "command": "sftp_file_side_bar", "args": {"files": []} },
+	{ "caption": "Upload Folder", "command": "sftp_folder_side_bar", "args": {"dirs": []} },
+	{ "caption": "-", "id": "end" }
+]

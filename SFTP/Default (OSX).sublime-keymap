@@ -1,0 +1,6 @@
+[
+	{ "keys": ["super+alt+u","super+alt+f"], "command": "sftp_file" },
+	{ "keys": ["super+alt+u","super+alt+c"], "command": "sftp_vcs_changed_files" },
+	{ "keys": ["super+alt+u","super+alt+s"], "command": "sftp_show_panel" },
+	{ "keys": ["super+alt+u","super+alt+x"], "command": "sftp_cancel_upload" }
+]

@@ -1,0 +1,1924 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"overrid",
+				"override_action"
+			],
+			[
+				"packages_pa",
+				"packages_path"
+			],
+			[
+				"Thre",
+				"ThreadProgress"
+			],
+			[
+				"ign",
+				"ignored_packages"
+			],
+			[
+				"compl",
+				"completion_type"
+			],
+			[
+				"installer",
+				"installer_thread"
+			],
+			[
+				"thread",
+				"threading"
+			],
+			[
+				"status",
+				"status_prefix"
+			],
+			[
+				"instarthr",
+				"installer_thread"
+			],
+			[
+				"cano",
+				"canonicalize"
+			],
+			[
+				"Permiss",
+				"PermissionError"
+			],
+			[
+				"Not",
+				"NotFoundError"
+			],
+			[
+				"sett",
+				"settings_file"
+			],
+			[
+				"surv",
+				"survey"
+			],
+			[
+				"fia",
+				"findAll"
+			],
+			[
+				"admini",
+				"administrators"
+			],
+			[
+				"drop",
+				"dropped_unique"
+			],
+			[
+				"foreign_key",
+				"foreign_keys_enabled"
+			],
+			[
+				"for",
+				"foreign_key"
+			],
+			[
+				"sche",
+				"schema_info"
+			],
+			[
+				"une",
+				"unescapeIdentifier"
+			],
+			[
+				"insid",
+				"inside_transaction"
+			],
+			[
+				"thro",
+				"throwException"
+			],
+			[
+				"getSQl",
+				"getSQLiteTables"
+			],
+			[
+				"columnname",
+				"column_names"
+			],
+			[
+				"extractS",
+				"extractStrings"
+			],
+			[
+				"extrstr",
+				"extractStrings"
+			],
+			[
+				"before",
+				"before_statements"
+			],
+			[
+				"recre",
+				"recreate_foreign_keys"
+			],
+			[
+				"extr",
+				"extra_statements"
+			],
+			[
+				"extra_st",
+				"extra_statements"
+			],
+			[
+				"foreign_key_re",
+				"foreign_key_regex"
+			],
+			[
+				"temp",
+				"temp_create_table_sql"
+			],
+			[
+				"extrst",
+				"extra_statements"
+			],
+			[
+				"parseSQL",
+				"parseSQLiteColumnDefinitions"
+			],
+			[
+				"newtabn",
+				"new_table_name"
+			],
+			[
+				"stripos",
+				"stripos"
+			],
+			[
+				"const",
+				"constraint"
+			],
+			[
+				"dat",
+				"database"
+			],
+			[
+				"ty",
+				"type"
+			],
+			[
+				"extra_stat",
+				"extra_statements"
+			],
+			[
+				"schema",
+				"schema_info"
+			],
+			[
+				"sch",
+				"schema_info"
+			],
+			[
+				"gener",
+				"generateConstraintName"
+			],
+			[
+				"check_con",
+				"check_constraint"
+			],
+			[
+				"primakeyco",
+				"primary_key_constraint"
+			],
+			[
+				"getMSSQUni",
+				"getMSSQLUniqueConstraints"
+			],
+			[
+				"primary_key_cons",
+				"primary_key_constraint"
+			],
+			[
+				"primkeyco",
+				"primary_key_column"
+			],
+			[
+				"conam",
+				"column_name"
+			],
+			[
+				"unique_con",
+				"unique_constraints"
+			],
+			[
+				"gen",
+				"generateConstraintName"
+			],
+			[
+				"colunam",
+				"column_name"
+			],
+			[
+				"prikeyco",
+				"primary_key_columns"
+			],
+			[
+				"prikey",
+				"primary_key_columns"
+			],
+			[
+				"strtolwe",
+				"strtolower"
+			],
+			[
+				"strtolo",
+				"strtolower"
+			],
+			[
+				"transDaT",
+				"translateDataTypes"
+			],
+			[
+				"translateDa",
+				"translateDataTypes"
+			],
+			[
+				"extst",
+				"extra_statements"
+			],
+			[
+				"unicon",
+				"unique_constraints"
+			],
+			[
+				"constra",
+				"constraint_name"
+			],
+			[
+				"concol",
+				"constraint_columns"
+			],
+			[
+				"getSQL",
+				"getSQLiteIndexes"
+			],
+			[
+				"addSQL",
+				"addSQLiteTrigger"
+			],
+			[
+				"remove",
+				"removeSQLiteTriggers"
+			],
+			[
+				"quer",
+				"queries"
+			],
+			[
+				"con",
+				"constraint"
+			],
+			[
+				"newcoln",
+				"new_column_name"
+			],
+			[
+				"forkey",
+				"foreign_key_constraints"
+			],
+			[
+				"primkey",
+				"primary_key_columns"
+			],
+			[
+				"newcol",
+				"new_column_name"
+			],
+			[
+				"cons",
+				"constraint"
+			],
+			[
+				"col",
+				"column"
+			],
+			[
+				"constr",
+				"constraint"
+			],
+			[
+				"foreco",
+				"foreign_column"
+			],
+			[
+				"que",
+				"queries"
+			],
+			[
+				"extrstat",
+				"extra_statements"
+			],
+			[
+				"extra_state",
+				"extra_statements"
+			],
+			[
+				"extrsta",
+				"extra_statements"
+			],
+			[
+				"extra_sta",
+				"extra_statement"
+			],
+			[
+				"column_nam",
+				"column_names"
+			],
+			[
+				"foreignkey",
+				"foreign_key"
+			],
+			[
+				"fore",
+				"foreign_key"
+			],
+			[
+				"getSQLitab",
+				"getSQLiteTables"
+			],
+			[
+				"getSQLiteTa",
+				"getSQLiteTables"
+			],
+			[
+				"cre",
+				"create_statements"
+			],
+			[
+				"state",
+				"statement"
+			],
+			[
+				"foreigkeys",
+				"foreign_keys"
+			],
+			[
+				"removeSQ",
+				"removeSQLiteIndexes"
+			],
+			[
+				"getSQLite",
+				"getSQLiteIndexes"
+			],
+			[
+				"referenced",
+				"referenced_table"
+			],
+			[
+				"arraykey",
+				"array_keys"
+			],
+			[
+				"crea",
+				"create_sql"
+			],
+			[
+				"temcrta",
+				"temp_create_table_sql"
+			],
+			[
+				"foreig",
+				"foreign_keys"
+			],
+			[
+				"onup",
+				"on_update"
+			],
+			[
+				"getSQLiTab",
+				"getSQLiteTables"
+			],
+			[
+				"tle",
+				"table"
+			],
+			[
+				"match",
+				"matching_columns"
+			],
+			[
+				"matc",
+				"matching_columns"
+			],
+			[
+				"str",
+				"strtolower"
+			],
+			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"foreign_ke",
+				"foreign_key"
+			],
+			[
+				"column",
+				"column_name"
+			],
+			[
+				"column_n",
+				"column_name"
+			],
+			[
+				"strtolowe",
+				"strtolower"
+			],
+			[
+				"constraint",
+				"constraint_name"
+			],
+			[
+				"constrin",
+				"constraint_name"
+			],
+			[
+				"da",
+				"data"
+			],
+			[
+				"typ",
+				"type"
+			],
+			[
+				"tra",
+				"translateMSSQLAlterTableStatements"
+			],
+			[
+				"type",
+				"type"
+			],
+			[
+				"sq",
+				"sql"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/will/.config/sublime-text-2/Packages/Package Control/Package Control.py",
+			"settings":
+			{
+				"buffer_size": 58213,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/will/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 388,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/will/.config/sublime-text-2/Packages/Package Control/Default.sublime-commands",
+			"settings":
+			{
+				"buffer_size": 1749,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/will/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 2107,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/will/.config/sublime-text-2/Packages/Package Control/package-metadata.json",
+			"settings":
+			{
+				"buffer_size": 136,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"command_palette":
+	{
+		"height": 69,
+		"selected_items":
+		[
+			[
+				"create",
+				"Package Control: Create Package File"
+			],
+			[
+				"disver",
+				"Package Control: Discover Packages"
+			],
+			[
+				"disv",
+				"Package Control: Discover Packages"
+			],
+			[
+				"upgr",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"creat",
+				"Package Control: Create Package File"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"binar",
+				"Package Control: Create Binary Package File"
+			],
+			[
+				"crea",
+				"Package Control: Create Binary Package File"
+			],
+			[
+				"dis",
+				"Package Control: Discover Packages"
+			],
+			[
+				"disco",
+				"Package Control: Discover Packages"
+			],
+			[
+				"dive",
+				"Package Control: Discover Packages"
+			],
+			[
+				"cre",
+				"Plugin Manager: Create Package"
+			]
+		],
+		"width": 528
+	},
+	"console":
+	{
+		"height": 216
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/will/.config/sublime-text-2/Packages/Package Control/Default.sublime-commands",
+		"/home/will/.config/sublime-text-2/Packages/Package Control/example-packages.json",
+		"/home/will/.config/sublime-text-2/Packages/Package Control/package-metadata.json",
+		"/home/will/.config/sublime-text-2/Packages/Package Control/readme.creole",
+		"/home/will/.config/sublime-text-2/Packages/Package Control/example-repositories.json",
+		"/home/will/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
+		"/home/will/.config/sublime-text-2/Packages/Default/Main.sublime-menu",
+		"/home/will/.config/sublime-text-2/Packages/Package Control/Package Control.py",
+		"/home/will/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
+		"/home/will/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/will/hg/wbond.net/sublime_packages/repo/packages.json",
+		"/home/will/hg/wbond.net/sublime_packages/repo/Terminal.sublime-package",
+		"/home/will/hg/wbond.net/sublime_packages/repo/Alignment.sublime-package",
+		"/home/will/hg/wbond.net/.hgignore",
+		"/home/will/hg/wbond.net/sublime_plugins/repo/Package Control.sublime-package",
+		"/home/will/bin/Sublime Text 2/sublime_plugin.py",
+		"/home/will/hg/wbond.net/sublime_plugins/repo/packages.json",
+		"/home/will/hg/wbond.net/sublime_plugins/repo/Terminal.sublime-package",
+		"/home/will/hg/wbond.net/sublime_plugins/repo/Alignment.sublime-package",
+		"/home/will/hg/wbond.net/sublime_plugins/repo/Plugin Manager.sublime-package",
+		"/home/will/hg/wbond.net/sublime_plugins/repo/repositories.json",
+		"/home/will/.config/sublime-text-2/Packages/Default/Context.sublime-menu",
+		"/home/will/hg/wbond.net/sublime_plugins/partials/head.php",
+		"/home/will/hg/wbond.net/sublime_plugins/index.php",
+		"/home/will/hg/wbond.net/sublime_plugins/sftp.php",
+		"/home/will/hg/wbond.net/sublime_plugins/repo/.htaccess",
+		"/home/will/hg/wbond.net/sublime_plugins/.htaccess",
+		"/home/will/hg/wbond.net/sublime/repo/packages.json",
+		"/home/will/hg/wbond.net/info.php",
+		"/home/will/hg/wbond.net/css/main.css",
+		"/home/will/hg/wbond.net/sublime/index.php",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.sublime-settings",
+		"/home/will/hg/wbond.net/sublime/js/sftp.js",
+		"/home/will/hg/wbond.net/sublime/repo/repositories.json",
+		"/home/will/.config/sublime-text-2/Packages/Plugin Manager/sublime_plugin_manager.sublime-project",
+		"/home/will/.config/sublime-text-2/Packages/Plugin Manager/sublime_package_manager.sublime-project",
+		"/home/will/hg/wbond.net/sublime/partials/head.php",
+		"/home/will/hg/wbond.net/partials/head.php",
+		"/home/will/hg/wbond.net/sublime/partials/foot.php",
+		"/home/will/hg/wbond.net/partials/foot.php",
+		"/home/will/hg/wbond.net/sublime/lytebox/lytebox.js",
+		"/home/will/hg/wbond.net/index.php",
+		"/home/will/hg/wbond.net/img/flourish.gif",
+		"/home/will/hg/wbond.net/img/logo.png",
+		"/home/will/hg/wbond.net/css/sublime.css",
+		"/home/will/hg/wbond.net/images/logo_small.gif",
+		"/home/will/hg/wbond.net/.htaccess",
+		"/home/will/hg/wbond.net/404.php",
+		"/home/will/hg/wbond.net/images/site/error.gif",
+		"/home/will/hg/wbond.net/js/behaviour.js",
+		"/home/will/hg/wbond.net/sftp-settings.json",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/sftp-settings.json",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.py",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/Default (Linux).sublime-keymap",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/Context.sublime-menu",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/.hgignore",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/Main.sublime-menu",
+		"/home/will/Desktop/blog.txt",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/Default (OSX).sublime-keymap",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/Default (Windows).sublime-keymap",
+		"/home/will/.config/sublime-text-2/Packages/Default/Default (OSX).sublime-keymap",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.Zenburnesque.tmTheme",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.Twilight.tmTheme",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.iPlastic.tmTheme",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.Mac Classic.tmTheme",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.MagicWB (Amiga).tmTheme",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.Blackboard.tmTheme",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.Cobalt.tmTheme",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.Eiffel.tmTheme",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.Solarized (Dark).tmTheme",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.SpaceCadet.tmTheme",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/extract_colors.py",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.Monokai Bright.tmTheme",
+		"/home/will/.config/sublime-text-2/Packages/User/Base File.sublime-settings",
+		"/home/will/git/sublime_tortoise/Tortoise.py",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTPOutput.tmLanguage",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/SFTP.Dawn.tmTheme",
+		"/home/will/.config/sublime-text-2/Packages/Default/Base File.sublime-settings",
+		"/home/will/git/sublime_tortoise/sftp.sublime-settings",
+		"/home/will/git/sublime_tortoise/sftp-settings.json",
+		"/home/will/.config/sublime-text-2/Packages/Default/Side Bar.sublime-menu",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/Side Bar.sublime-menu",
+		"/home/will/.config/sublime-text-2/Packages/Default/Side Bar Mount Point.sublime-menu",
+		"/home/will/k9dep.txt",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/ogmripdep.txt",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/foobar/sftp-settings.json",
+		"/home/will/.config/sublime-text-2/Packages/SFTP/svn/sftp-settings.json",
+		"/home/will/git/sublime_tortoise/svn/sftp-settings.json",
+		"/home/will/git/sublime_tortoise/readme.creole",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/Tortoise/Default (Windows).sublime-keymap",
+		"/home/will/git/sublime_tortoise/Default (Windows).sublime-keymap",
+		"/home/will/git/sublime_tortoise/Tortoise/Tortoise.py",
+		"/home/will/git/noted/app/migrations/0.25.sql",
+		"/home/will/svn/nepc.com/nepc.com/inc/classes/records/SurveyFundResponse.php",
+		"/home/will/svn/nepc.com/database/nepc_com.survey.sql",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/Default/Delete to Hard EOL.sublime-macro",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/User/baz.sublime-macro",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/User/foobar.sublime-macro",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/User/foo.sublime-macro",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/Default/Main.sublime-menu",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/Default/goto_line.py",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/Default/Delete to BOL.sublime-macro",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/Default/transform.py",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/PHP/PHP.sublime-completions",
+		"/home/will/svn/nepc.com/database/nepc_com.survey_changes.sql",
+		"/home/will/svn/nepc.com/nepc.com/inc/config.php",
+		"/home/will/svn/nepc.com/nepc.com/inc/classes/records/SurveyFund.php",
+		"/home/will/svn/nepc.com/nepc.com/inc/classes/records/SurveyFirmResponse.php",
+		"/home/will/svn/nepc.com/nepc.com/survey/manage.php",
+		"/home/will/svn/nepc.com/nepc.com/inc/classes/records/SurveyFirm.php",
+		"/home/will/svn/nepc.com/nepc.com/survey/views/form.php",
+		"/home/will/svn/nepc.com/nepc.com/survey/respond.php",
+		"/home/will/svn/nepc.com/nepc.com/inc/flourish/fORMColumn.php",
+		"/home/will/svn/nepc.com/nepc.com/survey/views/manage.php",
+		"/home/will/svn/nepc.com/nepc.com/inc/classes/records/SurveyAdministrator.php",
+		"/home/will/svn/nepc.com/nepc.com/inc/classes/records/SurveyAuditor.php",
+		"/home/will/svn/nepc.com/nepc.com/about_us/contact_us.php",
+		"/home/will/svn/nepc.com/nepc.com/inc/classes/IBES.php",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/Tortoise/Tortoise.py",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/SFTP/SFTP.py",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/User/example.py",
+		"/C/Users/Will/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/home/will/svn/nepc.com/nepc.com/survey/views/submitted.php",
+		"/home/will/svn/nepc.com/nepc.com/sup/css/site.css",
+		"/home/will/svn/nepc.com/nepc.com/sup/js/survey/form.js",
+		"/home/will/svn/flourish/tests/classes/fSchema/fSchemaTest.php",
+		"/C/Users/Will/Desktop/alter_table_todo.txt",
+		"/C/Users/Will/Desktop/Files/alter_table.sql"
+	],
+	"find":
+	{
+		"height": 33
+	},
+	"find_in_files":
+	{
+		"height": 0,
+		"include_history":
+		[
+			"*.py",
+			"*.php",
+			"*.py",
+			""
+		],
+		"location_history":
+		[
+			"/home/will/.config/sublime-text-2/Packages/",
+			"C:\\Users\\Will\\Documents\\svn\\flourish",
+			"C:\\Users\\Will\\AppData\\Roaming\\Sublime Text 2",
+			"C:\\Users\\Will\\AppData\\Local\\Enso",
+			"C:\\Users\\Will\\AppData\\Roaming\\Sublime Text 2\\Packages",
+			"<open folders>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".sublime-settings",
+			"setting",
+			"print ",
+			"self",
+			"GitUpgr",
+			"path",
+			"sublime.packages_path(), package",
+			"print ",
+			"get_packages",
+			"installed_packages",
+			"Global",
+			"thread",
+			".start",
+			"is_al",
+			"install_package",
+			"package_manager",
+			"img/",
+			"/sublime_plugins/",
+			"/sublime/",
+			"PackageManager",
+			"</strong>",
+			"<strong>",
+			"em",
+			"ul.oses",
+			"ul.vcses",
+			"before",
+			"'",
+			"ctrl",
+			"ctrl+shift+d",
+			"ctrl+d",
+			"ctrl+l",
+			"ctrl+alt+s",
+			"string<",
+			"sftp.sublime-settings",
+			"load_settings",
+			"sftp-settings.json",
+			"selection_was_at_end",
+			"if debug",
+			"NonInterac",
+			"Git(",
+			"svn",
+			"cur_dir",
+			".put(",
+			"self.mkdir",
+			"files",
+			"\\.x86_64.*",
+			"\\.noarch.*",
+			"\\.x86_64.*",
+			"os.nam",
+			".options(",
+			"local_dir",
+			"orig_dir",
+			"last_dir",
+			"ignore",
+			"open(",
+			"open",
+			"slash",
+			"save",
+			"self.view.file",
+			"file_status_cache",
+			", ",
+			"'Circle-T Explorer Master Limited'",
+			"'D.E. Shaw Composite Fund'",
+			"'Black River Global MultiStrategy Fund'",
+			"'ARP II'",
+			"'Blue Rock Capital Fund, L.P.'",
+			"'Black River Global Multi-Strategy Ltd.'",
+			"'Intrinsic Edge Plus, LP'",
+			"'Silver Creek Long/Short'",
+			"'Deutsche Topiary'",
+			"'Pinehurst Institutional, Ltd.'",
+			"'Silver Creek Special Opportunities Fund Cayman III, LP'",
+			"'Avenue Europe Investments, L.P.'",
+			"'Pacific Diversified Strategies, Ltd'",
+			"'Gottex Market Neutral Plus'",
+			"'Blenheim Global Markets Fund, Ltd'",
+			"'Mesirow Advanced Strategies'",
+			"'OpCap Structured Alpha - Absolute Yield, LLC'",
+			"'Mesirow Arbitrage Trust'",
+			"'Mesirow Arbitrage Fund, Ltd'",
+			"'Gottex Market Neutral Plus'",
+			"'Blenheim Global Markets Fund, Ltd'",
+			"'Mesirow Advanced Strategies'",
+			"'OpCap Structured Alpha - Absolute Yield, LLC'",
+			"'Mesirow Arbitrage Trust'",
+			"mesirow arb",
+			"mesirow ar",
+			"'Safe Harbor ERISA Dedicated Fund'",
+			"'Mellon Global Alpha II'",
+			"'Long/Short Distressed Debt Fund'",
+			"'Mariner Partners, L.P.'",
+			"'Grosvenor Institutional Partners, LP'",
+			"'Auda Opportunity Fund'",
+			"pinebank",
+			"'Grosvenor Institutional Partners, L.P.'",
+			"'Grosvenor Institutional Partners, LP'",
+			"'Grosvenor Institutional Partners, L.P.'",
+			"'Grosvenor Institutional Partners, LP'",
+			"'Grosvenor Institutional Partners, L.P.'",
+			"replace",
+			"'Auda Opportunity Fund'",
+			"Auda Opportunity Fund",
+			"' '",
+			"	",
+			"\\t",
+			"ircle-T Explorer Master Limited	Circle T Explorer AM Fund, LP",
+			"\\t",
+			"'0334787a-66cc-dd11-85a5-001ec957401f'",
+			"'EnTrust Capital Diversified Fund Ltd.'",
+			"78657989-fe28-de11-b97f-001ec957401f",
+			"78657989-FE28-DE11-B97F-001EC957401F",
+			"Chilton ",
+			"Chilton Pan Asia Pacific",
+			"'7c667989-fe28-de11-b97f-001ec957401f'",
+			"78667989-fe28-de11-b97f-001ec957401f",
+			"78657989-fe28-de11-b97f-001ec957401f",
+			"56667989-FE28-DE11-B97F-001ec957401f",
+			"56667989-FE28-DE11-B97F-001EC957401F",
+			"'fef8a4a2-52c3-dd11-ac64-001ec957401f'",
+			"'e86f1be2-c709-df11-972b-001ec957401f'",
+			"'e36895ae-52c3-dd11-ac64-001ec957401f'",
+			"'de61c57e-52c3-dd11-ac64-001ec957401f'",
+			"'ddf8a4a2-52c3-dd11-ac64-001ec957401f'",
+			"\\",
+			"'c72db590-52c3-dd11-ac64-001ec957401f'",
+			"'c534e823-56c3-dd11-ac64-001ec957401f'",
+			"'c22db590-52c3-dd11-ac64-001ec957401f'",
+			"'bb309da8-52c3-dd11-ac64-001ec957401f'"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"./",
+			"/sublime_plugins/",
+			"Plugin Manager",
+			"\"",
+			".",
+			"> ",
+			"sftp-settings.json",
+			"sftp.sublime-settings",
+			"",
+			"\\t",
+			"'Mariner Partners LP'",
+			"'Grosvenor Institutional Partners, L.P.'",
+			"'Auda Opportunity, Ltd.'",
+			"'Grosvenor Institutional Partners, LP'",
+			"'Grosvenor Institutional Partners, L.P.'",
+			"'Grosvenor Institutional Partners, LP'",
+			"'Auda Opportunity, Ltd.'",
+			"'\n'Auda Opportunity, Ltd.'",
+			"'\n'",
+			"$schema",
+			"json_schema",
+			"does",
+			"$data['column_definition']",
+			"$this->db",
+			"DB_TYPE",
+			"$this->db",
+			"\\t",
+			"self::$db",
+			"self::$schema",
+			"self::$db",
+			"self::$schema",
+			"self::$db",
+			"self::$schema",
+			"self::$db",
+			"\\t",
+			"escape",
+			"$data['type'] == ",
+			"$data['type']",
+			"local_dir",
+			"sublime_plugin"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/will/.config/sublime-text-2/Packages/Package Control/Package Control.py",
+					"settings":
+					{
+						"buffer_size": 58213,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								16467,
+								16467
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/will/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 388,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/will/.config/sublime-text-2/Packages/Package Control/Default.sublime-commands",
+					"settings":
+					{
+						"buffer_size": 1749,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1236,
+								1236
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/will/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 2107,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								459,
+								459
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/will/.config/sublime-text-2/Packages/Package Control/package-metadata.json",
+					"settings":
+					{
+						"buffer_size": 136,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								136,
+								136
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32
+	},
+	"input":
+	{
+		"height": 30
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0,
+			1
+		],
+		"rows":
+		[
+			0,
+			1
+		]
+	},
+	"menu_visible": true,
+	"output.sftp":
+	{
+		"height": 110
+	},
+	"replace":
+	{
+		"height": 62
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0,
+		"selected_items":
+		[
+			[
+				"read",
+				"readme.creole"
+			],
+			[
+				"packa",
+				"Package Control.sublime-settings"
+			],
+			[
+				"term",
+				"sublime_packages/repo/Terminal.sublime-package"
+			],
+			[
+				"package",
+				"sublime_packages/repo/packages.json"
+			],
+			[
+				"align",
+				"sublime_packages/repo/Alignment.sublime-package"
+			],
+			[
+				"plu",
+				"sublime_plugins/repo/Plugin Manager.sublime-package"
+			],
+			[
+				"pama",
+				"sublime_plugins/repo/Plugin Manager.sublime-package"
+			],
+			[
+				"repos",
+				"sublime_plugins/repo/repositories.json"
+			],
+			[
+				"pack",
+				"sublime_plugins/repo/packages.json"
+			],
+			[
+				"main",
+				"css/main.css"
+			],
+			[
+				"ma",
+				"css/main.css"
+			],
+			[
+				"head",
+				"partials/head.php"
+			],
+			[
+				"ind",
+				"index.php"
+			],
+			[
+				"sftp",
+				"SFTP.py"
+			],
+			[
+				"conf",
+				"nepc.com/inc/config.php"
+			],
+			[
+				"surveyfundre",
+				"nepc.com/inc/classes/records/SurveyFundResponse.php"
+			],
+			[
+				"surveyfirmrespo",
+				"nepc.com/inc/classes/records/SurveyFirmResponse.php"
+			],
+			[
+				"survefirm",
+				"nepc.com/inc/classes/records/SurveyFirm.php"
+			],
+			[
+				"suveyad",
+				"nepc.com/inc/classes/records/SurveyAdministrator.php"
+			],
+			[
+				"surve",
+				"nepc.com/inc/classes/records/SurveyAdministrator.php"
+			],
+			[
+				"surveyau",
+				"nepc.com/inc/classes/records/SurveyAuditor.php"
+			],
+			[
+				"survey",
+				"nepc.com/inc/classes/records/SurveyAdministrator.php"
+			],
+			[
+				"ibes",
+				"nepc.com/inc/classes/IBES.php"
+			],
+			[
+				"contact",
+				"nepc.com/about_us/contact_us.php"
+			],
+			[
+				"surveaudi",
+				"nepc.com/inc/classes/records/SurveyAuditor.php"
+			],
+			[
+				"surveyadmi",
+				"nepc.com/inc/classes/records/SurveyAdministrator.php"
+			],
+			[
+				"survefundrespo",
+				"nepc.com/inc/classes/records/SurveyFundResponse.php"
+			],
+			[
+				"formco",
+				"nepc.com/inc/flourish/fORMColumn.php"
+			],
+			[
+				"respo",
+				"nepc.com/survey/respond.php"
+			],
+			[
+				"form.php",
+				"nepc.com/survey/views/form.php"
+			],
+			[
+				"con",
+				"nepc.com/inc/config.php"
+			],
+			[
+				"surveyfirm",
+				"nepc.com/inc/classes/records/SurveyFirm.php"
+			],
+			[
+				"surveyfirmres",
+				"nepc.com/inc/classes/records/SurveyFirmResponse.php"
+			],
+			[
+				"surveyfundrepo",
+				"nepc.com/inc/classes/records/SurveyFundResponse.php"
+			],
+			[
+				"surveyfund",
+				"nepc.com/inc/classes/records/SurveyFund.php"
+			],
+			[
+				"surfundre",
+				"nepc.com/inc/classes/records/SurveyFundResponse.php"
+			],
+			[
+				"surfirmre",
+				"nepc.com/inc/classes/records/SurveyFirmResponse.php"
+			],
+			[
+				".sql",
+				"database/nepc_com.survey.sql"
+			],
+			[
+				".css",
+				"nepc.com/sup/css/site.css"
+			],
+			[
+				"test",
+				"flourish/tests/tests.php"
+			],
+			[
+				"teardb2",
+				"flourish/tests/database/teardown.db2.sql"
+			],
+			[
+				"setupost",
+				"flourish/tests/database/setup.postgresql.sql"
+			],
+			[
+				"fdattest",
+				"flourish/tests/classes/fDatabase/fDatabaseTest.php"
+			],
+			[
+				"fschetes",
+				"flourish/tests/classes/fSchema/fSchemaTest.php"
+			],
+			[
+				"fsche",
+				"flourish/classes/fSchema.php"
+			],
+			[
+				"fauth",
+				"flourish/classes/fAuthorization.php"
+			],
+			[
+				"fsess",
+				"flourish/classes/fSession.php"
+			],
+			[
+				"fdata",
+				"flourish/classes/fDatabase.php"
+			],
+			[
+				"fimage",
+				"flourish/classes/fImage.php"
+			],
+			[
+				"fsqltr",
+				"flourish/classes/fSQLTranslation.php"
+			],
+			[
+				"setsql",
+				"flourish/tests/database/setup.sqlite.sql"
+			],
+			[
+				"setpsqli",
+				"flourish/tests/database/setup.sqlite.sql"
+			],
+			[
+				"fm",
+				"flourish/classes/fMailbox.php"
+			],
+			[
+				"fres",
+				"flourish/classes/fResult.php"
+			],
+			[
+				"fdatabasetes",
+				"flourish/tests/classes/fDatabase/fDatabaseTest.php"
+			],
+			[
+				"setupos",
+				"flourish/tests/database/setup.postgresql.sql"
+			],
+			[
+				"freq",
+				"flourish/classes/fRequest.php"
+			],
+			[
+				"setpsql",
+				"flourish/tests/database/setup.sqlite.sql"
+			],
+			[
+				"teaorc",
+				"flourish/tests/database/teardown.oracle.sql"
+			],
+			[
+				"fresult",
+				"flourish/classes/fResult.php"
+			],
+			[
+				"setusql",
+				"flourish/tests/database/setup.sqlite.sql"
+			],
+			[
+				"setdb2",
+				"flourish/tests/database/setup.db2.sql"
+			],
+			[
+				"setpos",
+				"flourish/tests/database/setup.postgresql.sql"
+			],
+			[
+				"tearor",
+				"flourish/tests/database/teardown.oracle.sql"
+			],
+			[
+				"setor",
+				"flourish/tests/database/setup.oracle.sql"
+			],
+			[
+				"db2jso",
+				"flourish/tests/database/schema.db2.json"
+			],
+			[
+				"fschtestph",
+				"flourish/tests/classes/fSchema/fSchemaTest.php"
+			],
+			[
+				"sepmssq",
+				"flourish/tests/database/setup.mssql.sql"
+			],
+			[
+				"fsch",
+				"flourish/classes/fSchema.php"
+			],
+			[
+				"fda",
+				"flourish/classes/fDatabase.php"
+			],
+			[
+				"setupdb2",
+				"flourish/tests/database/setup.db2.sql"
+			],
+			[
+				"teardoora",
+				"flourish/tests/database/teardown.oracle.sql"
+			],
+			[
+				"conmssql20",
+				"flourish/tests/database/config.mssql2008.php"
+			],
+			[
+				"set",
+				"flourish/tests/database/setup.mssql2008.sql"
+			],
+			[
+				"remote",
+				"flourish/tests/remote_tests.sh"
+			],
+			[
+				"fschete",
+				"flourish/tests/classes/fSchema/fSchemaTest.php"
+			],
+			[
+				"fsqltra",
+				"flourish/tests/classes/fSQLTranslation/fSQLTranslationTest.php"
+			],
+			[
+				"setms",
+				"flourish/tests/database/setup.mssql2008.sql"
+			],
+			[
+				"setmssql",
+				"flourish/tests/database/setup.mssql.sql"
+			],
+			[
+				"mssql",
+				"flourish/tests/database/config.mssql.php"
+			],
+			[
+				"setupor",
+				"flourish/tests/database/setup.oracle.sql"
+			],
+			[
+				"setupsql",
+				"flourish/tests/database/setup.sqlite.sql"
+			],
+			[
+				"setupmysq",
+				"flourish/tests/database/setup.mysql.sql"
+			],
+			[
+				"setup",
+				"flourish/tests/database/setup.oracle.sql"
+			],
+			[
+				"al",
+				"/C/Users/Will/Desktop/Files/alter_table.sql"
+			],
+			[
+				"alter",
+				"/C/Users/Will/Desktop/alter_table_todo.txt"
+			],
+			[
+				"fcore",
+				"flourish/classes/fCore.php"
+			],
+			[
+				"conmssql",
+				"flourish/tests/database/config.mssql.php"
+			],
+			[
+				"rese",
+				"flourish/tests/reset_databases.sh"
+			],
+			[
+				"remo",
+				"flourish/tests/remote_tests.sh"
+			],
+			[
+				"confimssql",
+				"flourish/tests/database/config.mssql.php"
+			],
+			[
+				"setmssq",
+				"flourish/tests/database/setup.mssql.sql"
+			],
+			[
+				"fdatte",
+				"flourish/tests/classes/fDatabase/fDatabaseTest.php"
+			],
+			[
+				"fstatementtest",
+				"flourish/tests/classes/fStatement/fStatementTest.php"
+			],
+			[
+				"sch",
+				"flourish/tests/database/schema.sqlite.json"
+			],
+			[
+				"orjson",
+				"flourish/tests/database/schema.oracle.json"
+			],
+			[
+				".jso",
+				"flourish/tests/database/schema.db2.json"
+			],
+			[
+				"fmailboxtes",
+				"flourish/tests/classes/fMailbox/fMailboxTest.php"
+			],
+			[
+				"semssq",
+				"flourish/tests/database/setup.mssql.sql"
+			],
+			[
+				"tests",
+				"flourish/tests/tests.php"
+			],
+			[
+				"teardorac",
+				"flourish/tests/database/teardown.oracle.sql"
+			],
+			[
+				"setu.ora",
+				"flourish/tests/database/setup.oracle.sql"
+			],
+			[
+				"setup.oracl",
+				"flourish/tests/database/setup.oracle.sql"
+			],
+			[
+				"sqltrans.co",
+				"flourish/tests/classes/fSQLTranslation/fSQLTranslationTest.configs"
+			],
+			[
+				"setpmssql",
+				"flourish/tests/database/setup.mssql.sql"
+			],
+			[
+				"setup.sql",
+				"flourish/tests/database/setup.sqlite.sql"
+			],
+			[
+				"teardowmysq",
+				"flourish/tests/database/teardown.mysql.sql"
+			],
+			[
+				"setup.mysq",
+				"flourish/tests/database/setup.mysql.sql"
+			],
+			[
+				"setuppostg",
+				"flourish/tests/database/setup.postgresql.sql"
+			],
+			[
+				"setup.",
+				"flourish/tests/database/setup.oracle.sql"
+			],
+			[
+				"setuppost",
+				"flourish/tests/database/setup.postgresql.sql"
+			],
+			[
+				"futf8",
+				"flourish/classes/fUTF8.php"
+			],
+			[
+				"fsqltrates",
+				"flourish/tests/classes/fSQLTranslation/fSQLTranslationTest.php"
+			],
+			[
+				"fdatabates",
+				"flourish/tests/classes/fDatabase/fDatabaseTest.php"
+			],
+			[
+				"sqlite2",
+				"flourish/tests/database/setup.sqlite2.sql"
+			],
+			[
+				"tearsql",
+				"flourish/tests/database/teardown.sqlite.sql"
+			],
+			[
+				"sqlite",
+				"flourish/tests/database/setup.sqlite.sql"
+			],
+			[
+				"fdatates",
+				"flourish/tests/classes/fDatabase/fDatabaseTest.php"
+			],
+			[
+				"fima",
+				"flourish/classes/fImage.php"
+			],
+			[
+				"fimates",
+				"flourish/tests/classes/fImage/fImageTest.php"
+			],
+			[
+				"fim",
+				"flourish/classes/fImage.php"
+			],
+			[
+				"fstattest",
+				"flourish/tests/classes/fStatement/fStatementTest.php"
+			],
+			[
+				"fjson",
+				"flourish/classes/fJSON.php"
+			],
+			[
+				"funubufertest",
+				"flourish/tests/classes/fUnbufferedResult/fUnbufferedResultTest.php"
+			],
+			[
+				"fsqltrans",
+				"flourish/classes/fSQLTranslation.php"
+			],
+			[
+				"setmysq",
+				"flourish/tests/database/setup.mysql.sql"
+			],
+			[
+				"setumssql",
+				"flourish/tests/database/setup.mssql.sql"
+			],
+			[
+				"setora",
+				"flourish/tests/database/setup.oracle.sql"
+			]
+		],
+		"width": 0
+	},
+	"select_project":
+	{
+		"height": 500,
+		"selected_items":
+		[
+			[
+				"tor",
+				"/home/will/.config/sublime-text-2/Packages/Tortoise/sublime_tortoise.sublime-project"
+			],
+			[
+				"wbo",
+				"/home/will/hg/wbond.net/wbond.net.sublime-project"
+			],
+			[
+				"wb",
+				"/home/will/hg/wbond.net/wbond.net.sublime-project"
+			],
+			[
+				"nas",
+				"/home/will/svn/nasuni.com.sublime-project"
+			],
+			[
+				"wbod",
+				"/home/will/hg/wbond.net/wbond.net.sublime-project"
+			],
+			[
+				"sftp",
+				"/home/will/.config/sublime-text-2/Packages/SFTP/sublime-sftp.sublime-project"
+			],
+			[
+				"fram",
+				"/home/will/svn/framework.imarc.net.sublime-project"
+			],
+			[
+				"wbd",
+				"/home/will/hg/wbond.net/wbond.net.sublime-project"
+			],
+			[
+				"gal",
+				"/home/will/svn/galengateway.com.sublime-project"
+			],
+			[
+				"ali",
+				"/home/will/.config/sublime-text-2/Packages/Alignment/sublime_alignment.sublime-project"
+			],
+			[
+				"wbon",
+				"/home/will/hg/wbond.net/wbond.net.sublime-project"
+			],
+			[
+				"pakca",
+				"/home/will/.config/sublime-text-2/Packages/Package Control/sublime_package_control.sublime-project"
+			],
+			[
+				"imar",
+				"/home/will/svn/imarc.net.sublime-project"
+			],
+			[
+				"term",
+				"/home/will/.config/sublime-text-2/Packages/Terminal/sublime_terminal.sublime-project"
+			],
+			[
+				"align",
+				"/home/will/.config/sublime-text-2/Packages/Alignment/sublime_alignment.sublime-project"
+			],
+			[
+				"package",
+				"/home/will/.config/sublime-text-2/Packages/Package Control/sublime_package_control.sublime-project"
+			],
+			[
+				"plu",
+				"/home/will/.config/sublime-text-2/Packages/Plugin Control/sublime_plugin_control.sublime-project"
+			],
+			[
+				"plug",
+				"/home/will/.config/sublime-text-2/Packages/Plugin Manager/sublime_plugin_manager.sublime-project"
+			],
+			[
+				"plg",
+				"/home/will/.config/sublime-text-2/Packages/Plugin Control/sublime_plugin_control.sublime-project"
+			],
+			[
+				"suplug",
+				"/home/will/.config/sublime-text-2/Packages/Plugin Control/sublime_plugin_control.sublime-project"
+			],
+			[
+				"pl",
+				"/home/will/.config/sublime-text-2/Packages/Plugin Manager/sublime_plugin_manager.sublime-project"
+			],
+			[
+				"plugin",
+				"/home/will/.config/sublime-text-2/Packages/Plugin Manager/sublime_plugin_manager.sublime-project"
+			],
+			[
+				"pac",
+				"/home/will/.config/sublime-text-2/Packages/PackageManager/sublime_package_manager.sublime-project"
+			],
+			[
+				"packa",
+				"/home/will/.config/sublime-text-2/Packages/PackageManager/sublime_package_manager.sublime-project"
+			],
+			[
+				"pack",
+				"/home/will/.config/sublime-text-2/Packages/PackageManager/sublime_package_manager.sublime-project"
+			],
+			[
+				"acka",
+				"/home/will/.config/sublime-text-2/Packages/PackageManager/sublime_package_manager.sublime-project"
+			],
+			[
+				"ec2",
+				"/home/will/svn/ec2.imarc.net.sublime-project"
+			],
+			[
+				"fl",
+				"/home/will/svn/flourish.sublime-project"
+			],
+			[
+				"nor",
+				"/home/will/svn/northshorerealtors.com.sublime-project"
+			],
+			[
+				"wor",
+				"/home/will/svn/workshop.imarc.net.sublime-project"
+			],
+			[
+				"fr",
+				"/home/will/svn/framework.imarc.net.sublime-project"
+			],
+			[
+				"soc",
+				"/home/will/svn/socialquickstarter.com.sublime-project"
+			],
+			[
+				"sco",
+				"/home/will/svn/socialquickstarter.com.sublime-project"
+			],
+			[
+				"so",
+				"/home/will/svn/socialquickstarter.com.sublime-project"
+			],
+			[
+				"nep",
+				"/home/will/svn/nepc.com.sublime-project"
+			],
+			[
+				"floi",
+				"/home/will/svn/flourish.sublime-project"
+			],
+			[
+				"flou",
+				"/home/will/svn/flourish.sublime-project"
+			],
+			[
+				"flour",
+				"/home/will/svn/flourish.sublime-project"
+			],
+			[
+				"flo",
+				"/home/will/svn/flourish.sublime-project"
+			],
+			[
+				"ks",
+				"/home/will/svn/kscpa.org.sublime-project"
+			],
+			[
+				"frma",
+				"/home/will/svn/framework.imarc.net.sublime-project"
+			],
+			[
+				"han",
+				"/home/will/svn/handbook.imarc.net.sublime-project"
+			],
+			[
+				"hand",
+				"/home/will/svn/handbook.imarc.net.sublime-project"
+			],
+			[
+				"ga",
+				"/home/will/svn/galengateway.com.sublime-project"
+			],
+			[
+				"ec",
+				"/home/will/svn/ec2.imarc.net.sublime-project"
+			],
+			[
+				"deplo.pe",
+				"/home/will/svn/deploy.petwatch.net.sublime-project"
+			],
+			[
+				"depl",
+				"/home/will/svn/deploy.imarc.net.sublime-project"
+			],
+			[
+				"ima",
+				"/home/will/svn/imarc.net.sublime-project"
+			],
+			[
+				"gw",
+				"/home/will/svn/gwscpa.org.sublime-project"
+			],
+			[
+				"sta",
+				"/home/will/svn/starwoodassetlibrary.com.sublime-project"
+			],
+			[
+				"star",
+				"/home/will/svn/starwoodassetlibrary.com.sublime-project"
+			],
+			[
+				"starw",
+				"/home/will/svn/starwoodassetlibrary.com.sublime-project"
+			],
+			[
+				"gale",
+				"/home/will/svn/galengateway.com.sublime-project"
+			],
+			[
+				"ksc",
+				"/home/will/svn/kscpa.org.sublime-project"
+			],
+			[
+				"im",
+				"/home/will/svn/imarc.net.sublime-project"
+			],
+			[
+				"sift",
+				"/home/will/svn/siftbox.com.sublime-project"
+			],
+			[
+				"siftb",
+				"/home/will/svn/siftbox.com.sublime-project"
+			],
+			[
+				"frmae",
+				"/home/will/svn/framework.imarc.net.sublime-project"
+			],
+			[
+				"gws",
+				"/home/will/svn/gwscpa.org.sublime-project"
+			],
+			[
+				"frame",
+				"/home/will/svn/framework.imarc.net.sublime-project"
+			],
+			[
+				"id",
+				"/home/will/svn/id.imarc.net.sublime-project"
+			],
+			[
+				"id.imarc",
+				"/home/will/svn/id.imarc.net.sublime-project"
+			],
+			[
+				"proj",
+				"/home/will/svn/projects.imarc.net.sublime-project"
+			],
+			[
+				"will.sa",
+				"/home/will/svn/will.sandbox.imarc.net.sublime-project"
+			],
+			[
+				"north",
+				"/home/will/svn/northshorerealtors.com.sublime-project"
+			],
+			[
+				"id.",
+				"/home/will/svn/id.imarc.net.sublime-project"
+			],
+			[
+				"sub",
+				"/C/Users/Will/AppData/Roaming/Sublime Text 2/sublime_text.sublime-project"
+			]
+		],
+		"width": 380
+	},
+	"show_minimap": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 238,
+	"status_bar_visible": true
+}

@@ -1,0 +1,5 @@
+[
+    { "caption": "-" },
+    { "command": "sftp_file_context", "caption": "Upload File" },
+    { "caption": "-", "id": "end" }
+]
