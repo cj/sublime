@@ -1,0 +1,6 @@
+[
+	{ "keys": ["ctrl+f5"], "command": "refreshFolderList"},
+	{ "keys": ["ctrl+alt+s"], "command": "convert_to_snake"},
+	{ "keys": ["ctrl+alt+c"], "command": "convert_to_camel"},
+	{ "keys": ["ctrl+alt+p"], "command": "convert_to_pascal"}
+]

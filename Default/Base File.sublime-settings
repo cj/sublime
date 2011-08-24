@@ -1,5 +1,6 @@
 // While you can edit this file, it's generally best to put your changes in
 // "User/Base File.sublime-settings", which overrides the settings in here.
+//
 // Settings may also be placed in file type specific options files, for example,
 // in Packages/Python/Python.sublime-settings for python files.
 {
@@ -107,12 +108,20 @@
 	// Additional spacing at the bottom of each line, in pixels
 	"line_padding_bottom": 0,
 
-	// Set to false to disable scrolling past the end of the buffer
+	// Set to false to disable scrolling past the end of the buffer.
+	// On OS X, this value is overridden in the platform specific settings, so
+	// you'll need to place this line in your user settings to override it.
 	"scroll_past_end": true,
 
 	// Set to "none" to turn off drawing white space, "selection" to draw only the
 	// white space within the selection, and "all" to draw all white space
 	"draw_white_space": "selection",
+
+	// Set to false to turn off the indentation guides.
+	// The color and width of the indent guides may be customized by editing
+	// the corresponding .tmTheme file, and specifying the keys "guideColor"
+	// and "guideWidth"
+	"draw_indent_guides": true,
 
 	// Set to true to removing trailing white space on save
 	"trim_trailing_white_space_on_save": false,

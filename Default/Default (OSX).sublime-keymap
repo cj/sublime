@@ -117,6 +117,11 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	},
 	{ "keys": ["shift+tab"], "command": "unindent", "context":
 		[
+			{ "key": "preceding_text", "operator": "regex_match", "operand": "^[\t ]*" }
+		]
+	},
+	{ "keys": ["shift+tab"], "command": "unindent", "context":
+		[
 			{ "key": "text", "operator": "regex_contains", "operand": "\n" }
 		]
 	},

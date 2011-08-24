@@ -578,6 +578,7 @@
                 [
                     { "command": "set_build_system", "args": { "file": "" }, "caption": "Automatic", "checkbox": true },
                     { "caption": "-" },
+                    { "command": "$project_build_systems" },
                     { "command": "$build_systems" },
                     { "caption": "-" },
                     { "command": "new_build_system", "caption": "New Build System…" }
@@ -616,8 +617,7 @@
         "id": "project",
         "children":
         [
-            { "command": "open_project", "caption": "Open Project…", "mnemonic": "O" },
-            { "command": "prompt_select_project", "caption": "Switch Project…", "mnemonic": "S" },
+            { "command": "prompt_open_project", "caption": "Open Project…", "mnemonic": "O" },
             {
                 "caption": "Recent Projects",
                 "mnemonic": "R",
@@ -635,16 +635,18 @@
                     { "command": "clear_recent_projects", "caption": "Clear Items" }
                 ]
             },
+            { "caption": "-" },
+            { "command": "prompt_select_project", "caption": "Switch Project…", "mnemonic": "S" },
             { "command": "save_project_as", "caption": "Save Project As…", "mnemonic": "A" },
             { "command": "close_project", "mnemonic": "C" },
+            { "command": "open_file", "args": {"file": "${project}"}, "caption": "Edit Project" },
             { "caption": "-" },
             { "command": "prompt_add_folder", "caption": "Add Folder to Project…", "mnemonic": "d" },
             { "command": "close_folder_list", "caption": "Remove all Folders from Project", "mnemonic": "m" },
             { "command": "refresh_folder_list", "caption": "Refresh Folders", "mnemonic": "e" },
             { "caption": "-" },
             { "command": "show_panel", "args": {"panel": "find_in_files", "location": "<open folders>" }, "caption": "Find in Project", "mnemonic": "F" },
-            { "caption": "-" },
-            { "command": "open_file", "args": {"file": "${project}"}, "caption": "Edit Project" }
+            { "caption": "-", "id": "end" }
         ]
     },
     {
