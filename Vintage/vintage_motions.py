@@ -1,5 +1,6 @@
 import sublime, sublime_plugin
 from vintage import transform_selection
+from vintage import transform_selection_regions
 
 class ViMoveByCharactersInLine(sublime_plugin.TextCommand):
     def run(self, edit, forward = True, extend = False, visual = False):
@@ -136,15 +137,108 @@ class MoveCaretToScreenCenter(sublime_plugin.TextCommand):
     def run(self, edit, extend = True):
         screenful = self.view.visible_region()
         middle = (screenful.begin() + screenful.end()) / 2
+        middle = self.view.line(middle).begin()
 
         transform_selection(self.view, lambda pt: middle, extend=extend)
 
 class MoveCaretToScreenTop(sublime_plugin.TextCommand):
-    def run(self, edit, extend = True):
+    def run(self, edit, repeat, extend = True):
+        lines_offset = int(repeat) - 1
         screenful = self.view.visible_region()
-        transform_selection(self.view, lambda pt: screenful.begin(), extend=extend)
+
+        target = screenful.begin()
+        for x in xrange(lines_offset):
+            current_line = self.view.line(target)
+            target = current_line.b + 1
+
+        transform_selection(self.view, lambda pt: target, extend=extend)
 
 class MoveCaretToScreenBottom(sublime_plugin.TextCommand):
-    def run(self, edit, extend = True):
+    def run(self, edit, repeat, extend = True):
+        lines_offset = int(repeat) - 1
         screenful = self.view.visible_region()
-        transform_selection(self.view, lambda pt: screenful.end(), extend=extend)
+
+        target = screenful.end()
+        for x in xrange(lines_offset):
+            current_line = self.view.line(target)
+            target = current_line.a - 1
+        target = self.view.line(target).a
+
+        transform_selection(self.view, lambda pt: target, extend=extend)
+
+def expand_to_whitespace(view, r):
+    a = r.a
+    b = r.b
+    while view.substr(b) in " \t":
+        b += 1
+
+    if b == r.b:
+        while view.substr(a - 1) in " \t":
+            a -= 1
+
+    return sublime.Region(a, b)
+
+class ViExpandToWords(sublime_plugin.TextCommand):
+    def run(self, edit, outer = False, repeat = 1):
+        repeat = int(repeat)
+        transform_selection_regions(self.view, lambda r: sublime.Region(r.b + 1, r.b + 1))
+        self.view.run_command("move", {"by": "stops", "extend":False, "forward":False, "word_begin":True, "punct_begin":True})
+        for i in xrange(repeat):
+            self.view.run_command("move", {"by": "stops", "extend":True, "forward":True, "word_end":True, "punct_end":True})
+        if outer:
+            transform_selection_regions(self.view, lambda r: expand_to_whitespace(self.view, r))
+
+class ViExpandToBigWords(sublime_plugin.TextCommand):
+    def run(self, edit, outer = False, repeat = 1):
+        repeat = int(repeat)
+        transform_selection_regions(self.view, lambda r: sublime.Region(r.b + 1, r.b + 1))
+        self.view.run_command("move", {"by": "stops", "extend":False, "forward":False, "word_begin":True, "punct_begin":True, "separators": ""})
+        for i in xrange(repeat):
+            self.view.run_command("move", {"by": "stops", "extend":True, "forward":True, "word_end":True, "punct_end":True, "separators": ""})
+        if outer:
+            transform_selection_regions(self.view, lambda r: expand_to_whitespace(self.view, r))
+
+class ViExpandToQuotes(sublime_plugin.TextCommand):
+    def compare_quote(self, character, p):
+        if self.view.substr(p) == character:
+            return self.view.score_selector(p, "constant.character.escape") == 0
+        else:
+            return False
+
+    def expand_to_quote(self, character, r):
+        p = r.b
+        a = p
+        b = p
+        while a >= 0 and not self.compare_quote(character, a):
+            a -= 1
+
+        sz = self.view.size()
+        while p < sz and not self.compare_quote(character, b):
+            b += 1
+
+        return sublime.Region(a + 1, b)
+
+    def expand_to_outer(self, r):
+        a, b = r.a, r.b
+        if a > 0:
+            a -= 1
+        if b < self.view.size():
+            b += 1
+        return expand_to_whitespace(self.view, sublime.Region(a, b))
+
+    def run(self, edit, character, outer = False):
+        transform_selection_regions(self.view, lambda r: self.expand_to_quote(character, r))
+        if outer:
+            transform_selection_regions(self.view, lambda r: self.expand_to_outer(r))
+
+class ViExpandToTag(sublime_plugin.TextCommand):
+    def run(self, edit, outer = False):
+        self.view.run_command('expand_selection', {'to': 'tag'})
+        if outer:
+            self.view.run_command('expand_selection', {'to': 'tag'})
+
+class ViExpandToBrackets(sublime_plugin.TextCommand):
+    def run(self, edit, character, outer = False):
+        self.view.run_command('expand_selection', {'to': 'brackets', 'brackets': character})
+        if outer:
+            self.view.run_command('expand_selection', {'to': 'brackets', 'brackets': character})

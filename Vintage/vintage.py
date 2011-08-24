@@ -1,5 +1,5 @@
 import sublime, sublime_plugin
-from kill_ring import kill_ring
+import os.path
 
 # Normal: Motions apply to all the characters they select
 MOTION_MODE_NORMAL = 0
@@ -9,6 +9,8 @@ MOTION_MODE_LINE = 2
 # it'll be extended to BOL and EOL
 MOTION_MODE_AUTO_LINE = 1
 
+# Registers are used for clipboards and macro storage
+g_registers = {}
 
 # Represents the current input state. The primary commands that interact with
 # this are:
@@ -26,6 +28,7 @@ class InputState:
     motion_command_args = None
     motion_mode = MOTION_MODE_NORMAL
     motion_inclusive = False
+    register = None
 
 g_input_state = InputState()
 
@@ -38,18 +41,27 @@ def update_status_line(view):
     elif cmd_mode and view.has_non_empty_selection_region():
         view.set_status('mode', 'VISUAL MODE')
     elif cmd_mode:
+        desc = None
+        if g_input_state.register:
+            desc = 'Register "' + g_input_state.register + '" - '
+
         repeat = (digits_to_number(g_input_state.prefix_repeat_digits)
             * digits_to_number(g_input_state.motion_repeat_digits))
         if g_input_state.action_command != None or repeat != 1:
-            desc = g_input_state.action_command
+            cmd_desc = g_input_state.action_command
             if g_input_state.action_description:
-                desc = g_input_state.action_description
+                cmd_desc = g_input_state.action_description
+
+            if cmd_desc and desc:
+                desc += " "
+                desc += cmd_desc
 
             if repeat != 1 and desc:
                 desc = desc + " * " + str(repeat)
             elif repeat != 1:
                 desc = "* " + str(repeat)
 
+        if desc:
             view.set_status('mode', 'COMMAND MODE - ' + desc)
         else:
             view.set_status('mode', 'COMMAND MODE')
@@ -70,6 +82,7 @@ def reset_input_state(view, reset_motion_mode = True):
     g_input_state.motion_command = None
     g_input_state.motion_command_args = None
     g_input_state.motion_inclusive = False
+    g_input_state.register = None
     if reset_motion_mode:
         set_motion_mode(view, MOTION_MODE_NORMAL)
 
@@ -98,8 +111,9 @@ class InputStateTracker(sublime_plugin.EventListener):
     def __init__(self):
         for w in sublime.windows():
             for v in w.views():
-                v.settings().set('command_mode', True)
-                v.settings().set('inverse_caret_state', True)
+                if v.settings().get("vintage_start_in_command_mode"):
+                    v.settings().set('command_mode', True)
+                    v.settings().set('inverse_caret_state', True)
                 update_status_line(v)
 
     def on_activated(self, view):
@@ -108,12 +122,22 @@ class InputStateTracker(sublime_plugin.EventListener):
     def on_deactivated(self, view):
         reset_input_state(view)
 
+        # Ensure that insert mode actions will no longer be grouped, otherwise
+        # it can lead to the impression that too much is undone at once
+        view.run_command('unmark_undo_groups_for_gluing')
+
+    def on_post_save(self, view):
+        # Ensure that insert mode actions will no longer be grouped, so it's
+        # always possible to undo back to the last saved state
+        view.run_command('unmark_undo_groups_for_gluing')
+
     def on_selection_modified(self, view):
         reset_input_state(view, False)
         update_status_line(view)
 
     def on_load(self, view):
-        view.run_command('exit_insert_mode')
+        if view.settings().get("vintage_start_in_command_mode"):
+            view.run_command('exit_insert_mode')
 
     def on_new(self, view):
         self.on_load(view)
@@ -144,6 +168,10 @@ class InputStateTracker(sublime_plugin.EventListener):
                 v = len(g_input_state.prefix_repeat_digits) > 0
             if operator == sublime.OP_EQUAL: return v == operand
             if operator == sublime.OP_NOT_EQUAL: return v != operand
+        elif key == "vi_can_enter_text_object":
+            v = (g_input_state.action_command != None) or view.has_non_empty_selection_region()
+            if operator == sublime.OP_EQUAL: return v == operand
+            if operator == sublime.OP_NOT_EQUAL: return v != operand
 
         return None
 
@@ -161,6 +189,11 @@ def eval_input(view):
             'motion_args': g_input_state.motion_command_args,
             'motion_mode': g_input_state.motion_mode,
             'motion_inclusive': g_input_state.motion_inclusive }
+
+    if g_input_state.register != None:
+        if not cmd_args['action_args']:
+            cmd_args['action_args'] = {}
+        cmd_args['action_args']['register'] = g_input_state.register
 
     reset_motion_mode = (g_input_state.action_command != None)
 
@@ -295,6 +328,15 @@ class SetMotionMode(sublime_plugin.TextCommand):
         else:
             print "invalid motion mode"
 
+# Sets the target register for the next command
+class SetRegister(sublime_plugin.TextCommand):
+    def run_(self, args):
+        return self.run(**args)
+
+    def run(self, character):
+        g_input_state.register = character
+        update_status_line(self.view)
+
 def clip_point_to_line(view, f, pt):
     l = view.line(pt)
     if l.a == l.b:
@@ -303,8 +345,8 @@ def clip_point_to_line(view, f, pt):
     new_pt = f(pt)
     if new_pt < l.a:
         return l.a
-    elif new_pt >= l.b - 1:
-        return l.b - 1
+    elif new_pt >= l.b:
+        return l.b
     else:
         return new_pt
 
@@ -344,41 +386,58 @@ def transform_selection_regions(view, f):
     for r in new_sel:
         sel.add(r)
 
-def expand_to_line(view):
-    new_sel = []
-    for s in view.sel():
-        if s.a == s.b:
-            new_sel.append(view.line(s.a))
-        elif s.a < s.b:
-            a = view.line(s.a).a
-            b = view.line(s.b).b
-            new_sel.append(sublime.Region(a, b))
-        else:
-            a = view.line(s.a).b
-            b = view.line(s.b).a
-            new_sel.append(sublime.Region(a, b))
-
-    view.sel().clear()
-    for s in new_sel:
-        view.sel().add(s)
-
 def expand_to_full_line(view):
     new_sel = []
     for s in view.sel():
         if s.a == s.b:
             new_sel.append(view.full_line(s.a))
-        elif s.a < s.b:
-            a = view.full_line(s.a).a
-            b = view.full_line(s.b).b
-            new_sel.append(sublime.Region(a, b))
         else:
-            a = view.full_line(s.a).b
-            b = view.full_line(s.b).a
-            new_sel.append(sublime.Region(a, b))
+            la = view.full_line(s.begin())
+            lb = view.full_line(s.end())
+
+            a = la.a
+
+            if s.end() == lb.a:
+                # s.end() is already at EOL, don't go down to the next line
+                b = s.end()
+            else:
+                b = lb.b
+
+            if s.a < s.b:
+                new_sel.append(sublime.Region(a, b, 0))
+            else:
+                new_sel.append(sublime.Region(b, a, 0))
 
     view.sel().clear()
     for s in new_sel:
         view.sel().add(s)
+
+def orient_single_line_region(view, forward, r):
+    l = view.full_line(r.begin())
+    if l.a == r.begin() and l.end() == r.end():
+        if forward:
+            return l
+        else:
+            return sublime.Region(l.b, l.a)
+    else:
+        return r
+
+def set_single_line_selection_direction(view, forward):
+    transform_selection_regions(view,
+        lambda r: orient_single_line_region(view, forward, r))
+
+def orient_single_character_region(view, forward, r):
+    if r.begin() + 1 == r.end():
+        if forward:
+            return sublime.Region(r.begin(), r.end())
+        else:
+            return sublime.Region(r.end(), r.begin())
+    else:
+        return r
+
+def set_single_character_selection_direction(view, forward):
+    transform_selection_regions(view,
+        lambda r: orient_single_character_region(view, forward, r))
 
 def expand_line_spanning_selections_to_line(view):
     new_sel = []
@@ -438,17 +497,15 @@ class ViEval(sublime_plugin.TextCommand):
     def run_(self, args):
         was_visual = self.view.has_non_empty_selection_region()
 
-        if 'action_command' in args and args['action_command'] == "visual":
-            self.view.run_command('maybe_mark_undo_groups_for_gluing')
-
         edit = self.view.begin_edit(self.name(), args)
         try:
             self.run(edit, **args)
         finally:
             self.view.end_edit(edit)
 
-        # Call after end_edit(), to ensure the final entry in the glued undo
-        # group is 'exit_insert_mode'.
+        # Glue the marked undo groups if visual mode was exited (e.g., by
+        # running an action while in visual mode). This ensures that
+        # v+motions+action can be repeated as a single unit.
         if self.view.settings().get('command_mode') == True:
             is_visual = self.view.has_non_empty_selection_region()
             if was_visual and not is_visual:
@@ -478,9 +535,7 @@ class ViEval(sublime_plugin.TextCommand):
             motion_repeat = 1
             prefix_repeat = 1
 
-        visual_mode = ((self.view.has_non_empty_selection_region() and not action_command) or
-            (motion_mode == MOTION_MODE_LINE and not action_command) or
-            (action_command and action_command == "visual"))
+        visual_mode = self.view.has_non_empty_selection_region()
 
         # Let the motion know if we're in visual mode, if it wants to know
         if motion_args and 'visual' in motion_args:
@@ -499,6 +554,15 @@ class ViEval(sublime_plugin.TextCommand):
                         direction = -1
 
                 for j in xrange(motion_repeat):
+                    if direction != 0 and motion_mode == MOTION_MODE_LINE:
+                        # Ensure selections encompassing a single line are
+                        # oriented in the same way as the motion, so they'll
+                        # remain selected. This is needed so that Vk will work
+                        # as expected
+                        set_single_line_selection_direction(self.view, direction == 1)
+                    elif direction != 0:
+                        set_single_character_selection_direction(self.view, direction == 1)
+
                     if motion_mode == MOTION_MODE_LINE:
                         # Don't do either of the below things: this is
                         # important so that Vk on an empty line would select
@@ -510,26 +574,15 @@ class ViEval(sublime_plugin.TextCommand):
                         # character
                         transform_selection_regions(self.view,
                             lambda r: sublime.Region(r.b, r.b + 1) if r.empty() else r)
-                    elif direction == -1:
-                        # Expand empty selections include the character
-                        # they're on, and to start from the LHS of the
-                        # character
-                        transform_selection_regions(self.view,
-                            lambda r: sublime.Region(r.b + 1, r.b) if r.empty() else r)
 
                     self.view.run_command(motion_command, motion_args)
 
             if motion_mode == MOTION_MODE_LINE:
-                expand_to_line(self.view)
+                expand_to_full_line(self.view)
             elif motion_mode == MOTION_MODE_AUTO_LINE:
                 expand_line_spanning_selections_to_line(self.view)
 
             if action_command:
-                # ensure the trailing newline is included, so that commands
-                # like Vyp will duplicate the line
-                if motion_mode == MOTION_MODE_LINE:
-                    expand_to_full_line(self.view)
-
                 # Apply the action to the selection
                 self.view.run_command(action_command, action_args)
 
@@ -590,13 +643,13 @@ class ExitInsertMode(sublime_plugin.TextCommand):
 
         update_status_line(self.view)
 
-# Dummy command: visual mode is entered into by running this dummy action on a
-# motion, thus creating a selection: visual mode is implicit in Vintage, if
-# there's a non-empty selection then the buffer is considered to be in visual
-# mode
-class Visual(sublime_plugin.TextCommand):
+class EnterVisualMode(sublime_plugin.TextCommand):
     def run(self, edit):
-        pass
+        self.view.run_command('mark_undo_groups_for_gluing')
+        if g_input_state.motion_mode != MOTION_MODE_NORMAL:
+            set_motion_mode(self.view, MOTION_MODE_NORMAL)
+
+        transform_selection_regions(self.view, lambda r: sublime.Region(r.b, r.b + 1) if r.empty() else r)
 
 class ExitVisualMode(sublime_plugin.TextCommand):
     def run(self, edit):
@@ -609,7 +662,7 @@ class ExitVisualMode(sublime_plugin.TextCommand):
 class EnterVisualLineMode(sublime_plugin.TextCommand):
     def run(self, edit):
         set_motion_mode(self.view, MOTION_MODE_LINE)
-        self.view.run_command('expand_selection', {'to': 'line_without_eol'})
+        expand_to_full_line(self.view)
         self.view.run_command('maybe_mark_undo_groups_for_gluing')
 
 class ExitVisualLineMode(sublime_plugin.TextCommand):
@@ -638,43 +691,131 @@ class Sequence(sublime_plugin.TextCommand):
             self.view.run_command(cmd, args)
 
 class ViDelete(sublime_plugin.TextCommand):
-    def run(self, edit):
-        kill_ring.seal()
-        self.view.run_command('add_to_kill_ring', {'forward': False})
+    def run(self, edit, register = '"'):
+        set_register(self.view, register, forward=False)
+        set_register(self.view, '1', forward=False)
         self.view.run_command('left_delete')
 
 class ViRightDelete(sublime_plugin.TextCommand):
-    def run(self, edit):
-        kill_ring.seal()
-        self.view.run_command('add_to_kill_ring', {'forward': True})
+    def run(self, edit, register = '"'):
+        set_register(self.view, register, forward=True)
+        set_register(self.view, '1', forward=True)
         self.view.run_command('right_delete')
         clip_empty_selection_to_line_contents(self.view)
 
 class ViCopy(sublime_plugin.TextCommand):
-    def run(self, edit):
-        kill_ring.seal()
-        self.view.run_command('add_to_kill_ring', {'forward': True})
+    def run(self, edit, register = '"'):
+        set_register(self.view, register, forward=True)
+        set_register(self.view, '0', forward=True)
         transform_selection_regions(self.view, lambda r: sublime.Region(r.a))
 
 class ViPasteRight(sublime_plugin.TextCommand):
+    # Ensure the register is picked up from g_input_state, and that it'll be
+    # recorded on the undo stack
+    def run_(self, args):
+        if not args:
+            args = {}
+
+        if g_input_state.register:
+            args['register'] = g_input_state.register
+            g_input_state.register = None
+
+        if 'event' in args:
+            del args['event']
+
+        edit = self.view.begin_edit(self.name(), args)
+        try:
+            return self.run(edit, **args)
+        finally:
+            self.view.end_edit(edit)
+
     def advance(self, pt):
         if self.view.substr(pt) == '\n' or pt >= self.view.size():
             return pt
         else:
             return pt + 1
 
-    def run(self, edit):
+    def run(self, edit, register = '"'):
         transform_selection(self.view, lambda pt: self.advance(pt))
-        self.view.run_command('paste_from_kill_ring', {'forward': True})
+        self.view.run_command('paste_from_register', {'forward': True, 'register': register})
 
 class ViPasteLeft(sublime_plugin.TextCommand):
-    def run(self, edit):
-        self.view.run_command('paste_from_kill_ring', {'forward': False})
+    # Ensure the register is picked up from g_input_state, and that it'll be
+    # recorded on the undo stack
+    def run_(self, args):
+        if not args:
+            args = {}
 
-class PasteFromKillRingCommand(sublime_plugin.TextCommand):
-    def run(self, edit, forward = True):
-        kill_ring.seal()
-        text = kill_ring.top()
+        if g_input_state.register:
+            args['register'] = g_input_state.register
+            g_input_state.register = None
+
+        if 'event' in args:
+            del args['event']
+
+        edit = self.view.begin_edit(self.name(), args)
+        try:
+            return self.run(edit, **args)
+        finally:
+            self.view.end_edit(edit)
+
+    def run(self, edit, register = '"'):
+        self.view.run_command('paste_from_register', {'forward': False, 'register': register})
+
+def set_register(view, register, forward):
+    delta = 1
+    if not forward:
+        delta = -1
+
+    text = []
+    regions = []
+    for s in view.sel():
+        if s.empty():
+            s = sublime.Region(s.a, s.a + delta)
+        text.append(view.substr(s))
+        regions.append(s)
+
+    text = "\n".join(text)
+
+    if register == '*' or register == '+':
+        sublime.set_clipboard(text)
+    elif register == '%':
+        pass
+    else:
+        reg = register.lower()
+        append = (reg != register)
+
+        if append and reg in g_registers:
+            g_registers[reg] += text
+        else:
+            g_registers[reg] = text
+
+def get_register(view, register):
+    register = register.lower()
+    if register == '%':
+        if view.file_name():
+            return os.path.basename(view.file_name())
+        else:
+            return None
+    elif register == '*' or register == '+':
+        return sublime.get_clipboard()
+    elif register in g_registers:
+        return g_registers[register]
+    else:
+        return None
+
+def has_register(register):
+    if register in ["%", "*", "+"]:
+        return True
+    else:
+        return register in g_registers
+
+class PasteFromRegisterCommand(sublime_plugin.TextCommand):
+    def run(self, edit, register, forward = True):
+        text = get_register(self.view, register)
+        if not text:
+            sublime.status_message("Undefined register" + register)
+            return
 
         regions = [r for r in self.view.sel()]
         new_sel = []
@@ -707,17 +848,24 @@ class PasteFromKillRingCommand(sublime_plugin.TextCommand):
         for s in new_sel:
             self.view.sel().add(s)
 
-    def is_enabled(self):
-        return len(kill_ring) > 0
+    def is_enabled(self, register, forward = True):
+        return has_register(register)
 
 class ReplaceCharacter(sublime_plugin.TextCommand):
     def run(self, edit, character):
-        for s in self.view.sel():
+        new_sel = []
+        for s in reversed(self.view.sel()):
             if s.empty():
-                s = sublime.Region(s.b, s.b + 1)
+                self.view.replace(edit, sublime.Region(s.b, s.b + 1), character)
+                new_sel.append(s)
+            else:
+                self.view.replace(edit, s, character * len(s))
+                new_sel.append(s)
 
-            # TODO: Should leave the selection to the left of the character if it was empty
-            self.view.replace(edit, s, character * len(s))
+        self.view.sel().clear()
+        for s in new_sel:
+            self.view.sel().add(s)
+
 
 class ViIndent(sublime_plugin.TextCommand):
     def run(self, edit):
@@ -728,3 +876,43 @@ class ViUnindent(sublime_plugin.TextCommand):
     def run(self, edit):
         self.view.run_command('unindent')
         transform_selection_regions(self.view, lambda r: sublime.Region(r.a))
+
+class ViSetBookmark(sublime_plugin.TextCommand):
+    def run(self, edit, character):
+        sublime.status_message("Set bookmark " + character)
+        self.view.add_regions("bookmark_" + character, [s for s in self.view.sel()],
+            "", "", sublime.PERSISTENT | sublime.HIDDEN)
+
+class ViSelectBookmark(sublime_plugin.TextCommand):
+    def run(self, edit, character):
+        self.view.run_command('select_all_bookmarks', {'name': "bookmark_" + character})
+
+g_macro_target = None
+
+class ViBeginRecordMacro(sublime_plugin.TextCommand):
+    def run(self, edit, character):
+        global g_macro_target
+        g_macro_target = character
+        self.view.run_command('start_record_macro')
+
+class ViEndRecordMacro(sublime_plugin.TextCommand):
+    def run(self, edit):
+        self.view.run_command('stop_record_macro')
+        if not g_macro_target:
+            return
+
+        m = sublime.get_macro()
+        # TODO: Convert the macro to a string before trying to store it in a
+        # register
+        g_registers[g_macro_target] = m
+
+class ViReplayMacro(sublime_plugin.TextCommand):
+    def run(self, edit, character):
+        if not character in g_registers:
+            return
+        m = g_registers[character]
+
+        for d in m:
+            cmd = d['command']
+            args = d['args']
+            self.view.run_command(cmd, args)

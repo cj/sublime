@@ -9,6 +9,12 @@ Enabling Vintage:
 
 Vintage is disabled by default, via the ignored_packages global setting. If you remove "Vintage" from the list of ignored packages, you'll be able to edit with vi keys.
 
+Vintage starts in insert mode by default. This can be changed by adding:
+
+	"vintage_start_in_command_mode": true
+
+to your User File Settings.
+
 
 Major Differences From vi:
 --------

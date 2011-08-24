@@ -31,7 +31,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.tag.xml</string>
+					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -69,7 +69,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.tag.xml</string>
+					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -118,7 +118,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.tag.xml</string>
+					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>3</key>
 				<dict>
@@ -148,7 +148,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.tag.xml</string>
+					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -178,7 +178,7 @@
 				<key>7</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.tag.xml</string>
+					<string>punctuation.definition.tag.end.xml</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -199,7 +199,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.tag.xml</string>
+					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -224,6 +224,14 @@
 			</dict>
 			<key>end</key>
 			<string>(/?&gt;)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.end.xml</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>meta.tag.xml</string>
 			<key>patterns</key>
@@ -342,7 +350,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.tag.xml</string>
+					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>2</key>
 				<dict>

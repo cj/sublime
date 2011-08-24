@@ -7,6 +7,7 @@
         [
             { "command": "new_file", "caption": "New File", "mnemonic": "N" },
             { "command": "prompt_open_file", "caption": "Open File…", "mnemonic": "O" },
+            { "command": "prompt_open_folder", "caption": "Open Folder…" },
             { "command": "clone_file", "mnemonic": "e" },
             {
                 "caption": "Open Recent",
@@ -21,6 +22,15 @@
                     { "command": "open_recent_file", "args": {"index": 5 } },
                     { "command": "open_recent_file", "args": {"index": 6 } },
                     { "command": "open_recent_file", "args": {"index": 7 } },
+                    { "caption": "-" },
+                    { "command": "open_recent_folder", "args": {"index": 0 } },
+                    { "command": "open_recent_folder", "args": {"index": 1 } },
+                    { "command": "open_recent_folder", "args": {"index": 2 } },
+                    { "command": "open_recent_folder", "args": {"index": 3 } },
+                    { "command": "open_recent_folder", "args": {"index": 4 } },
+                    { "command": "open_recent_folder", "args": {"index": 5 } },
+                    { "command": "open_recent_folder", "args": {"index": 6 } },
+                    { "command": "open_recent_folder", "args": {"index": 7 } },
                     { "caption": "-" },
                     { "command": "clear_recent_files", "caption": "Clear Items" }
                 ]
@@ -165,6 +175,16 @@
                 ]
             },
             {
+                "caption": "Tag",
+                "id": "tag",
+                "children":
+                [
+                    { "command": "close_tag" },
+                    { "command": "expand_selection", "args": {"to": "tag"}, "caption": "Expand Selection to Tag" },
+                    { "command": "insert_snippet", "args": { "name": "Packages/XML/long-tag.sublime-snippet" }, "caption": "Wrap Selection With Tag" }
+                ]
+            },
+            {
                 "caption": "Mark",
                 "id": "mark",
                 "children":
@@ -252,7 +272,8 @@
                     { "command": "expand_selection", "args": {"to": "word"}, "caption": "Expand Selection to Word" },
                     { "command": "expand_selection_to_paragraph", "caption": "Expand Selection to Paragraph" },
                     { "command": "expand_selection", "args": {"to": "scope"}, "caption": "Expand Selection to Scope" },
-                    { "command": "expand_selection", "args": {"to": "brackets"}, "caption": "Expand Selection to Brackets" }
+                    { "command": "expand_selection", "args": {"to": "brackets"}, "caption": "Expand Selection to Brackets" },
+                    { "command": "expand_selection", "args": {"to": "tag"}, "caption": "Expand Selection to Tag" }
                 ]
             },
             { "caption": "-" },
@@ -596,7 +617,7 @@
         "children":
         [
             { "command": "open_project", "caption": "Open Project…", "mnemonic": "O" },
-            { "command": "prompt_select_project", "caption": "Select Project…", "mnemonic": "S" },
+            { "command": "prompt_select_project", "caption": "Switch Project…", "mnemonic": "S" },
             {
                 "caption": "Recent Projects",
                 "mnemonic": "R",
@@ -621,7 +642,9 @@
             { "command": "close_folder_list", "caption": "Remove all Folders from Project", "mnemonic": "m" },
             { "command": "refresh_folder_list", "caption": "Refresh Folders", "mnemonic": "e" },
             { "caption": "-" },
-            { "command": "show_panel", "args": {"panel": "find_in_files", "location": "<open folders>" }, "caption": "Find in Project", "mnemonic": "F" }
+            { "command": "show_panel", "args": {"panel": "find_in_files", "location": "<open folders>" }, "caption": "Find in Project", "mnemonic": "F" },
+            { "caption": "-" },
+            { "command": "open_file", "args": {"file": "${project}"}, "caption": "Edit Project" }
         ]
     },
     {

@@ -170,6 +170,9 @@
 	{ "keys": ["ctrl+shift+space"], "command": "expand_selection", "args": {"to": "scope"} },
 	{ "keys": ["ctrl+shift+m"], "command": "expand_selection", "args": {"to": "brackets"} },
 	{ "keys": ["ctrl+m"], "command": "move_to", "args": {"to": "brackets"} },
+	{ "keys": ["ctrl+shift+a"], "command": "expand_selection", "args": {"to": "tag"} },
+
+	{ "keys": ["alt+."], "command": "close_tag" },
 
 	{ "keys": ["ctrl+q"], "command": "toggle_record_macro" },
 	{ "keys": ["ctrl+shift+q"], "command": "run_macro" },

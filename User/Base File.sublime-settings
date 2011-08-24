@@ -1,25 +1,15 @@
-// Settings in here override those in "Default/Base File.sublime-settings", and
-// are overridden in turn by file type specific settings. Place your settings
-// here, to ensure they're preserved when upgrading.
 {
-  "color_scheme": "Packages/Color Scheme - Default/Twilight.tmTheme",
-
-  // Note that the font_face and font_size are overriden in the platform
-  // specific settings file, for example, "Base File (Linux).sublime-settings".
-  // Because of this, setting them here will have no effect: you must set them
-  // in your User File Preferences.
-  "font_face": "Inconsolata-dz",
-  "font_size": 14,
-  "tab_size": 2,
-  // Set to true to insert spaces when tab is pressed
-  "translate_tabs_to_spaces": true,
-    // Set to false for horizontal scrolling
-  "word_wrap": false,
-  "highlight_line": true,
-  "trim_trailing_white_space_on_save": true,
-  "autoMatchEnabled" : true,
-  "matchBrackets" : true,
-  "draw_outlined" : false,
-  "show_indent_guides": true,
-  "scroll_past_end": true
+	"autoMatchEnabled": true,
+	"color_scheme": "Packages/Color Scheme - Default/Twilight.tmTheme",
+	"draw_outlined": false,
+	"font_face": "Inconsolata-dz",
+	"font_size": 14,
+	"highlight_line": true,
+	"matchBrackets": true,
+	"scroll_past_end": true,
+	"show_indent_guides": true,
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": false
 }

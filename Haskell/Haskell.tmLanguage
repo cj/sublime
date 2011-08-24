@@ -508,13 +508,13 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b[a-z][a-zA-Z_']*</string>
+					<string>\b[a-z][a-zA-Z_'0-9]*</string>
 					<key>name</key>
 					<string>entity.name.function.haskell</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b[A-Z][A-Za-z_']*</string>
+					<string>\b[A-Z][A-Za-z_'0-9]*</string>
 					<key>name</key>
 					<string>storage.type.haskell</string>
 				</dict>

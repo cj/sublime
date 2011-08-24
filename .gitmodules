@@ -31,3 +31,9 @@
 [submodule "apache"]
 	path = apache
 	url = https://github.com/textmate/apache.tmbundle.git
+[submodule "Tomorrow-Theme"]
+	path = Tomorrow-Theme
+	url = https://github.com/ChrisKempson/Tomorrow-Theme.git
+[submodule "SublimeTagmatcher"]
+	path = SublimeTagmatcher
+	url = git://github.com/pyparadigm/SublimeTagmatcher.git
