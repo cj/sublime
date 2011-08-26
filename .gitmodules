@@ -37,9 +37,6 @@
 [submodule "ST2-GitHubinator"]
 	path = ST2-GitHubinator
 	url = git://github.com/ehamiter/ST2-GitHubinator.git
-[submodule "HTML5"]
-	path = HTML5
-	url = git://github.com/mrmartineau/HTML5.git
 [submodule "jQuery"]
 	path = jQuery
 	url = https://github.com/mrmartineau/jQuery.git

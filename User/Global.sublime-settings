@@ -21,6 +21,25 @@
     , "*.class"
     , "*.psd"
     , "*.db"
+    , "*.un~"
+    , "__Tagbar__"
+    , "*.jpg"
+    , "*.jpeg"
+    , "*.png"
+    , "*.gif"
+    , "*.ttf"
+    , "*.tga"
+    , "*.dds"
+    , "*.ico"
+    , "*.eot"
+    , "*.pdf"
+    , "*.mp3"
+    , "*.un"
+    , "*.un~"
+    , "*.swo"
+    , "*.swp"
+    , "minified.*"
+    , "log-*.*"
   ],
   "binary_file_patterns": [
       "*.jpg"
@@ -40,5 +59,7 @@
     , "*.swp"
     , "minified.*"
     , "log-*.*"
-  ]
+  ],
+  "folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "uploads"],
+  "theme": "Soda Dark.sublime-theme"
 }

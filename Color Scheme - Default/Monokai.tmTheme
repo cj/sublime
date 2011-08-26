@@ -27,6 +27,8 @@
 				<string>#000000</string>
 				<key>selectionBorder</key>
 				<string>#222218</string>
+				<key>activeGuide</key>
+				<string>#9D550F</string>
 			</dict>
 		</dict>
 		<dict>

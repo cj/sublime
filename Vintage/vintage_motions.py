@@ -136,14 +136,22 @@ class ViGotoLine(sublime_plugin.TextCommand):
 class MoveCaretToScreenCenter(sublime_plugin.TextCommand):
     def run(self, edit, extend = True):
         screenful = self.view.visible_region()
-        middle = (screenful.begin() + screenful.end()) / 2
-        middle = self.view.line(middle).begin()
 
-        transform_selection(self.view, lambda pt: middle, extend=extend)
+        row_a = self.view.rowcol(screenful.a)[0]
+        row_b = self.view.rowcol(screenful.b)[0]
+        
+        middle_row = (row_a + row_b) / 2
+        middle_point = self.view.text_point(middle_row, 0)
+
+        transform_selection(self.view, lambda pt: middle_point, extend=extend)
+        self.view.run_command('vi_move_to_first_non_white_space_character')
 
 class MoveCaretToScreenTop(sublime_plugin.TextCommand):
     def run(self, edit, repeat, extend = True):
-        lines_offset = int(repeat) - 1
+        # Don't modify offset so not fully visible regions have a lower chance
+        # of scrolling the screen.
+        # lines_offset = int(repeat) - 1
+        lines_offset = int(repeat)
         screenful = self.view.visible_region()
 
         target = screenful.begin()
@@ -152,10 +160,14 @@ class MoveCaretToScreenTop(sublime_plugin.TextCommand):
             target = current_line.b + 1
 
         transform_selection(self.view, lambda pt: target, extend=extend)
+        self.view.run_command('vi_move_to_first_non_white_space_character')
 
 class MoveCaretToScreenBottom(sublime_plugin.TextCommand):
     def run(self, edit, repeat, extend = True):
-        lines_offset = int(repeat) - 1
+        # Don't modify offset so not fully visible regions have a lower chance
+        # of scrolling the screen.
+        # lines_offset = int(repeat) - 1
+        lines_offset = int(repeat)
         screenful = self.view.visible_region()
 
         target = screenful.end()
@@ -165,6 +177,7 @@ class MoveCaretToScreenBottom(sublime_plugin.TextCommand):
         target = self.view.line(target).a
 
         transform_selection(self.view, lambda pt: target, extend=extend)
+        self.view.run_command('vi_move_to_first_non_white_space_character')
 
 def expand_to_whitespace(view, r):
     a = r.a

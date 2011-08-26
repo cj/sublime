@@ -119,9 +119,13 @@
 
 	// Set to false to turn off the indentation guides.
 	// The color and width of the indent guides may be customized by editing
-	// the corresponding .tmTheme file, and specifying the keys "guideColor"
-	// and "guideWidth"
+	// the corresponding .tmTheme file, and specifying the keys "guide" (a
+	// color), "activeGuide" (also a color) and "guideWidth"
 	"draw_indent_guides": true,
+
+	// Set to false to draw the active indent guide in the same color as the
+	// other indent guides
+	"highlight_active_indent_guide": true,
 
 	// Set to true to removing trailing white space on save
 	"trim_trailing_white_space_on_save": false,
