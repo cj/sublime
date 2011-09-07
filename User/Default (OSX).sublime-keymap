@@ -26,5 +26,6 @@
     ]
   },
   { "keys": ["super+s"], "command": "save" },
-  { "keys": ["super+s"], "command": "build" }
+  { "keys": ["super+s"], "command": "build" },
+  { "keys": ["ctrl+s"], "command": "toggle_side_bar" }
 ]
