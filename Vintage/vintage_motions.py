@@ -106,7 +106,10 @@ class SetRepeatMoveToCharacterMotion(sublime_plugin.TextCommand):
 
 class ViMoveToBrackets(sublime_plugin.TextCommand):
     def move_by_percent(self, percent):
-        destination = int(self.view.size() * (percent / 100.0))
+        destination = int(self.view.rowcol(self.view.size())[0] * (percent / 100.0))
+        destination = self.view.line(self.view.text_point(destination, 0)).a
+        destination = advance_while_white_space_character(self.view, destination)
+
         transform_selection(self.view, lambda pt: destination)
 
     def run(self, edit, repeat=1):
@@ -133,6 +136,12 @@ class ViGotoLine(sublime_plugin.TextCommand):
             transform_selection(self.view, lambda pt: target_pt,
                 extend=extend)
 
+def advance_while_white_space_character(view, pt, white_space="\t "):
+    while view.substr(pt) in white_space:
+        pt += 1
+    
+    return pt
+
 class MoveCaretToScreenCenter(sublime_plugin.TextCommand):
     def run(self, edit, extend = True):
         screenful = self.view.visible_region()
@@ -143,8 +152,8 @@ class MoveCaretToScreenCenter(sublime_plugin.TextCommand):
         middle_row = (row_a + row_b) / 2
         middle_point = self.view.text_point(middle_row, 0)
 
+        middle_point = advance_while_white_space_character(self.view, middle_point)
         transform_selection(self.view, lambda pt: middle_point, extend=extend)
-        self.view.run_command('vi_move_to_first_non_white_space_character')
 
 class MoveCaretToScreenTop(sublime_plugin.TextCommand):
     def run(self, edit, repeat, extend = True):
@@ -159,8 +168,8 @@ class MoveCaretToScreenTop(sublime_plugin.TextCommand):
             current_line = self.view.line(target)
             target = current_line.b + 1
 
+        target = advance_while_white_space_character(self.view, target)
         transform_selection(self.view, lambda pt: target, extend=extend)
-        self.view.run_command('vi_move_to_first_non_white_space_character')
 
 class MoveCaretToScreenBottom(sublime_plugin.TextCommand):
     def run(self, edit, repeat, extend = True):
@@ -176,8 +185,8 @@ class MoveCaretToScreenBottom(sublime_plugin.TextCommand):
             target = current_line.a - 1
         target = self.view.line(target).a
 
+        target = advance_while_white_space_character(self.view, target)
         transform_selection(self.view, lambda pt: target, extend=extend)
-        self.view.run_command('vi_move_to_first_non_white_space_character')
 
 def expand_to_whitespace(view, r):
     a = r.a

@@ -1,4 +1,10 @@
 {
+	// Hide the output panel:
+	//  - false  = never
+	//  - number = seconds after completion
+	//  - true   = always
+	"hide_output_panel": 1,
+
 	// Setting this value to true will cause unsaved changes to be saved
 	// before uploading the file
 	"save_before_upload": true,

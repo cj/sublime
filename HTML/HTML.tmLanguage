@@ -48,7 +48,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.tag.html</string>
+					<string>punctuation.definition.tag.begin.html</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -57,28 +57,33 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(&gt;(&lt;)/)(\2)(&gt;)</string>
+			<string>(&gt;)(&lt;)(/)(\2)(&gt;)</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.tag.html</string>
+					<string>punctuation.definition.tag.end.html</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.scope.between-tag-pair.html</string>
+					<string>punctuation.definition.tag.begin.html meta.scope.between-tag-pair.html</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.html</string>
+					<string>punctuation.definition.tag.begin.html</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.tag.html</string>
+					<string>entity.name.tag.html</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.end.html</string>
 				</dict>
 			</dict>
 			<key>name</key>

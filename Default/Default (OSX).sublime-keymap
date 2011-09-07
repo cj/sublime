@@ -13,7 +13,7 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	{ "keys": ["super+alt+s"], "command": "save_all" },
 	{ "keys": ["super+w"], "command": "close" },
 
-	{ "keys": ["ctrl+s"], "command": "toggle_side_bar" },
+	{ "keys": ["super+k", "super+b"], "command": "toggle_side_bar" },
 	{ "keys": ["super+ctrl+f"], "command": "toggle_full_screen" },
 	{ "keys": ["super+ctrl+shift+f"], "command": "toggle_distraction_free" },
 
@@ -202,8 +202,10 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	},
 
 	{ "keys": ["super+alt+p"], "command": "show_scope_name" },
+	{ "keys": ["ctrl+shift+p"], "command": "show_scope_name" },
 
 	{ "keys": ["super+b"], "command": "build" },
+	{ "keys": ["f7"], "command": "build" },
 
 	{ "keys": ["ctrl+t"], "command": "transpose" },
 
@@ -497,6 +499,10 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	{ "keys": ["ctrl+shift+k"], "command": "run_macro_file", "args": {"file": "Packages/Default/Delete Line.sublime-macro"} },
 
 	{ "keys": ["super+alt+q"], "command": "wrap_lines" },
+
+	{ "keys": ["super+shift+j"], "command": "fold" },
+	{ "keys": ["super+k", "super+j"], "command": "unfold_all" },
+	{ "keys": ["super+k", "super+t"], "command": "fold_tag_attributes" },
 
 	{ "keys": ["super+alt+o"], "command": "toggle_overwrite" },
 

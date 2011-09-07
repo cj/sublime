@@ -1,3 +1,3 @@
 {
-  "selector": "source.sql, source.json, text.plain, text.html.markdown, source.css, source.apacheconf"
+  "selector": "source.sql, source.json, text.plain, text.html.markdown, source.css, source.apacheconf, source.ckup, source.stylus"
 }

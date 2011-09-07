@@ -9,7 +9,7 @@
 	{ "keys": ["ctrl+f4"], "command": "close_file" },
 	{ "keys": ["ctrl+w"], "command": "close" },
 
-	{ "keys": ["ctrl+b"], "command": "toggle_side_bar" },
+	{ "keys": ["ctrl+k", "ctrl+b"], "command": "toggle_side_bar" },
 	{ "keys": ["f11"], "command": "toggle_full_screen" },
 	{ "keys": ["shift+f11"], "command": "toggle_distraction_free" },
 
@@ -237,6 +237,7 @@
 
 	{ "keys": ["ctrl+alt+shift+p"], "command": "show_scope_name" },
 
+	{ "keys": ["ctrl+b"], "command": "build" },
 	{ "keys": ["f7"], "command": "build" },
 	{ "keys": ["ctrl+break"], "command": "exec", "args": {"kill": true} },
 
@@ -537,6 +538,10 @@
 	{ "keys": ["ctrl+-"], "command": "decrease_font_size" },
 
 	{ "keys": ["alt+shift+w"], "command": "insert_snippet", "args": { "name": "Packages/XML/long-tag.sublime-snippet" } },
+
+	{ "keys": ["ctrl+shift+j"], "command": "fold" },
+	{ "keys": ["ctrl+k", "ctrl+j"], "command": "unfold_all" },
+	{ "keys": ["ctrl+k", "ctrl+t"], "command": "fold_tag_attributes" },
 
 	{ "keys": ["context_menu"], "command": "context_menu" },
 

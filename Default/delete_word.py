@@ -35,16 +35,12 @@ class DeleteWordCommand(sublime_plugin.TextCommand):
 
         classes = [" \t", view.settings().get("word_separators"), "\n"]
 
-        prev_cls = classify(view.substr(sublime.Region(pos, pos - delta)), classes)
-
         count = 1
 
         cls = classify(txt[0], classes)
 
-        at_boundary = (prev_cls != cls)
-
         did_eat_extra_space = False
-        if cls == 0 and len(txt) > 1 and at_boundary:
+        if cls == 0 and len(txt) > 1:
             next_cls = classify(txt[1], classes)
             if next_cls != 0:
                 # First character is a space, and the following character is not.
@@ -58,13 +54,6 @@ class DeleteWordCommand(sublime_plugin.TextCommand):
                 count += 1
             else:
                 break
-
-        # If there's a single space after the word, eat that too
-        if not did_eat_extra_space and len(txt) > count and at_boundary:
-            is_single_trailing_space = ((classify(txt[count], classes) == 0)
-                and (count + 1 == len(txt) or classify(txt[count + 1], classes) != 0))
-            if is_single_trailing_space:
-                count += 1
 
         return sublime.Region(pos, pos + delta * count)
 

@@ -43,3 +43,9 @@
 [submodule "Placeholders"]
 	path = Placeholders
 	url = git://github.com/mrmartineau/Placeholders.git
+[submodule "SublimeBrackets"]
+	path = SublimeBrackets
+	url = https://github.com/pyparadigm/SublimeBrackets.git
+[submodule "Theme - Soda"]
+	path = Theme - Soda
+	url = https://github.com/buymeasoda/soda-theme.git

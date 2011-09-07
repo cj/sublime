@@ -142,40 +142,45 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(&gt;(&lt;))/(?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9:]+)(&gt;)</string>
+			<string>(&gt;)(&lt;)(/)(?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9:]+)(&gt;)</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.tag.begin.xml</string>
+					<string>punctuation.definition.tag.end.xml</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.scope.between-tag-pair.xml</string>
+					<string>punctuation.definition.tag.begin.xml meta.scope.between-tag-pair.xml</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.namespace.xml</string>
+					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.xml</string>
+					<string>entity.name.tag.namespace.xml</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.separator.namespace.xml</string>
+					<string>entity.name.tag.xml</string>
 				</dict>
 				<key>6</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.localname.xml</string>
+					<string>punctuation.separator.namespace.xml</string>
 				</dict>
 				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.localname.xml</string>
+				</dict>
+				<key>8</key>
 				<dict>
 					<key>name</key>
 					<string>punctuation.definition.tag.end.xml</string>

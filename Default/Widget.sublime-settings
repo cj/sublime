@@ -6,5 +6,6 @@
 	"is_widget": true,
 	"word_wrap": false,
 	"auto_match_enabled": false,
-	"scroll_past_end": false
+	"scroll_past_end": false,
+	"draw_indent_guides": false
 }

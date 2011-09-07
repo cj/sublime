@@ -62,4 +62,5 @@
   ],
   "folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "uploads"],
   "theme": "Soda Dark.sublime-theme"
+
 }

@@ -99,5 +99,8 @@
 
     { "caption": "Rot13 Selection", "command": "rot13" },
 
+    { "caption": "Code Folding: Unfold All", "command": "unfold_all" },
+    { "caption": "Code Folding: Fold Tag Attributes", "command": "fold_tag_attributes" },
+
     { "caption": "About", "command": "show_about_window" }
 ]

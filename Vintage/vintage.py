@@ -916,3 +916,9 @@ class ViReplayMacro(sublime_plugin.TextCommand):
             cmd = d['command']
             args = d['args']
             self.view.run_command(cmd, args)
+
+class ShowAsciiInfo(sublime_plugin.TextCommand):
+    def run(self, edit):
+        c = self.view.substr(self.view.sel()[0].end())
+        sublime.status_message("<%s> %d, Hex %s, Octal %s" %
+                        (c, ord(c), hex(ord(c))[2:], oct(ord(c))))

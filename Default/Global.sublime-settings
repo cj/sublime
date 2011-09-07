@@ -7,7 +7,7 @@
 	"file_exclude_patterns": ["*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj","*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", "*.class", "*.psd", "*.db"],
 	// These files will still show up in the side bar, but won't be included in
 	// Goto Anything or Find in Files
-	"binary_file_patterns": ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf"],
+	"binary_file_patterns": ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip"],
 
 	// Set to 0 to disable smooth scrolling. Set to a value between 0 and 1 to
 	// scroll slower, or set to larger than 1 to scroll faster
@@ -18,6 +18,11 @@
 	// OS X only: When files are opened from finder, or by dragging onto the
 	// dock icon, this controls if a new window is created or not.
 	"open_files_in_new_window": true,
+
+	// Set to true to close windows as soon as the last file is closed, unless
+	// there's a folder open within the window. This is always enabled on OS X,
+	// changing it here won't modify the behavior.
+	"close_windows_when_empty": false,
 
 	// OS X 10.7 only: Set to true to disable Lion style full screen support.
 	// Sublime Text must be restarted for this to take effect.

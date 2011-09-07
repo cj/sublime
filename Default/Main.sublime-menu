@@ -199,6 +199,16 @@
                 ]
             },
             {
+                "caption": "Code Folding",
+                "id": "fold",
+                "children":
+                [
+                    { "command": "fold", "caption": "Fold / Unfold Selection" },
+                    { "command": "unfold_all", "caption": "Unfold All" },
+                    { "command": "fold_tag_attributes", "caption": "Fold Tag Attributes" }
+                ]
+            },
+            {
                 "caption": "Convert Case", "mnemonic": "a",
                 "id": "convert_case",
                 "children":
@@ -364,7 +374,16 @@
         "id": "view",
         "children":
         [
-            { "command": "toggle_side_bar" },
+            {
+                "caption": "Side Bar",
+                "id": "side_bar",
+                "children":
+                [
+                    { "command": "toggle_side_bar" },
+                    { "caption": "-" },
+                    { "command": "toggle_show_open_files" }
+                ]
+            },
             { "command": "toggle_minimap" },
             { "command": "toggle_tabs" },
             { "command": "toggle_status_bar" },
