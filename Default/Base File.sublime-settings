@@ -4,165 +4,171 @@
 // Settings may also be placed in file type specific options files, for example,
 // in Packages/Python/Python.sublime-settings for python files.
 {
-  // Sets the colors used within the text area
-  "color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	// Sets the colors used within the text area
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 
-  // Note that the font_face and font_size are overriden in the platform
-  // specific settings file, for example, "Base File (Linux).sublime-settings".
-  // Because of this, setting them here will have no effect: you must set them
-  // in your User File Preferences.
-  "font_face": "",
-  "font_size": 10,
+	// Note that the font_face and font_size are overriden in the platform
+	// specific settings file, for example, "Base File (Linux).sublime-settings".
+	// Because of this, setting them here will have no effect: you must set them
+	// in your User File Preferences.
+	"font_face": "",
+	"font_size": 10,
 
-  // Valid options are "bold", "italic", "no_antialias", "gray_antialias",
-  // and "subpixel_antialias".
-  "font_options": [],
+	// Valid options are "bold", "italic", "no_antialias", "gray_antialias",
+	// and "subpixel_antialias".
+	"font_options": [],
 
-  // Characters that are considered to separate words
-  "word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?",
+	// Characters that are considered to separate words
+	"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?",
 
-  // Set to false to prevent line numbers being drawn in the gutter
-  "line_numbers": true,
+	// Set to false to prevent line numbers being drawn in the gutter
+	"line_numbers": true,
 
-  // Set to false to hide the gutter altogether
-  "gutter": true,
+	// Set to false to hide the gutter altogether
+	"gutter": true,
 
-  // Columns in which to display vertical rulers
-  "rulers": [],
+	// Columns in which to display vertical rulers
+	"rulers": [],
 
-  // Set to true to turn spell checking on by default
-  "spell_check": false,
+	// Set to true to turn spell checking on by default
+	"spell_check": false,
 
-  // The number of spaces a tab is considered equal to
-  "tab_size": 4,
+	// The number of spaces a tab is considered equal to
+	"tab_size": 4,
 
-  // Set to true to insert spaces when tab is pressed
-  "translate_tabs_to_spaces": false,
+	// Set to true to insert spaces when tab is pressed
+	"translate_tabs_to_spaces": false,
 
-  // If translate_tabs_to_spaces is true, use_tab_stops will make tab and
-  // backspace insert/delete up to the next tabstop
-  "use_tab_stops": true,
+	// If translate_tabs_to_spaces is true, use_tab_stops will make tab and
+	// backspace insert/delete up to the next tabstop
+	"use_tab_stops": true,
 
-  // Set to false to disable detection of tabs vs. spaces on load
-  "detect_indentation": true,
+	// Set to false to disable detection of tabs vs. spaces on load
+	"detect_indentation": true,
 
-  // Set to false to disable automatic indentation
-  "auto_indent": true,
+	// Set to false to disable automatic indentation
+	"auto_indent": true,
 
-  // Set to false to not trim white space added by auto_indent
-  "trim_automatic_white_space": true,
+	// Set to false to not trim white space added by auto_indent
+	"trim_automatic_white_space": true,
 
-  // Set to false for horizontal scrolling
-  "word_wrap": true,
+	// Set to false for horizontal scrolling
+	// NOTE: word_wrap is explicitly turned off in several syntax specific
+	// settings, you'll need to set it via your user syntax specific settings
+	// to ensure these are overridden.
+	"word_wrap": true,
 
-  // Set to a value other than 0 to force wrapping at that column rather than the
-  // window width
-  "wrap_width": 0,
+	// Set to a value other than 0 to force wrapping at that column rather than the
+	// window width
+	"wrap_width": 0,
 
-  // Set to false to prevent word wrapped lines from being indented to the same
-  // level
-  "indent_subsequent_lines": true,
+	// Set to false to prevent word wrapped lines from being indented to the same
+	// level
+	"indent_subsequent_lines": true,
 
-  // Set to true to draw text centered in the window rather than left aligned
-  "draw_centered": false,
+	// Set to true to draw text centered in the window rather than left aligned
+	"draw_centered": false,
 
-  // Set to false to stop auto pairing quotes, brackets etc
-  "auto_match_enabled": true,
+	// Set to false to stop auto pairing quotes, brackets etc
+	"auto_match_enabled": true,
 
-  // Word list to use for spell checking
-  "dictionary": "Packages/Language - English/en_US.dic",
+	// Word list to use for spell checking
+	"dictionary": "Packages/Language - English/en_US.dic",
 
-  // Set to true to draw a border around the visible rectangle on the minimap.
-  // The color of the border will be determined by the "minimapBorder" key in
-  // the color scheme
-  "draw_minimap_border": false,
+	// Set to true to draw a border around the visible rectangle on the minimap.
+	// The color of the border will be determined by the "minimapBorder" key in
+	// the color scheme
+	"draw_minimap_border": false,
 
-  // Set to false to disable highlighting any line with a caret
-  "highlight_line": false,
+	// Set to false to disable highlighting any line with a caret
+	"highlight_line": false,
 
-  // Valid values are "smooth", "phase", "blink", "wide" and "solid".
-  "caret_style": "smooth",
+	// Valid values are "smooth", "phase", "blink", "wide" and "solid".
+	"caret_style": "smooth",
 
-  // Set to false to disable underlining the brackets surrounding the caret
-  "match_brackets": true,
+	// Set to false to disable underlining the brackets surrounding the caret
+	"match_brackets": true,
 
-  // Set to false if you'd rather only highlight the brackets when the caret is
-  // next to one
-  "match_brackets_content": true,
+	// Set to false if you'd rather only highlight the brackets when the caret is
+	// next to one
+	"match_brackets_content": true,
 
-  // Set to false to not highlight square brackets. This only takes effect if
-  // matchBrackets is true
-  "match_brackets_square": true,
+	// Set to false to not highlight square brackets. This only takes effect if
+	// matchBrackets is true
+	"match_brackets_square": true,
 
-  // Set to false to not highlight curly brackets. This only takes effect if
-  // matchBrackets is true
-  "match_brackets_braces": true,
+	// Set to false to not highlight curly brackets. This only takes effect if
+	// matchBrackets is true
+	"match_brackets_braces": true,
 
-  // Set to false to not highlight angle brackets. This only takes effect if
-  // matchBrackets is true
-  "match_brackets_angle": false,
+	// Set to false to not highlight angle brackets. This only takes effect if
+	// matchBrackets is true
+	"match_brackets_angle": false,
 
-  // Additional spacing at the top of each line, in pixels
-  "line_padding_top": 0,
+	// Enable visualisation of the matching tag in HTML and XML
+	"match_tags": true,
 
-  // Additional spacing at the bottom of each line, in pixels
-  "line_padding_bottom": 0,
+	// Additional spacing at the top of each line, in pixels
+	"line_padding_top": 0,
 
-  // Set to false to disable scrolling past the end of the buffer.
-  // On OS X, this value is overridden in the platform specific settings, so
-  // you'll need to place this line in your user settings to override it.
-  "scroll_past_end": true,
+	// Additional spacing at the bottom of each line, in pixels
+	"line_padding_bottom": 0,
 
-  // Set to "none" to turn off drawing white space, "selection" to draw only the
-  // white space within the selection, and "all" to draw all white space
-  "draw_white_space": "selection",
+	// Set to false to disable scrolling past the end of the buffer.
+	// On OS X, this value is overridden in the platform specific settings, so
+	// you'll need to place this line in your user settings to override it.
+	"scroll_past_end": true,
 
-  // Set to false to turn off the indentation guides.
-  // The color and width of the indent guides may be customized by editing
-  // the corresponding .tmTheme file, and specifying the colors "guide",
-  // "activeGuide" and "stackGuide"
-  "draw_indent_guides": true,
+	// Set to "none" to turn off drawing white space, "selection" to draw only the
+	// white space within the selection, and "all" to draw all white space
+	"draw_white_space": "selection",
 
-  // Controls how the indent guides are drawn, valid options are
-  // "draw_normal", "draw_active", "draw_stack" and "normal_stippled",
-  // "active_stippled" and "stack_stippled"
-  "indent_guide_options": ["draw_normal", "draw_active", "draw_stack",
-    "normal_stippled", "stack_stippled", "active_stippled"],
+	// Set to false to turn off the indentation guides.
+	// The color and width of the indent guides may be customized by editing
+	// the corresponding .tmTheme file, and specifying the colors "guide",
+	// "activeGuide" and "stackGuide"
+	"draw_indent_guides": true,
 
-  // Set to true to removing trailing white space on save
-  "trim_trailing_white_space_on_save": false,
+	// Controls how the indent guides are drawn, valid options are
+	// "draw_normal", "draw_active", "draw_stack" and "normal_stippled",
+	// "active_stippled" and "stack_stippled"
+	"indent_guide_options": ["draw_normal", "draw_active", "draw_stack",
+		"normal_stippled", "stack_stippled", "active_stippled"],
 
-  // Set to true to ensure the last line of the file ends in a newline
-  // character when saving
-  "ensure_newline_at_eof_on_save": false,
+	// Set to true to removing trailing white space on save
+	"trim_trailing_white_space_on_save": false,
 
-  // Set to true to automatically save files when switching to a different file
-  // or application
-  "save_on_focus_lost": false,
+	// Set to true to ensure the last line of the file ends in a newline
+	// character when saving
+	"ensure_newline_at_eof_on_save": false,
 
-  // The encoding to use when the encoding can't be determined automatically.
-  // ASCII, UTF-8 and UTF-16 encodings will be automatically detected.
-  "fallback_encoding": "Western (Windows 1252)",
+	// Set to true to automatically save files when switching to a different file
+	// or application
+	"save_on_focus_lost": false,
 
-  // Determines what character(s) are used to terminate each line in new files.
-  // Valid values are 'system' (whatever the OS uses), 'windows' (CRLF) and
-  // 'unix' (LF only).
-  "default_line_ending": "system",
+	// The encoding to use when the encoding can't be determined automatically.
+	// ASCII, UTF-8 and UTF-16 encodings will be automatically detected.
+	"fallback_encoding": "Western (Windows 1252)",
 
-  // When enabled, pressing tab will insert the best matching completion.
-  // When disabled, tab will only trigger snippets or insert a tab.
-  // Shift+tab can be used to insert an explicit tab when tab_completion is
-  // enabled.
-  "tab_completion": true,
+	// Determines what character(s) are used to terminate each line in new files.
+	// Valid values are 'system' (whatever the OS uses), 'windows' (CRLF) and
+	// 'unix' (LF only).
+	"default_line_ending": "system",
 
-  // By default, shift+tab will only unindent if the selection spans
-  // multiple lines. When pressing shift+tab at other times, it'll insert a
-  // tab character - this allows tabs to be inserted when tab_completion is
-  // enabled. Set this to true to make shift+tab always unindent, instead of
-  // inserting tabs.
-  "shift_tab_unindent": false,
+	// When enabled, pressing tab will insert the best matching completion.
+	// When disabled, tab will only trigger snippets or insert a tab.
+	// Shift+tab can be used to insert an explicit tab when tab_completion is
+	// enabled.
+	"tab_completion": true,
 
-  // If true, the selected text will be copied into the find panel when it's
-  // shown.
-  "find_selected_text": true
+	// By default, shift+tab will only unindent if the selection spans
+	// multiple lines. When pressing shift+tab at other times, it'll insert a
+	// tab character - this allows tabs to be inserted when tab_completion is
+	// enabled. Set this to true to make shift+tab always unindent, instead of
+	// inserting tabs.
+	"shift_tab_unindent": false,
+
+	// If true, the selected text will be copied into the find panel when it's
+	// shown.
+	"find_selected_text": true
 }

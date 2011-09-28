@@ -141,6 +141,7 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	{ "keys": ["super+shift+space"], "command": "expand_selection", "args": {"to": "scope"} },
 	{ "keys": ["ctrl+shift+m"], "command": "expand_selection", "args": {"to": "brackets"} },
 	{ "keys": ["ctrl+m"], "command": "move_to", "args": {"to": "brackets"} },
+	{ "keys": ["super+shift+j"], "command": "expand_selection", "args": {"to": "indentation"} },
 	{ "keys": ["super+shift+a"], "command": "expand_selection", "args": {"to": "tag"} },
 
 	{ "keys": ["super+alt+."], "command": "close_tag" },
@@ -151,10 +152,10 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	{ "keys": ["super+enter"], "command": "run_macro_file", "args": {"file": "Packages/Default/Add Line.sublime-macro"} },
 	{ "keys": ["super+shift+enter"], "command": "run_macro_file", "args": {"file": "Packages/Default/Add Line Before.sublime-macro"} },
 
-	{ "keys": ["super+p"], "command": "show_overlay", "args": {"overlay": "goto"} },
+	{ "keys": ["super+p"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+	{ "keys": ["super+t"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
 	{ "keys": ["super+shift+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
 	{ "keys": ["super+ctrl+p"], "command": "prompt_select_project" },
-	{ "keys": ["super+t"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
 	{ "keys": ["super+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
 	{ "keys": ["ctrl+g"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
 
@@ -182,8 +183,8 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	{ "keys": ["ctrl+super+up"], "command": "swap_line_up" },
 	{ "keys": ["ctrl+super+down"], "command": "swap_line_down" },
 
-	{ "keys": ["ctrl+backspace"], "command": "delete_word", "args": { "forward": false } },
-	{ "keys": ["ctrl+delete"], "command": "delete_word", "args": { "forward": true } },
+	{ "keys": ["ctrl+backspace"], "command": "delete_word", "args": { "forward": false, "sub_words": true } },
+	{ "keys": ["ctrl+delete"], "command": "delete_word", "args": { "forward": true, "sub_words": true } },
 
 	{ "keys": ["super+forward_slash"], "command": "toggle_comment", "args": { "block": false } },
 	{ "keys": ["super+alt+forward_slash"], "command": "toggle_comment", "args": { "block": true } },
@@ -500,7 +501,18 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 
 	{ "keys": ["super+alt+q"], "command": "wrap_lines" },
 
-	{ "keys": ["super+shift+j"], "command": "fold" },
+	{ "keys": ["super+alt+["], "command": "fold" },
+	{ "keys": ["super+alt+]"], "command": "unfold" },
+	{ "keys": ["super+k", "super+1"], "command": "fold_by_level", "args": {"level": 1} },
+	{ "keys": ["super+k", "super+2"], "command": "fold_by_level", "args": {"level": 2} },
+	{ "keys": ["super+k", "super+3"], "command": "fold_by_level", "args": {"level": 3} },
+	{ "keys": ["super+k", "super+4"], "command": "fold_by_level", "args": {"level": 4} },
+	{ "keys": ["super+k", "super+5"], "command": "fold_by_level", "args": {"level": 5} },
+	{ "keys": ["super+k", "super+6"], "command": "fold_by_level", "args": {"level": 6} },
+	{ "keys": ["super+k", "super+7"], "command": "fold_by_level", "args": {"level": 7} },
+	{ "keys": ["super+k", "super+8"], "command": "fold_by_level", "args": {"level": 8} },
+	{ "keys": ["super+k", "super+9"], "command": "fold_by_level", "args": {"level": 9} },
+	{ "keys": ["super+k", "super+0"], "command": "unfold_all" },
 	{ "keys": ["super+k", "super+j"], "command": "unfold_all" },
 	{ "keys": ["super+k", "super+t"], "command": "fold_tag_attributes" },
 

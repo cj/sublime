@@ -1,66 +1,77 @@
-// Place user-specific overrides in this file, to ensure they're preserved
-// when upgrading
 {
-  "file_exclude_patterns": [
-      "*.pyc"
-    , "*.pyo"
-    , "*.exe"
-    , "*.dll"
-    , "*.obj"
-    ,"*.o"
-    , "*.a"
-    , "*.lib"
-    , "*.so"
-    , "*.dylib"
-    , "*.ncb"
-    , "*.sdf"
-    , "*.suo"
-    , "*.pdb"
-    , "*.idb"
-    , ".DS_Store"
-    , "*.class"
-    , "*.psd"
-    , "*.db"
-    , "*.un~"
-    , "__Tagbar__"
-    , "*.jpg"
-    , "*.jpeg"
-    , "*.png"
-    , "*.gif"
-    , "*.ttf"
-    , "*.tga"
-    , "*.dds"
-    , "*.ico"
-    , "*.eot"
-    , "*.pdf"
-    , "*.mp3"
-    , "*.un"
-    , "*.un~"
-    , "*.swo"
-    , "*.swp"
-    , "minified.*"
-    , "log-*.*"
-  ],
-  "binary_file_patterns": [
-      "*.jpg"
-    , "*.jpeg"
-    , "*.png"
-    , "*.gif"
-    , "*.ttf"
-    , "*.tga"
-    , "*.dds"
-    , "*.ico"
-    , "*.eot"
-    , "*.pdf"
-    , "*.mp3"
-    , "*.un"
-    , "*.un~"
-    , "*.swo"
-    , "*.swp"
-    , "minified.*"
-    , "log-*.*"
-  ],
-  "folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "uploads"],
-  "theme": "Soda Dark.sublime-theme"
-
+	"binary_file_patterns":
+	[
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.mp3",
+		"*.un",
+		"*.un~",
+		"*.swo",
+		"*.swp",
+		"*.swf",
+		"minified.*",
+		"log-*.*"
+	],
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db",
+		"*.un~",
+		"__Tagbar__",
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.mp3",
+		"*.un",
+		"*.un~",
+		"*.swo",
+		"*.swp",
+		"*.swf",
+		"minified.*",
+		"log-*.*"
+	],
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		"uploads"
+	],
+	"ignored_packages":
+	[
+	],
+	"theme": "Soda Dark.sublime-theme"
 }

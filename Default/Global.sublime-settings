@@ -1,8 +1,24 @@
 {
+	// The theme controls the look at Sublime Text's UI (buttons, tabs, scroll bars, etc)
 	"theme": "Default.sublime-theme",
 
+	// Exiting the application with hot_exit enabled will cause it to close
+	// immediately without prompting. Unsaved modifications and open files will
+	// be preserved and restored when next starting.
+	//
+	// Closing a window with an associated project will also close the window
+	// without prompting, preserving unsaved changes in the workspace file
+	// alongside the project.
+	"hot_exit": true,
+
+	// remember_open_files makes the application start up with the last set of
+	// open files. Changing this to false will have no effect if hot_exit is
+	// true
 	"remember_open_files": true,
 
+	// folder_exclude_patterns and file_exclude_patterns control which files
+	// are listed in folders on the side bar. These can also be set on a per-
+	// project basis.
 	"folder_exclude_patterns": [".svn", ".git", ".hg", "CVS"],
 	"file_exclude_patterns": ["*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj","*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", "*.class", "*.psd", "*.db"],
 	// These files will still show up in the side bar, but won't be included in
@@ -14,6 +30,9 @@
 	"scroll_speed": 1.0,
 
 	"show_tab_close_buttons": true,
+
+	// Places a highlight on tabs with unsaved changes
+	"highlight_modified_tabs": false,
 
 	// OS X only: When files are opened from finder, or by dragging onto the
 	// dock icon, this controls if a new window is created or not.
@@ -33,5 +52,5 @@
 
 	// List any packages to ignore here. When removing entries from this list,
 	// a restart may be required if the package contains plugins.
-	"ignored_packages": []
+	"ignored_packages": ["Vintage"]
 }

@@ -25,6 +25,7 @@
     { "command": "expand_tabs", "caption": "Indentation: Convert to Spaces", "args": {"set_translate_tabs": true} },
 
     { "caption": "View: Toggle Side Bar", "command": "toggle_side_bar" },
+    { "caption": "View: Toggle Open Files in Side Bar", "command": "toggle_show_open_files" },
     { "caption": "View: Toggle Minimap", "command": "toggle_minimap" },
     { "caption": "View: Toggle Tabs", "command": "toggle_tabs" },
     { "caption": "View: Toggle Status Bar", "command": "toggle_status_bar" },

@@ -133,6 +133,11 @@ class InputStateTracker(sublime_plugin.EventListener):
 
     def on_selection_modified(self, view):
         reset_input_state(view, False)
+        # Get out of visual line mode if the selection has changed, e.g., due
+        # to clicking with the mouse
+        if (g_input_state.motion_mode == MOTION_MODE_LINE and
+            not view.has_non_empty_selection_region()):
+            g_input_state.motion_mode = MOTION_MODE_NORMAL
         update_status_line(view)
 
     def on_load(self, view):
@@ -181,14 +186,18 @@ def eval_input(view):
     global g_input_state
 
     cmd_args = {
-            'prefix_repeat': digits_to_number(g_input_state.prefix_repeat_digits),
-            'action_command': g_input_state.action_command,
-            'action_args': g_input_state.action_command_args,
-            'motion_repeat': digits_to_number(g_input_state.motion_repeat_digits),
-            'motion_command': g_input_state.motion_command,
-            'motion_args': g_input_state.motion_command_args,
-            'motion_mode': g_input_state.motion_mode,
-            'motion_inclusive': g_input_state.motion_inclusive }
+        'action_command': g_input_state.action_command,
+        'action_args': g_input_state.action_command_args,
+        'motion_command': g_input_state.motion_command,
+        'motion_args': g_input_state.motion_command_args,
+        'motion_mode': g_input_state.motion_mode,
+        'motion_inclusive': g_input_state.motion_inclusive }
+
+    if len(g_input_state.prefix_repeat_digits) > 0:
+        cmd_args['prefix_repeat'] = digits_to_number(g_input_state.prefix_repeat_digits)
+
+    if len(g_input_state.motion_repeat_digits) > 0:
+        cmd_args['motion_repeat'] = digits_to_number(g_input_state.motion_repeat_digits)
 
     if g_input_state.register != None:
         if not cmd_args['action_args']:
@@ -513,9 +522,17 @@ class ViEval(sublime_plugin.TextCommand):
             elif not is_visual:
                 self.view.run_command('unmark_undo_groups_for_gluing')
 
-    def run(self, edit, prefix_repeat, action_command, action_args,
-            motion_repeat, motion_command, motion_args, motion_mode,
-            motion_inclusive):
+    def run(self, edit, action_command, action_args,
+            motion_command, motion_args, motion_mode,
+            motion_inclusive, prefix_repeat = None, motion_repeat = None):
+
+        explicit_repeat = (prefix_repeat != None or motion_repeat != None)
+
+        if prefix_repeat == None:
+            prefix_repeat = 1
+        if motion_repeat == None:
+            motion_repeat = 1
+
         # Arguments are always passed as floats (thanks to JSON encoding),
         # convert them back to integers
         prefix_repeat = int(prefix_repeat)
@@ -534,6 +551,12 @@ class ViEval(sublime_plugin.TextCommand):
             motion_args['repeat'] = motion_repeat * prefix_repeat
             motion_repeat = 1
             prefix_repeat = 1
+
+        # Some commands behave differently if a repeat is given. e.g., 1G goes
+        # to line one, but G without a repeat goes to EOF. Let the command
+        # know if a repeat was specified.
+        if motion_args and 'explicit_repeat' in motion_args:
+            motion_args['explicit_repeat'] = explicit_repeat
 
         visual_mode = self.view.has_non_empty_selection_region()
 

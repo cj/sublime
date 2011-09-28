@@ -111,7 +111,7 @@
             { "command": "revert", "caption": "Revert File", "mnemonic": "v" },
             { "command": "close_all", "caption": "Close All Files" },
             { "caption": "-", "id": "exit" },
-            { "command": "hot_exit", "caption": "Hot Exit", "mnemonic": "x" }
+            { "command": "exit", "mnemonic": "x" }
         ]
     },
     {
@@ -203,8 +203,20 @@
                 "id": "fold",
                 "children":
                 [
-                    { "command": "fold", "caption": "Fold / Unfold Selection" },
+                    { "command": "fold" },
+                    { "command": "unfold" },
                     { "command": "unfold_all", "caption": "Unfold All" },
+                    { "caption": "-" },
+                    { "caption": "Fold All", "command": "fold_by_level", "args": {"level": 1} },
+                    { "caption": "Fold Level 2", "command": "fold_by_level", "args": {"level": 2} },
+                    { "caption": "Fold Level 3", "command": "fold_by_level", "args": {"level": 3} },
+                    { "caption": "Fold Level 4", "command": "fold_by_level", "args": {"level": 4} },
+                    { "caption": "Fold Level 5", "command": "fold_by_level", "args": {"level": 5} },
+                    { "caption": "Fold Level 6", "command": "fold_by_level", "args": {"level": 6} },
+                    { "caption": "Fold Level 7", "command": "fold_by_level", "args": {"level": 7} },
+                    { "caption": "Fold Level 8", "command": "fold_by_level", "args": {"level": 8} },
+                    { "caption": "Fold Level 9", "command": "fold_by_level", "args": {"level": 9} },
+                    { "caption": "-" },
                     { "command": "fold_tag_attributes", "caption": "Fold Tag Attributes" }
                 ]
             },
@@ -283,6 +295,7 @@
                     { "command": "expand_selection_to_paragraph", "caption": "Expand Selection to Paragraph" },
                     { "command": "expand_selection", "args": {"to": "scope"}, "caption": "Expand Selection to Scope" },
                     { "command": "expand_selection", "args": {"to": "brackets"}, "caption": "Expand Selection to Brackets" },
+                    { "command": "expand_selection", "args": {"to": "indentation"}, "caption": "Expand Selection to Indentation" },
                     { "command": "expand_selection", "args": {"to": "tag"}, "caption": "Expand Selection to Tag" }
                 ]
             },
@@ -353,14 +366,12 @@
                 ]
             },
             { "caption": "-", "id": "goto" },
-            { "command": "show_overlay", "args": {"overlay": "goto"}, "caption": "Goto Anything", "mnemonic": "A" },
+            { "command": "show_overlay", "args": {"overlay": "goto", "show_files": true}, "caption": "Goto Anything", "mnemonic": "A" },
             {
                 "caption": "Goto",
                 "mnemonic": "G",
                 "children":
                 [
-                    { "command": "show_overlay", "args": {"overlay": "goto", "show_files": true}, "caption": "Goto File", "mnemonic": "F" },
-                    { "caption": "-" },
                     { "command": "show_overlay", "args": {"overlay": "goto", "text": "@"}, "caption": "Goto Symbol" },
                     { "command": "show_overlay", "args": {"overlay": "goto", "text": "#"}, "caption": "Goto Word" },
                     { "command": "show_overlay", "args": {"overlay": "goto", "text": ":"}, "caption": "Goto Line" }
@@ -655,7 +666,7 @@
                 ]
             },
             { "caption": "-" },
-            { "command": "prompt_select_project", "caption": "Switch Project…", "mnemonic": "S" },
+            { "command": "prompt_select_project", "caption": "Switch Project in Window…", "mnemonic": "S" },
             { "command": "save_project_as", "caption": "Save Project As…", "mnemonic": "A" },
             { "command": "close_project", "mnemonic": "C" },
             { "command": "open_file", "args": {"file": "${project}"}, "caption": "Edit Project" },

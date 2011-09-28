@@ -32,7 +32,7 @@
 	"flush_with_gutter": true,
 	"flush_with_text": false,
 	"font_face": "Inconsolata-dz",
-	"font_size": 14,
+	"font_size": 13.3,
 	"highlight_line": true,
 	"matchBrackets": true,
 	"max_file_characters": 524288,

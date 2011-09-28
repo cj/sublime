@@ -49,3 +49,6 @@
 [submodule "Theme - Soda"]
 	path = Theme - Soda
 	url = https://github.com/buymeasoda/soda-theme.git
+[submodule "sublime-text-2-git"]
+	path = sublime-text-2-git
+	url = https://github.com/kemayo/sublime-text-2-git.git

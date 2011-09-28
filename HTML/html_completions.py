@@ -51,8 +51,8 @@ class HtmlCompletions(sublime_plugin.EventListener):
         expr = expr[::-1]
 
         if op == '.':
-            snippet = "<{0} class=\"{1}\">$0</{0}>".format(tag, arg)
+            snippet = "<{0} class=\"{1}\">$1</{0}>$0".format(tag, arg)
         else:
-            snippet = "<{0} id=\"{1}\">$0</{0}>".format(tag, arg)
+            snippet = "<{0} id=\"{1}\">$1</{0}>$0".format(tag, arg)
 
         return [(expr, snippet)]

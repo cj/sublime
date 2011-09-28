@@ -41,9 +41,7 @@ import zencoding.resources
 import zencoding.utils
 import zencoding.zen_settings
 
-from zencoding.zen_settings import zen_settings
 from zencoding.interface.editor import ZenEditor
-
 from zentrackers import back_track, track_regex, track_scope
 
 ################################### CONSTANTS ##################################

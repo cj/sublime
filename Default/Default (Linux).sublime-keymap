@@ -1,4 +1,6 @@
 [
+	{ "keys": ["ctrl+q"], "command": "exit" },
+
 	{ "keys": ["ctrl+shift+n"], "command": "new_window" },
 	{ "keys": ["ctrl+shift+w"], "command": "close_window" },
 	{ "keys": ["ctrl+o"], "command": "prompt_open_file" },
@@ -177,17 +179,18 @@
 	{ "keys": ["ctrl+shift+space"], "command": "expand_selection", "args": {"to": "scope"} },
 	{ "keys": ["ctrl+shift+m"], "command": "expand_selection", "args": {"to": "brackets"} },
 	{ "keys": ["ctrl+m"], "command": "move_to", "args": {"to": "brackets"} },
+	{ "keys": ["ctrl+shift+j"], "command": "expand_selection", "args": {"to": "indentation"} },
 	{ "keys": ["ctrl+shift+a"], "command": "expand_selection", "args": {"to": "tag"} },
 
 	{ "keys": ["alt+."], "command": "close_tag" },
 
-	{ "keys": ["ctrl+q"], "command": "toggle_record_macro" },
-	{ "keys": ["ctrl+shift+q"], "command": "run_macro" },
+	{ "keys": ["ctrl+alt+q"], "command": "toggle_record_macro" },
+	{ "keys": ["ctrl+alt+shift+q"], "command": "run_macro" },
 
 	{ "keys": ["ctrl+enter"], "command": "run_macro_file", "args": {"file": "Packages/Default/Add Line.sublime-macro"} },
 	{ "keys": ["ctrl+shift+enter"], "command": "run_macro_file", "args": {"file": "Packages/Default/Add Line Before.sublime-macro"} },
 
-	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "goto"} },
+	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
 	{ "keys": ["ctrl+shift+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
 	{ "keys": ["ctrl+alt+p"], "command": "prompt_select_project" },
 	{ "keys": ["ctrl+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
@@ -539,7 +542,18 @@
 
 	{ "keys": ["alt+shift+w"], "command": "insert_snippet", "args": { "name": "Packages/XML/long-tag.sublime-snippet" } },
 
-	{ "keys": ["ctrl+shift+j"], "command": "fold" },
+	{ "keys": ["ctrl+shift+["], "command": "fold" },
+	{ "keys": ["ctrl+shift+]"], "command": "unfold" },
+	{ "keys": ["ctrl+k", "ctrl+1"], "command": "fold_by_level", "args": {"level": 1} },
+	{ "keys": ["ctrl+k", "ctrl+2"], "command": "fold_by_level", "args": {"level": 2} },
+	{ "keys": ["ctrl+k", "ctrl+3"], "command": "fold_by_level", "args": {"level": 3} },
+	{ "keys": ["ctrl+k", "ctrl+4"], "command": "fold_by_level", "args": {"level": 4} },
+	{ "keys": ["ctrl+k", "ctrl+5"], "command": "fold_by_level", "args": {"level": 5} },
+	{ "keys": ["ctrl+k", "ctrl+6"], "command": "fold_by_level", "args": {"level": 6} },
+	{ "keys": ["ctrl+k", "ctrl+7"], "command": "fold_by_level", "args": {"level": 7} },
+	{ "keys": ["ctrl+k", "ctrl+8"], "command": "fold_by_level", "args": {"level": 8} },
+	{ "keys": ["ctrl+k", "ctrl+9"], "command": "fold_by_level", "args": {"level": 9} },
+	{ "keys": ["ctrl+k", "ctrl+0"], "command": "unfold_all" },
 	{ "keys": ["ctrl+k", "ctrl+j"], "command": "unfold_all" },
 	{ "keys": ["ctrl+k", "ctrl+t"], "command": "fold_tag_attributes" },
 

@@ -47,6 +47,7 @@ class CommandsAsYouTypeBase(sublime_plugin.TextCommand):
 
     def run(self, edit, **args):
         self.erase = False
+
         panel = self.view.window().show_input_panel (
             self.input_message, self.default_input, None, self.insert, self.undo )
         

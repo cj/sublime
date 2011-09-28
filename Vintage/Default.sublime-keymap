@@ -16,9 +16,28 @@
 		]
 	},
 
+	{ "keys": ["ctrl+["], "command": "exit_insert_mode",
+		"context":
+		[
+			{ "key": "setting.command_mode", "operand": false },
+			{ "key": "setting.is_widget", "operand": false },
+			{ "key": "setting.vintage_ctrl_keys" }
+		]
+	},
+
+	{ "keys": ["ctrl+["], "command": "exit_visual_mode",
+		"context":
+		[
+			{ "key": "setting.command_mode"},
+			{ "key": "num_selections", "operand": 1},
+			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": false },
+			{ "key": "setting.vintage_ctrl_keys" }
+		]
+	},
+
 	{ "keys": ["i"], "command": "enter_insert_mode", "context": [{"key": "setting.command_mode"}] },
 	{ "keys": ["I"], "command": "enter_insert_mode", "args":
-		{"insert_command": "move_to", "insert_args": {"to": "hardbol"} },
+		{"insert_command": "vi_move_to_first_non_white_space_character"},
 		"context": [{"key": "setting.command_mode"}]
 	},
 
@@ -41,8 +60,10 @@
 	},
 
 	{ "keys": ["u"], "command": "undo", "context": [{"key": "setting.command_mode"}] },
-	{ "keys": ["ctrl+r"], "command": "redo", "context": [{"key": "setting.command_mode"}] },
-
+	{
+		"keys": ["ctrl+r"], "command": "redo",
+		"context": [{"key": "setting.command_mode"}, {"key": "setting.vintage_ctrl_keys"}]
+	},
 
 	{ "keys": ["v"], "command": "enter_visual_mode",
 		"context": [{"key": "setting.command_mode"}]
@@ -86,10 +107,20 @@
 		"context": [{"key": "setting.command_mode"}]
 	},
 
-	{ "keys": ["/"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse": false},
+	{ "keys": ["/"], "command": "show_panel", "args":
+		{
+			"panel": "incremental_find",
+			"select_text": false,
+			"reverse": false
+		},
 		"context": [{"key": "setting.command_mode"}]
 	},
-	{ "keys": ["?"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse": true},
+	{ "keys": ["?"], "command": "show_panel", "args":
+		{
+			"panel": "incremental_find",
+			"select_text": false,
+			"reverse": true
+		},
 		"context": [{"key": "setting.command_mode"}]
 	},
 
@@ -98,15 +129,26 @@
 	},
 
 	{ "keys": ["*"], "command": "find_under",
+		"args": {"select_text": false},
 		"context": [{"key": "setting.command_mode"}]
 	},
 
 	{ "keys": ["#"], "command": "find_under_prev",
+		"args": {"select_text": false},
 		"context": [{"key": "setting.command_mode"}]
 	},
 
-	{ "keys": ["n"], "command": "find_next", "context": [{"key": "setting.command_mode"}] },
-	{ "keys": ["N"], "command": "find_prev", "context": [{"key": "setting.command_mode"}] },
+	{
+		"keys": ["n"], "command": "find_next",
+		"args": {"select_text": false},
+		"context": [{"key": "setting.command_mode"}]
+	},
+	{
+		"keys": ["N"],
+		"command": "find_prev",
+		"args": {"select_text": false},
+		"context": [{"key": "setting.command_mode"}]
+	},
 
 	{ "keys": ["J"], "command": "join_lines", "context": [{"key": "setting.command_mode"}] },
 
@@ -140,6 +182,13 @@
 
 	{ "keys": ["@", "<character>"], "command": "vi_replay_macro",
 		"context": [{"key": "setting.command_mode"}]
+	},
+
+	{ "keys": ["ctrl+y"], "command": "scroll_lines", "args": {"amount": 1.0 },
+		"context": [{"key": "setting.command_mode"}, {"key": "setting.vintage_ctrl_keys"}]
+	},
+	{ "keys": ["ctrl+e"], "command": "scroll_lines", "args": {"amount": -1.0 },
+		"context": [{"key": "setting.command_mode"}, {"key": "setting.vintage_ctrl_keys"}]
 	},
 
 	//
@@ -339,7 +388,7 @@
 
 	{ "keys": ["G"], "command": "set_motion", "args": {
 		"motion": "vi_goto_line",
-		"motion_args": {"repeat": 1, "extend": true }},
+		"motion_args": {"repeat": 1, "explicit_repeat": true, "extend": true }},
 		"context": [{"key": "setting.command_mode"}]
 	},
 
@@ -395,13 +444,13 @@
 	{ "keys": ["ctrl+f"], "command": "set_motion", "args": {
 		"motion": "move",
 		"motion_args": {"by": "pages", "forward": true, "extend": true }},
-		"context": [{"key": "setting.command_mode"}]
+		"context": [{"key": "setting.command_mode"}, {"key": "setting.vintage_ctrl_keys"}]
 	},
 
 	{ "keys": ["ctrl+b"], "command": "set_motion", "args": {
 		"motion": "move",
 		"motion_args": {"by": "pages", "forward": false, "extend": true }},
-		"context": [{"key": "setting.command_mode"}]
+		"context": [{"key": "setting.command_mode"}, {"key": "setting.vintage_ctrl_keys"}]
 	},
 
 	{ "keys": ["H"], "command": "set_motion", "args": {

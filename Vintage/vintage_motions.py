@@ -127,9 +127,9 @@ class ViMoveToBrackets(sublime_plugin.TextCommand):
             self.move_by_percent(repeat)
 
 class ViGotoLine(sublime_plugin.TextCommand):
-    def run(self, edit, repeat = 1, extend = False):
+    def run(self, edit, repeat = 1, explicit_repeat = True, extend = False):
         repeat = int(repeat)
-        if repeat == 1:
+        if not explicit_repeat:
             self.view.run_command('move_to', {'to': 'eof', 'extend':extend})
         else:
             target_pt = self.view.text_point(repeat - 1, 0)
@@ -139,7 +139,7 @@ class ViGotoLine(sublime_plugin.TextCommand):
 def advance_while_white_space_character(view, pt, white_space="\t "):
     while view.substr(pt) in white_space:
         pt += 1
-    
+
     return pt
 
 class MoveCaretToScreenCenter(sublime_plugin.TextCommand):
@@ -148,7 +148,7 @@ class MoveCaretToScreenCenter(sublime_plugin.TextCommand):
 
         row_a = self.view.rowcol(screenful.a)[0]
         row_b = self.view.rowcol(screenful.b)[0]
-        
+
         middle_row = (row_a + row_b) / 2
         middle_point = self.view.text_point(middle_row, 0)
 

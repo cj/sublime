@@ -33,11 +33,9 @@ class ZenEditor():
         profile_name = self.get_profile_name()
 
         if super_profile: profile_name += '.%s' % super_profile
-        
         content      = expand_abbreviation(abbr, syntax, profile_name)
 
-        return ( self.add_placeholders(content, selection=selection)
-                     .decode('utf8', 'ignore') )
+        return ( self.add_placeholders(content, selection=selection) )
 
     def __init__(self):
         pass
@@ -152,6 +150,7 @@ class ZenEditor():
 
         self.create_selection(start, end)
 
+        value = value.replace('$', r'\$')
         value = self.add_placeholders(value, selection=0, explicit_zero=zero_stops)
 
         if '\n' in value:
