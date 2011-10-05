@@ -25,6 +25,7 @@
 		"=",
 		":"
 	],
+	"word_wrap": false,
 	"autoMatchEnabled": true,
 	"color_scheme": "Packages/Color Scheme - Default/Twilight.tmTheme",
 	"color_scope_name": "guide",
