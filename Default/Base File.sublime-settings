@@ -87,7 +87,7 @@
 	"caret_style": "smooth",
 
 	// Set to false to disable underlining the brackets surrounding the caret
-	"match_brackets": true,
+	"match_brackets": false,
 
 	// Set to false if you'd rather only highlight the brackets when the caret is
 	// next to one
@@ -106,7 +106,7 @@
 	"match_brackets_angle": true,
 
 	// Enable visualisation of the matching tag in HTML and XML
-	"match_tags": true,
+	"match_tags": false,
 
 	// Additional spacing at the top of each line, in pixels
 	"line_padding_top": 0,
