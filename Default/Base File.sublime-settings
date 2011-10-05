@@ -81,7 +81,7 @@
 	"draw_minimap_border": false,
 
 	// Set to false to disable highlighting any line with a caret
-	"highlight_line": false,
+	"highlight_line": true,
 
 	// Valid values are "smooth", "phase", "blink", "wide" and "solid".
 	"caret_style": "smooth",
@@ -103,7 +103,7 @@
 
 	// Set to false to not highlight angle brackets. This only takes effect if
 	// matchBrackets is true
-	"match_brackets_angle": false,
+	"match_brackets_angle": true,
 
 	// Enable visualisation of the matching tag in HTML and XML
 	"match_tags": true,
@@ -136,11 +136,11 @@
 		"normal_stippled", "stack_stippled", "active_stippled"],
 
 	// Set to true to removing trailing white space on save
-	"trim_trailing_white_space_on_save": false,
+	"trim_trailing_white_space_on_save": true,
 
 	// Set to true to ensure the last line of the file ends in a newline
 	// character when saving
-	"ensure_newline_at_eof_on_save": false,
+	"ensure_newline_at_eof_on_save": true,
 
 	// Set to true to automatically save files when switching to a different file
 	// or application

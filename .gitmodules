@@ -31,9 +31,6 @@
 [submodule "Tomorrow-Theme"]
 	path = Tomorrow-Theme
 	url = https://github.com/ChrisKempson/Tomorrow-Theme.git
-[submodule "SublimeTagmatcher"]
-	path = SublimeTagmatcher
-	url = git://github.com/pyparadigm/SublimeTagmatcher.git
 [submodule "ST2-GitHubinator"]
 	path = ST2-GitHubinator
 	url = git://github.com/ehamiter/ST2-GitHubinator.git
@@ -43,12 +40,12 @@
 [submodule "Placeholders"]
 	path = Placeholders
 	url = git://github.com/mrmartineau/Placeholders.git
-[submodule "SublimeBrackets"]
-	path = SublimeBrackets
-	url = https://github.com/pyparadigm/SublimeBrackets.git
 [submodule "Theme - Soda"]
 	path = Theme - Soda
 	url = https://github.com/buymeasoda/soda-theme.git
 [submodule "sublime-text-2-git"]
 	path = sublime-text-2-git
 	url = https://github.com/kemayo/sublime-text-2-git.git
+[submodule "BracketHighlighter"]
+	path = BracketHighlighter
+	url = https://github.com/facelessuser/BracketHighlighter.git
