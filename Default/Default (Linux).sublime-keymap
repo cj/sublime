@@ -228,7 +228,7 @@
 	{ "keys": ["ctrl+j"], "command": "join_lines" },
 	{ "keys": ["ctrl+shift+d"], "command": "duplicate_line" },
 
-	{ "keys": ["ctrl+`"], "command": "show_panel", "args": {"panel": "console"} },
+	{ "keys": ["ctrl+`"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
 
 	{ "keys": ["ctrl+space"], "command": "auto_complete" },
 	{ "keys": ["ctrl+space"], "command": "replace_completion_with_auto_complete", "context":

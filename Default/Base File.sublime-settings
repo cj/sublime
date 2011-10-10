@@ -56,7 +56,7 @@
 	// NOTE: word_wrap is explicitly turned off in several syntax specific
 	// settings, you'll need to set it via your user syntax specific settings
 	// to ensure these are overridden.
-	"word_wrap": true,
+	"word_wrap": false,
 
 	// Set to a value other than 0 to force wrapping at that column rather than the
 	// window width

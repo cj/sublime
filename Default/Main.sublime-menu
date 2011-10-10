@@ -399,7 +399,7 @@
             { "command": "toggle_tabs" },
             { "command": "toggle_status_bar" },
             { "command": "toggle_menu" },
-            { "command": "show_panel", "args": {"panel": "console"} },
+            { "command": "show_panel", "args": {"panel": "console", "toggle": true} },
             { "caption": "-", "id": "full_screen" },
             { "command": "toggle_full_screen" },
             { "command": "toggle_distraction_free" },

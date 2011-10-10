@@ -18,7 +18,10 @@
 		"*.swp",
 		"*.swf",
 		"minified.*",
-		"log-*.*"
+		"log-*.*",
+		"*.doc",
+		"*.xls",
+		"*.as"
 	],
 	"file_exclude_patterns":
 	[
@@ -59,6 +62,9 @@
 		"*.swo",
 		"*.swp",
 		"*.swf",
+		"*.doc",
+		"*.xls",
+		"*.as",
 		"minified.*",
 		"log-*.*"
 	],

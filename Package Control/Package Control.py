@@ -6,7 +6,6 @@ import sys
 import subprocess
 import zipfile
 import urllib2
-import hashlib
 import json
 import fnmatch
 import re
@@ -15,6 +14,7 @@ import datetime
 import time
 import shutil
 import _strptime
+import tempfile
 
 try:
     import ssl
@@ -36,13 +36,13 @@ class PanelPrinter():
         self.init()
 
     def init(self):
-        if not self.window:
+        if self.window == None and sublime.active_window() != None:
             self.window = sublime.active_window()
-
-        if self.window != None:
             self.panel  = self.window.get_output_panel(self.name)
-            self.panel.settings().set("word_wrap", True)
-            self.write('Package Control Messages\n========================')
+            if self.panel.size() == 0:
+                self.panel.settings().set("word_wrap", True)
+                self.write_callback('Package Control Messages\n' +
+                    '========================')
 
     def show(self):
         sublime.set_timeout(self.show_callback, 10)
@@ -55,12 +55,13 @@ class PanelPrinter():
         sublime.set_timeout(callback, 10)
 
     def write_callback(self, string):
-        self.init()
+        if self.window == None:
+            self.init()
+
         self.panel.set_read_only(False)
         edit = self.panel.begin_edit()
 
         self.panel.insert(edit, self.panel.size(), string)
-        self.panel.show(self.panel.size())
         self.panel.end_edit(edit)
         self.panel.set_read_only(True)
 
@@ -179,11 +180,12 @@ class PackageProvider():
 
 class GitHubPackageProvider():
     def match_url(self, url):
-        return re.search('^https?://github.com/[^/]+/[^/]+$', url) != None
+        return re.search('^https?://github.com/[^/]+/[^/]+/?$', url) != None
 
     def get_packages(self, repo, package_manager):
         api_url = re.sub('^https?://github.com/',
             'https://api.github.com/repos/', repo)
+        api_url = api_url.rstrip('/')
         repo_json = package_manager.download_url(api_url,
             'Error downloading repository.')
         if repo_json == False:
@@ -223,11 +225,12 @@ class GitHubPackageProvider():
 
 class GitHubUserProvider():
     def match_url(self, url):
-        return re.search('^https?://github.com/[^/]+$', url) != None
+        return re.search('^https?://github.com/[^/]+/?$', url) != None
 
     def get_packages(self, url, package_manager):
         api_url = re.sub('^https?://github.com/',
-            'https://api.github.com/users/', url) + '/repos'
+            'https://api.github.com/users/', url)
+        api_url = api_url.rstrip('/') + '/repos'
         repo_json = package_manager.download_url(api_url,
             'Error downloading repository.')
         if repo_json == False:
@@ -275,6 +278,7 @@ class BitBucketPackageProvider():
     def get_packages(self, repo, package_manager):
         api_url = re.sub('^https?://bitbucket.org/',
             'https://api.bitbucket.org/1.0/repositories/', repo)
+        api_url = api_url.rstrip('/')
         repo_json = package_manager.download_url(api_url,
             'Error downloading repository.')
         if repo_json == False:
@@ -350,7 +354,7 @@ class CliDownloader():
             if os.path.exists(path):
                 return path
 
-        raise BinaryNotFoundError('The binary ' + name + ' could not be ' + \
+        raise BinaryNotFoundError('The binary ' + name + ' could not be ' +
             'located')
 
     def execute(self, args):
@@ -360,7 +364,9 @@ class CliDownloader():
         output = proc.stdout.read()
         returncode = proc.wait()
         if returncode != 0:
-            raise NonCleanExitError(returncode)
+            error = NonCleanExitError(returncode)
+            error.output = output
+            raise error
         return output
 
 
@@ -390,6 +396,11 @@ class UrlLib2Downloader():
                 return http_file.read()
 
             except (urllib2.HTTPError) as (e):
+                # Bitbucket and Github ratelimit using 503 a decent amount
+                if str(e.code) == '503':
+                    print (__name__ + ': Downloading %s was rate limited, ' +
+                        'trying again') % url
+                    continue
                 sublime.error_message(__name__ + ': ' + error_message +
                     ' HTTP error ' + str(e.code) + ' downloading ' +
                     url + '.')
@@ -397,7 +408,7 @@ class UrlLib2Downloader():
                 # Bitbucket and Github timeout a decent amount
                 if str(e.reason) == 'The read operation timed out' or \
                         str(e.reason) == 'timed out':
-                    print (__name__ + ': Downloading %s timed out, trying ' + \
+                    print (__name__ + ': Downloading %s timed out, trying ' +
                         'again') % url
                     continue
                 sublime.error_message(__name__ + ': ' + error_message +
@@ -412,11 +423,16 @@ class WgetDownloader(CliDownloader):
         self.settings = settings
         self.wget = self.find_binary('wget')
 
+    def clean_tmp_file(self):
+        os.remove(self.tmp_file)
+
     def download(self, url, error_message, timeout, tries):
         if not self.wget:
             return False
-        command = [self.wget, '--timeout', str(int(timeout)), '-o',
-            '/dev/null', '-O', '-', '-U', 'Sublime Package Control', url]
+
+        self.tmp_file = tempfile.NamedTemporaryFile().name
+        command = [self.wget, '--connect-timeout=' + str(int(timeout)), '-o',
+            self.tmp_file, '-O', '-', '-U', 'Sublime Package Control', url]
 
         if self.settings.get('http_proxy'):
             os.putenv('http_proxy', self.settings.get('http_proxy'))
@@ -428,22 +444,44 @@ class WgetDownloader(CliDownloader):
         while tries > 1:
             tries -= 1
             try:
-                return self.execute(command)
+                result = self.execute(command)
+                self.clean_tmp_file()
+                return result
             except (NonCleanExitError) as (e):
-                if e.returncode == 8:
-                    error_string = 'HTTP error 404'
-                elif e.returncode == 4:
-                    error_string = 'URL error host not found'
-                else:
-                    # GitHub and BitBucket seem to time out a lot
-                    print (__name__ + ': Downloading %s timed out, trying ' + \
-                        'again') % url
-                    continue
-                    #error_string = 'unknown connection error'
+                error_line = ''
+                with open(self.tmp_file) as f:
+                    for line in list(f):
+                        if re.search('ERROR[: ]|failed: ', line):
+                            error_line = line
+                            break
 
+                if e.returncode == 8:
+                    regex = re.compile('^.*ERROR (\d+):.*', re.S)
+                    if re.sub(regex, '\\1', error_line) == '503':
+                        # GitHub and BitBucket seem to rate limit via 503
+                        print (__name__ + ': Downloading %s was rate limited' +
+                            ', trying again') % url
+                        continue
+                    error_string = 'HTTP error ' + re.sub('^.*? ERROR ', '',
+                        error_line)
+
+                elif e.returncode == 4:
+                    error_string = re.sub('^.*?failed: ', '', error_line)
+                    # GitHub and BitBucket seem to time out a lot
+                    if error_string.find('timed out') != -1:
+                        print (__name__ + ': Downloading %s timed out, ' +
+                            'trying again') % url
+                        continue
+
+                else:
+                    error_string = re.sub('^.*?(ERROR[: ]|failed: )', '\\1',
+                        error_line)
+
+                error_string = re.sub('\\.?\s*\n\s*$', '', error_string)
                 sublime.error_message(__name__ + ': ' + error_message +
                     ' ' + error_string + ' downloading ' +
                     url + '.')
+            self.clean_tmp_file()
             break
         return False
 
@@ -457,7 +495,7 @@ class CurlDownloader(CliDownloader):
         if not self.curl:
             return False
         command = [self.curl, '-f', '--user-agent', 'Sublime Package Control',
-            '--connect-timeout', str(int(timeout)), '-s', url]
+            '--connect-timeout', str(int(timeout)), '-sS', url]
 
         if self.settings.get('http_proxy'):
             os.putenv('http_proxy', self.settings.get('http_proxy'))
@@ -472,15 +510,22 @@ class CurlDownloader(CliDownloader):
                 return self.execute(command)
             except (NonCleanExitError) as (e):
                 if e.returncode == 22:
-                    error_string = 'HTTP error 404'
+                    code = re.sub('^.*?(\d+)\s*$', '\\1', e.output)
+                    if code == '503':
+                        # GitHub and BitBucket seem to rate limit via 503
+                        print (__name__ + ': Downloading %s was rate limited' +
+                            ', trying again') % url
+                        continue
+                    error_string = 'HTTP error ' + code
                 elif e.returncode == 6:
                     error_string = 'URL error host not found'
-                else:
+                elif e.returncode == 28:
                     # GitHub and BitBucket seem to time out a lot
-                    print (__name__ + ': Downloading %s timed out, trying ' + \
+                    print (__name__ + ': Downloading %s timed out, trying ' +
                         'again') % url
                     continue
-                    #error_string = 'unknown connection error'
+                else:
+                    error_string = e.output
 
                 sublime.error_message(__name__ + ': ' + error_message +
                     ' ' + error_string + ' downloading ' +
@@ -594,7 +639,7 @@ class GitUpgrader(VcsUpgrader):
             return False
         args = [binary]
         args.extend(self.update_command)
-        output = self.execute(args, self.working_copy)
+        self.execute(args, self.working_copy)
         return True
 
     def incoming(self):
@@ -646,7 +691,7 @@ class HgUpgrader(VcsUpgrader):
             return False
         args = [binary]
         args.extend(self.update_command)
-        output = self.execute(args, self.working_copy)
+        self.execute(args, self.working_copy)
         return True
 
     def incoming(self):
@@ -920,7 +965,6 @@ class PackageManager():
         return True
 
     def install_package(self, package_name):
-        installed_packages = self.list_packages()
         packages = self.list_available_packages()
 
         if package_name not in packages.keys():
@@ -1283,14 +1327,14 @@ class PackageInstaller():
                 extra = ''
 
             else:
-                if os.path.exists(os.path.join(sublime.packages_path(), package,
-                        '.git')):
+                if os.path.exists(os.path.join(sublime.packages_path(),
+                        package, '.git')):
                     vcs = 'git'
                     incoming = GitUpgrader(settings.get('git_binary'),
                         settings.get('git_update_command'), package_dir,
                         settings.get('cache_length')).incoming()
-                elif os.path.exists(os.path.join(sublime.packages_path(), package,
-                        '.hg')):
+                elif os.path.exists(os.path.join(sublime.packages_path(),
+                        package, '.hg')):
                     vcs = 'hg'
                     incoming = HgUpgrader(settings.get('hg_binary'),
                         settings.get('hg_update_command'), package_dir,
@@ -1331,7 +1375,7 @@ class PackageInstaller():
                 if action in ignore_actions:
                     continue
 
-            package_entry.append(info.get('description', 'No description ' + \
+            package_entry.append(info.get('description', 'No description ' +
                 'provided'))
             package_entry.append(action + extra + ' ' +
                 re.sub('^https?://', '', info['url']))
@@ -1496,12 +1540,15 @@ class ExistingPackagesCommand():
                 'No description provided'))
 
             version = metadata.get('version')
-            if not version and os.path.exists(os.path.join(package_dir, '.git')):
+            if not version and os.path.exists(os.path.join(package_dir,
+                    '.git')):
                 installed_version = 'git repository'
-            elif not version and os.path.exists(os.path.join(package_dir, '.hg')):
+            elif not version and os.path.exists(os.path.join(package_dir,
+                    '.hg')):
                 installed_version = 'hg repository'
             else:
-                installed_version = 'v' + version if version else 'unknown version'
+                installed_version = 'v' + version if version else \
+                    'unknown version'
 
             url = metadata.get('url')
             if url:
@@ -1623,7 +1670,8 @@ class AddRepositoryChannelCommand(sublime_plugin.WindowCommand):
 
 class AddRepositoryCommand(sublime_plugin.WindowCommand):
     def run(self):
-        self.window.show_input_panel('GitHub or BitBucket Web URL, or Custom JSON Repository URL', '', self.on_done,
+        self.window.show_input_panel('GitHub or BitBucket Web URL, or Custom' +
+                ' JSON Repository URL', '', self.on_done,
             self.on_change, self.on_cancel)
 
     def on_done(self, input):
@@ -1670,7 +1718,7 @@ class DisablePackageCommand(sublime_plugin.WindowCommand):
         self.settings.set('ignored_packages', ignored_packages)
         sublime.save_settings('Global.sublime-settings')
         sublime.status_message('Package ' + package + ' successfully added ' +
-            'to list of diabled packges - restarting Sublime Text may be '
+            'to list of disabled packages - restarting Sublime Text may be '
             'required')
 
 
@@ -1694,7 +1742,7 @@ class EnablePackageCommand(sublime_plugin.WindowCommand):
             list(set(ignored) - set([package])))
         sublime.save_settings('Global.sublime-settings')
         sublime.status_message('Package ' + package + ' successfully removed' +
-            ' from list of diabled packages - restarting Sublime Text may be '
+            ' from list of disabled packages - restarting Sublime Text may be '
             'required')
 
 

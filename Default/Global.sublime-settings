@@ -1,5 +1,5 @@
 {
-	// The theme controls the look at Sublime Text's UI (buttons, tabs, scroll bars, etc)
+	// The theme controls the look of Sublime Text's UI (buttons, tabs, scroll bars, etc)
 	"theme": "Default.sublime-theme",
 
 	// Exiting the application with hot_exit enabled will cause it to close

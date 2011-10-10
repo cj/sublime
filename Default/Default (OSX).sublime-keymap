@@ -192,7 +192,7 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	{ "keys": ["super+j"], "command": "join_lines" },
 	{ "keys": ["super+shift+d"], "command": "duplicate_line" },
 
-	{ "keys": ["ctrl+backquote"], "command": "show_panel", "args": {"panel": "console"} },
+	{ "keys": ["ctrl+backquote"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
 
 	{ "keys": ["ctrl+space"], "command": "auto_complete" },
 	{ "keys": ["ctrl+space"], "command": "replace_completion_with_auto_complete", "context":
