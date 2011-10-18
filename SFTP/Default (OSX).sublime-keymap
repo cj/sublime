@@ -1,6 +1,9 @@
 [
-	{ "keys": ["super+alt+u","super+alt+f"], "command": "sftp_file" },
-	{ "keys": ["super+alt+u","super+alt+c"], "command": "sftp_vcs_changed_files" },
-	{ "keys": ["super+alt+u","super+alt+s"], "command": "sftp_show_panel" },
-	{ "keys": ["super+alt+u","super+alt+x"], "command": "sftp_cancel_upload" }
+	{ "keys": ["super+ctrl+u","super+ctrl+f"], "command": "sftp_upload_file" },
+	{ "keys": ["super+ctrl+u","super+ctrl+i"], "command": "sftp_diff_remote_file" },
+	{ "keys": ["super+ctrl+u","super+ctrl+o"], "command": "sftp_download_file" },
+	{ "keys": ["super+ctrl+u","super+ctrl+r"], "command": "sftp_upload_folder" },
+	{ "keys": ["super+ctrl+u","super+ctrl+c"], "command": "sftp_vcs_changed_files" },
+	{ "keys": ["super+ctrl+u","super+ctrl+s"], "command": "sftp_show_panel" },
+	{ "keys": ["super+ctrl+u","super+ctrl+x"], "command": "sftp_cancel_upload" }
 ]

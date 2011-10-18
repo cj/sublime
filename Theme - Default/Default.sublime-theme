@@ -510,6 +510,29 @@
     },
 
     {
+        "class": "fold_button_control",
+        "layer0.texture": "Theme - Default/arrow_right.png",
+        "layer0.opacity": 1.0,
+        "layer0.inner_margin": 0,
+        "layer1.texture": "Theme - Default/arrow_right_over.png",
+        "layer1.opacity": 0.0,
+        "layer1.inner_margin": 0,
+        "content_margin": [9, 7, 8, 6]
+    },
+    {
+        "class": "fold_button_control",
+        "attributes": ["hover"],
+        "layer0.opacity": 0.0,
+        "layer1.opacity": 1.0
+    },
+    {
+        "class": "fold_button_control",
+        "attributes": ["expanded"],
+        "layer0.texture": "Theme - Default/arrow_down.png",
+        "layer1.texture": "Theme - Default/arrow_down_over.png"
+    },
+
+    {
         "class": "icon_regex",
         "layer0.texture": "Theme - Default/icons/find_regex.png",
         "layer0.opacity": 1.0,

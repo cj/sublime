@@ -1,9 +1,11 @@
 [
 	{ "caption": "-" },
-	{ "caption": "Edit SFTP Remote…", "command": "sftp_edit_config", "args": {"dirs": []} },
-	{ "caption": "Create SFTP Remote…", "command": "sftp_create_config", "args": {"dirs": []} },
-	{ "caption": "Create Subfolder SFTP Remote…", "command": "sftp_create_sub_config", "args": {"dirs": []} },
-	{ "caption": "Upload File", "command": "sftp_file_side_bar", "args": {"files": []} },
-	{ "caption": "Upload Folder", "command": "sftp_folder_side_bar", "args": {"dirs": []} },
-	{ "caption": "-", "id": "end" }
+	{ "caption": "Edit SFTP/FTP Remote…", "command": "sftp_edit_config", "args": {"dirs": []} },
+	{ "caption": "Create SFTP/FTP Remote…", "command": "sftp_create_config", "args": {"dirs": []} },
+	{ "caption": "Create Subfolder SFTP/FTP Remote…", "command": "sftp_create_sub_config", "args": {"dirs": []} },
+	{ "caption": "Upload File", "command": "sftp_upload_file", "args": {"paths": []} },
+	{ "caption": "Diff Remote File", "command": "sftp_diff_remote_file", "args": {"paths": []} },
+	{ "caption": "Download File", "command": "sftp_download_file", "args": {"paths": []} },
+	{ "caption": "Upload Folder", "command": "sftp_upload_folder", "args": {"paths": []} },
+	{ "caption": "-" }
 ]

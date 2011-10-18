@@ -27,6 +27,9 @@
 	// Set to false to hide the gutter altogether
 	"gutter": true,
 
+	// Fold buttons are the triangles shown in the gutter to fold regions of text
+	"fold_buttons": true,
+
 	// Columns in which to display vertical rulers
 	"rulers": [],
 
@@ -56,7 +59,7 @@
 	// NOTE: word_wrap is explicitly turned off in several syntax specific
 	// settings, you'll need to set it via your user syntax specific settings
 	// to ensure these are overridden.
-	"word_wrap": false,
+	"word_wrap": true,
 
 	// Set to a value other than 0 to force wrapping at that column rather than the
 	// window width
@@ -81,13 +84,13 @@
 	"draw_minimap_border": false,
 
 	// Set to false to disable highlighting any line with a caret
-	"highlight_line": true,
+	"highlight_line": false,
 
 	// Valid values are "smooth", "phase", "blink", "wide" and "solid".
 	"caret_style": "smooth",
 
 	// Set to false to disable underlining the brackets surrounding the caret
-	"match_brackets": false,
+	"match_brackets": true,
 
 	// Set to false if you'd rather only highlight the brackets when the caret is
 	// next to one
@@ -103,10 +106,10 @@
 
 	// Set to false to not highlight angle brackets. This only takes effect if
 	// matchBrackets is true
-	"match_brackets_angle": true,
+	"match_brackets_angle": false,
 
 	// Enable visualisation of the matching tag in HTML and XML
-	"match_tags": false,
+	"match_tags": true,
 
 	// Additional spacing at the top of each line, in pixels
 	"line_padding_top": 0,
@@ -136,11 +139,11 @@
 		"normal_stippled", "stack_stippled", "active_stippled"],
 
 	// Set to true to removing trailing white space on save
-	"trim_trailing_white_space_on_save": true,
+	"trim_trailing_white_space_on_save": false,
 
 	// Set to true to ensure the last line of the file ends in a newline
 	// character when saving
-	"ensure_newline_at_eof_on_save": true,
+	"ensure_newline_at_eof_on_save": false,
 
 	// Set to true to automatically save files when switching to a different file
 	// or application

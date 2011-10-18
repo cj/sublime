@@ -1,7 +1,19 @@
 [
     {
         "caption": "SFTP: Upload File",
-        "command": "sftp_file"
+        "command": "sftp_upload_file"
+    },
+    {
+        "caption": "SFTP: Download File",
+        "command": "sftp_download_file"
+    },
+    {
+        "caption": "SFTP: Diff Remote File",
+        "command": "sftp_diff_remote_file"
+    },
+    {
+        "caption": "SFTP: Upload Folder",
+        "command": "sftp_upload_folder"
     },
     {
         "caption": "SFTP: Upload VCS Changed Files",
@@ -19,7 +31,8 @@
         "caption": "Preferences: SFTP Settings",
         "command": "open_file", "args":
         {
-            "file": "${packages}/SFTP/SFTP.sublime-settings"} },
+            "file": "${packages}/SFTP/SFTP.sublime-settings"}
+        },
     {
         "caption": "Preferences: SFTP Key Bindings",
         "command": "open_file", "args":

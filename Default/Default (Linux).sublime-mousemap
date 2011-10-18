@@ -90,5 +90,9 @@
 	{ "button": "button4", "modifiers": [], "command": "prev_view" },
 	{ "button": "button5", "modifiers": [], "command": "next_view" },
 
+	// Change font size with ctrl+scroll wheel
+	{ "button": "scroll_down", "modifiers": ["ctrl"], "command": "decrease_font_size" },
+	{ "button": "scroll_up", "modifiers": ["ctrl"], "command": "increase_font_size" },
+
 	{ "button": "button2", "modifiers": [], "press_command": "context_menu" }
 ]

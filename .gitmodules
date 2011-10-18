@@ -49,3 +49,6 @@
 [submodule "BracketHighlighter"]
 	path = BracketHighlighter
 	url = https://github.com/facelessuser/BracketHighlighter.git
+[submodule "PhpDoc"]
+	path = PhpDoc
+	url = https://github.com/SublimeText/PhpDoc.git

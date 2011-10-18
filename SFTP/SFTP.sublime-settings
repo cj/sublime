@@ -10,8 +10,22 @@
 	"save_before_upload": true,
 
 	// The connection timeout
-	"timeout": 5
+	"timeout": 5,
 
+	// FTP path cache length (in seconds) - this helps increase peformance
+	// of FTP connections
+	"ftp_cache_length": 300,
+
+	// If debug output should be printed to the console
+	"debug": false
+
+	// The command line arguments to open an external diff tool. The local file
+	// path will replace any parameter equal to %1$s and the file path of the
+	// local temp file representing the remote file will replace any parameter
+	// equal to %2$s
+	//,"diff_command": ["/usr/bin/meld", "%1$s", "%2$s"]
+	//,"diff_command": ["C:\\Program Files (x86)\\WinMerge\\WinMergeU.exe", "%1$s", "%2$s"]
+ 
 	// On Windows machines, git and hg are often not in the path and if they
 	// are not in one of the default install locations, their path must be
 	// specified here for the VCS-based commands to work
