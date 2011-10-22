@@ -143,6 +143,7 @@
                 [
                     { "command": "indent" },
                     { "command": "unindent" },
+                    { "command": "reindent", "args": {"single_line": false} },
                     { "command": "swap_line_up" },
                     { "command": "swap_line_down" },
                     { "command": "duplicate_line" },

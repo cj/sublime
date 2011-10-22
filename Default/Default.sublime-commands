@@ -21,8 +21,9 @@
         "command": "swap_case"
     },
 
-    { "command": "unexpand_tabs", "caption": "Indentation: Convert to Tabs", "args": {"set_translate_tabs": true} },
-    { "command": "expand_tabs", "caption": "Indentation: Convert to Spaces", "args": {"set_translate_tabs": true} },
+    { "caption": "Indentation: Convert to Tabs", "command": "unexpand_tabs", "args": {"set_translate_tabs": true} },
+    { "caption": "Indentation: Convert to Spaces", "command": "expand_tabs", "args": {"set_translate_tabs": true} },
+    { "caption": "Indentation: Reindent Lines", "command": "reindent", "args": {"single_line": false} },
 
     { "caption": "View: Toggle Side Bar", "command": "toggle_side_bar" },
     { "caption": "View: Toggle Open Files in Side Bar", "command": "toggle_show_open_files" },

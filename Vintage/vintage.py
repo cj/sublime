@@ -675,11 +675,16 @@ class EnterVisualMode(sublime_plugin.TextCommand):
         transform_selection_regions(self.view, lambda r: sublime.Region(r.b, r.b + 1) if r.empty() else r)
 
 class ExitVisualMode(sublime_plugin.TextCommand):
-    def run(self, edit):
-        if g_input_state.motion_mode != MOTION_MODE_NORMAL:
-            set_motion_mode(self.view, MOTION_MODE_NORMAL)
+    def run(self, edit, toggle = False):
+        if toggle:
+            if g_input_state.motion_mode != MOTION_MODE_NORMAL:
+                set_motion_mode(self.view, MOTION_MODE_NORMAL)
+            else:
+                self.view.run_command('shrink_selections')
         else:
+            set_motion_mode(self.view, MOTION_MODE_NORMAL)
             self.view.run_command('shrink_selections')
+
         self.view.run_command('unmark_undo_groups_for_gluing')
 
 class EnterVisualLineMode(sublime_plugin.TextCommand):
@@ -687,11 +692,6 @@ class EnterVisualLineMode(sublime_plugin.TextCommand):
         set_motion_mode(self.view, MOTION_MODE_LINE)
         expand_to_full_line(self.view)
         self.view.run_command('maybe_mark_undo_groups_for_gluing')
-
-class ExitVisualLineMode(sublime_plugin.TextCommand):
-    def run(self, edit):
-        set_motion_mode(self.view, MOTION_MODE_NORMAL)
-        self.view.run_command('unmark_undo_groups_for_gluing')
 
 class ShrinkSelections(sublime_plugin.TextCommand):
     def shrink(self, r):
@@ -907,8 +907,14 @@ class ViSetBookmark(sublime_plugin.TextCommand):
             "", "", sublime.PERSISTENT | sublime.HIDDEN)
 
 class ViSelectBookmark(sublime_plugin.TextCommand):
-    def run(self, edit, character):
+    def run(self, edit, character, select_bol=False):
         self.view.run_command('select_all_bookmarks', {'name': "bookmark_" + character})
+        if select_bol:
+            sels = list(self.view.sel())
+            self.view.sel().clear()
+            for r in sels:
+                start = self.view.line(r.a).begin()
+                self.view.sel().add(sublime.Region(start, start))
 
 g_macro_target = None
 
@@ -945,3 +951,12 @@ class ShowAsciiInfo(sublime_plugin.TextCommand):
         c = self.view.substr(self.view.sel()[0].end())
         sublime.status_message("<%s> %d, Hex %s, Octal %s" %
                         (c, ord(c), hex(ord(c))[2:], oct(ord(c))))
+
+class ViReverseSelectionsDirection(sublime_plugin.TextCommand):
+    def run(self, edit):
+        new_sels = []
+        for s in self.view.sel():
+            new_sels.append(sublime.Region(s.b, s.a))
+        self.view.sel().clear()
+        for s in new_sels:
+            self.view.sel().add(s)

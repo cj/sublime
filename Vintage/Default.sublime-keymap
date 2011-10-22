@@ -54,6 +54,14 @@
 		{"insert_command": "run_macro_file", "insert_args": {"file": "Packages/Default/Add Line.sublime-macro"} },
 		"context": [{"key": "setting.command_mode"}]
 	},
+	{ "keys": ["o"], "command": "vi_reverse_selections_direction",
+		"context":
+		[
+			{"key": "setting.command_mode"},
+			{"key": "selection_empty", "operator": "equal", "operand": false}
+		]
+	},
+
 	{ "keys": ["O"], "command": "enter_insert_mode", "args":
 		{"insert_command": "run_macro_file", "insert_args": {"file": "Packages/Default/Add Line Before.sublime-macro"} },
 		"context": [{"key": "setting.command_mode"}]
@@ -75,12 +83,11 @@
 			{"key": "vi_has_action" }
 		]
 	},
-
-	{ "keys": ["v"], "command": "exit_visual_mode",
+	{ "keys": ["v"], "command": "exit_visual_mode", "args": {"toggle": true},
 		"context":
 		[
 			{"key": "setting.command_mode"},
-			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": false }
+			{"key": "selection_empty", "operator": "equal", "operand": false, "match_all": false}
 		]
 	},
 
@@ -172,6 +179,11 @@
 		"context": [{"key": "setting.command_mode"}]
 	},
 
+	{ "keys": ["'", "<character>"], "command": "vi_select_bookmark",
+		"args": {"select_bol": true},
+		"context": [{"key": "setting.command_mode"}]
+	},
+
 	{ "keys": ["q", "<character>"], "command": "vi_begin_record_macro",
 		"context": [{"key": "setting.command_mode"}]
 	},
@@ -241,6 +253,10 @@
 	},
 
 	{ "keys": ["<"], "command": "set_action", "args": {"action": "vi_unindent", "description": "Unindent"},
+		"context": [{"key": "setting.command_mode"}]
+	},
+
+	{ "keys": ["="], "command": "set_action", "args": {"action": "reindent", "description": "Reindent"},
 		"context": [{"key": "setting.command_mode"}]
 	},
 

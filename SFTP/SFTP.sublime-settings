@@ -18,6 +18,9 @@
 
 	// If debug output should be printed to the console
 	"debug": false
+	//,"debug_log_file": "C:\\Users\\Username\\Desktop\\sublime_sftp_debug.txt"
+	//,"debug_log_file": "/Users/username/Desktop/sublime_sftp_debug.txt"
+	//,"debug_log_file": "/home/username/Desktop/sublime_sftp_debug.txt"
 
 	// The command line arguments to open an external diff tool. The local file
 	// path will replace any parameter equal to %1$s and the file path of the
