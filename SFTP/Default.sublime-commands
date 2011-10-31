@@ -4,6 +4,10 @@
         "command": "sftp_upload_file"
     },
     {
+        "caption": "SFTP: Upload Open Files",
+        "command": "sftp_upload_open_files"
+    },
+    {
         "caption": "SFTP: Download File",
         "command": "sftp_download_file"
     },

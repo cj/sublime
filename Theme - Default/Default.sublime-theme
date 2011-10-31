@@ -241,11 +241,13 @@
     },
     {
         "class": "disclosure_button_control",
+        /*
         "parents":
         [
             { "class": "tree_row", "attributes": ["hover"] }
         ],
-        // "attributes": ["hover"],
+        */
+        "attributes": ["hover"],
         "layer0.opacity": 0.0,
         "layer1.opacity": 1.0
     },

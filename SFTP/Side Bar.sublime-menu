@@ -7,5 +7,6 @@
 	{ "caption": "Diff Remote File", "command": "sftp_diff_remote_file", "args": {"paths": []} },
 	{ "caption": "Download File", "command": "sftp_download_file", "args": {"paths": []} },
 	{ "caption": "Upload Folder", "command": "sftp_upload_folder", "args": {"paths": []} },
+	{ "caption": "Download Folder", "command": "sftp_download_folder", "args": {"paths": []} },
 	{ "caption": "-" }
 ]

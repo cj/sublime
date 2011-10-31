@@ -1,5 +1,6 @@
 [
 	{ "keys": ["ctrl+alt+u","ctrl+alt+f"], "command": "sftp_upload_file" },
+	{ "keys": ["ctrl+alt+u","ctrl+alt+n"], "command": "sftp_upload_open_files" },
 	{ "keys": ["ctrl+alt+u","ctrl+alt+i"], "command": "sftp_diff_remote_file" },
 	{ "keys": ["ctrl+alt+u","ctrl+alt+o"], "command": "sftp_download_file" },
 	{ "keys": ["ctrl+alt+u","ctrl+alt+r"], "command": "sftp_upload_folder" },

@@ -465,6 +465,7 @@ and don't need to be repeated here. Anything listed here will take precedence, h
 	{ "keys": ["ctrl+shift+2"], "command": "move_to_group", "args": { "group": 1 } },
 	{ "keys": ["ctrl+shift+3"], "command": "move_to_group", "args": { "group": 2 } },
 	{ "keys": ["ctrl+shift+4"], "command": "move_to_group", "args": { "group": 3 } },
+	{ "keys": ["ctrl+0"], "command": "focus_side_bar" },
 
 	{ "keys": ["super+1"], "command": "select_by_index", "args": { "index": 0 } },
 	{ "keys": ["super+2"], "command": "select_by_index", "args": { "index": 1 } },

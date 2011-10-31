@@ -68,7 +68,7 @@ class OpenContainingFolderCommand(sublime_plugin.WindowCommand):
 class FindInFolderCommand(sublime_plugin.WindowCommand):
     def run(self, dirs):
         self.window.run_command("show_panel", {"panel": "find_in_files",
-            "location": ",".join(dirs)})
+            "where": ",".join(dirs)})
 
     def is_visible(self, dirs):
         return len(dirs) > 0

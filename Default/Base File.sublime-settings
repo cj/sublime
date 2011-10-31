@@ -30,6 +30,9 @@
 	// Fold buttons are the triangles shown in the gutter to fold regions of text
 	"fold_buttons": true,
 
+	// Hides the fold buttons unless the mouse is over the gutter
+	"fade_fold_buttons": true,
+
 	// Columns in which to display vertical rulers
 	"rulers": [],
 

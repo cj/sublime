@@ -29,6 +29,9 @@
 	// scroll slower, or set to larger than 1 to scroll faster
 	"scroll_speed": 1.0,
 
+	// Controls side bar animation when expanding or collapsing folders
+	"tree_animation_enabled": true,
+
 	"show_tab_close_buttons": true,
 
 	// Places a highlight on tabs with unsaved changes

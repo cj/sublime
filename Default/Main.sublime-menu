@@ -355,7 +355,6 @@
             { "command": "show_panel", "args": {"panel": "replace"}, "caption": "Replace" },
             { "caption": "-" },
             { "command": "show_panel", "args": {"panel": "find_in_files"}, "caption": "Find in Files" },
-            { "command": "show_panel", "args": {"panel": "find_in_files", "location": "<open files>", "include": ""}, "caption": "Find in Open Files" },
             {
                 "caption": "Find Results",
                 "mnemonic": "R",
@@ -676,7 +675,6 @@
             { "command": "close_folder_list", "caption": "Remove all Folders from Project", "mnemonic": "m" },
             { "command": "refresh_folder_list", "caption": "Refresh Folders", "mnemonic": "e" },
             { "caption": "-" },
-            { "command": "show_panel", "args": {"panel": "find_in_files", "location": "<open folders>" }, "caption": "Find in Project", "mnemonic": "F" },
             { "caption": "-", "id": "end" }
         ]
     },

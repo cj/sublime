@@ -3,5 +3,6 @@
     { "command": "sftp_upload_file", "caption": "Upload File" },
     { "command": "sftp_diff_remote_file", "caption": "Diff Remote File" },
     { "command": "sftp_download_file", "caption": "Download File" },
+    { "command": "sftp_upload_open_files", "caption": "Upload Open Files" },
     { "caption": "-" }
 ]

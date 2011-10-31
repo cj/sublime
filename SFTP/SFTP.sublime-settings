@@ -17,6 +17,7 @@
 	"ftp_cache_length": 300,
 
 	// If debug output should be printed to the console
+	// True or 1 outputs FTP/SFTP commands, 2 is more verbose
 	"debug": false
 	//,"debug_log_file": "C:\\Users\\Username\\Desktop\\sublime_sftp_debug.txt"
 	//,"debug_log_file": "/Users/username/Desktop/sublime_sftp_debug.txt"

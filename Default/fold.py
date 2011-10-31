@@ -76,7 +76,7 @@ class FoldAllCommand(sublime_plugin.TextCommand):
 
 class FoldByLevelCommand(sublime_plugin.TextCommand):
     def run(self, edit, level):
-        level = int(level) * int(self.view.settings().get('tab_size'))
+        level = int(level)
         folds = []
         tp = 0
         size = self.view.size()

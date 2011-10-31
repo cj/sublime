@@ -69,7 +69,7 @@ class DiffChangesCommand(sublime_plugin.TextCommand):
         else:
             win = self.view.window()
             v = win.get_output_panel('unsaved_changes')
-            v.settings().set('syntax', 'Packages/Diff/Diff.tmLanguage')
+            v.set_syntax_file('Packages/Diff/Diff.tmLanguage')
             v.settings().set('word_wrap', self.view.settings().get('word_wrap'))
 
         edit = v.begin_edit()
