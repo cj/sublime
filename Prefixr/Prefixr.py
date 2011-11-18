@@ -13,7 +13,7 @@ class PrefixrCommand(sublime_plugin.TextCommand):
         braces = False
         sels = self.view.sel()
         for sel in sels:
-            if self.view.substr(sels[0]).find('{') != -1:
+            if self.view.substr(sel).find('{') != -1:
                 braces = True
 
         # Expand selection to braces, unfortunately this can't use the
@@ -27,7 +27,7 @@ class PrefixrCommand(sublime_plugin.TextCommand):
                 sels.add(sel)
             self.view.run_command("expand_selection", {"to": "brackets"})
 
-        # We start one thread per selection so we lock up the interface
+        # We start one thread per selection so we don't lock up the interface
         # while waiting for the response from the API
         threads = []
         for sel in sels:
@@ -116,7 +116,7 @@ class PrefixrCommand(sublime_plugin.TextCommand):
         # Determine the indent of the CSS rule
         (row, col) = self.view.rowcol(sel.begin())
         indent_region = self.view.find('^\s+', self.view.text_point(row, 0))
-        if self.view.rowcol(indent_region.begin())[0] == row:
+        if indent_region and self.view.rowcol(indent_region.begin())[0] == row:
             indent = self.view.substr(indent_region)
         else:
             indent = ''

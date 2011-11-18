@@ -35,6 +35,8 @@
 		]
 	},
 
+	{ "keys" : ["z", "z"], "command" : "center_on_cursor", "context": [] },
+
 	{ "keys": ["i"], "command": "enter_insert_mode", "context": [{"key": "setting.command_mode"}] },
 	{ "keys": ["I"], "command": "enter_insert_mode", "args":
 		{"insert_command": "vi_move_to_first_non_white_space_character"},
@@ -248,6 +250,10 @@
 		"context": [{"key": "setting.command_mode"}]
 	},
 
+	{ "keys": ["g", "f"], "command": "vi_open_file_under_selection",
+		"context": [{"key": "setting.command_mode"}]
+	},
+
 	{ "keys": [">"], "command": "set_action", "args": {"action": "vi_indent", "description": "Indent", "motion_mode": "auto_line"},
 		"context": [{"key": "setting.command_mode"}]
 	},
@@ -263,6 +269,17 @@
 	//
 	// Motions
 	//
+	{ "keys": ["{"], "command": "set_motion", "args": {
+		"motion": "move",
+		"motion_args": {"by": "stops", "word_begin": false, "empty_line": true, "separators": "", "forward": false, "extend": true }},
+		"context": [{"key": "setting.command_mode"}]
+	},
+
+	{ "keys": ["}"], "command": "set_motion", "args": {
+		"motion": "move",
+		"motion_args": {"by": "stops", "word_begin": false, "empty_line": true, "separators": "", "forward": true, "extend": true }},
+		"context": [{"key": "setting.command_mode"}]
+	},
 
 	{ "keys": ["W"], "command": "set_motion", "args": {
 		"motion": "move",
@@ -481,6 +498,19 @@
 	{ "keys": ["L"], "command": "set_motion", "args": {
 		"motion": "move_caret_to_screen_bottom",
 		"motion_args": {"repeat": 1}},
+		"context": [{"key": "setting.command_mode"}]
+	},
+
+ 	{ "keys": ["z", "."], "command": "set_motion", "args": {
+		"motion": "scroll_current_line_to_screen_center",
+ 		"motion_args": {"repeat": 1}},
+ 		"context": [{"key": "setting.command_mode"}]
+ 	},
+
+	{ "keys": ["z", "enter"], "command": "set_motion", "args": {
+		"motion": "scroll_current_line_to_screen_top",
+		"motion_args": {"repeat": 1}
+		},
 		"context": [{"key": "setting.command_mode"}]
 	},
 

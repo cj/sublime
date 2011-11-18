@@ -8,6 +8,7 @@
 		<string>makefile</string>
 		<string>Makefile</string>
 		<string>OCamlMakefile</string>
+		<string>make</string>
 	</array>
 	<key>name</key>
 	<string>Makefile</string>

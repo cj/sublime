@@ -176,5 +176,7 @@
 
 	// If true, the selected text will be copied into the find panel when it's
 	// shown.
+	// On OS X, this value is overridden in the platform specific settings, so
+	// you'll need to place this line in your user settings to override it.
 	"find_selected_text": true
 }

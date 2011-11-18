@@ -52,3 +52,6 @@
 [submodule "PhpDoc"]
 	path = PhpDoc
 	url = https://github.com/SublimeText/PhpDoc.git
+[submodule "less"]
+	path = less
+	url = https://github.com/appden/less.tmbundle.git
