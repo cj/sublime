@@ -88,6 +88,16 @@
 		{ "trigger": "meta", "contents": "<meta>" },
 		{ "trigger": "param", "contents": "<param name=\"$1\" value=\"$2\">" },
 
+		{ "trigger": "article", "contents": "<article>$1</article>" },
+		{ "trigger": "aside", "contents": "<aside>$1</aside>" },
+		{ "trigger": "audio", "contents": "<audio>$1</audio>" },
+		{ "trigger": "canvas", "contents": "<canvas>$1</canvas>" },
+		{ "trigger": "footer", "contents": "<footer>$1</footer>" },
+		{ "trigger": "header", "contents": "<header>$1</header>" },
+		{ "trigger": "nav", "contents": "<nav>$1</nav>" },
+		{ "trigger": "section", "contents": "<section>$1</section>" },
+		{ "trigger": "video", "contents": "<video>$1</video>" },
+
 
 		{ "trigger": "A", "contents": "<A HREF=\"$1\">$2</A>" },
 		{ "trigger": "ABBR", "contents": "<ABBR>$1</ABBR>" },
@@ -172,6 +182,16 @@
 		{ "trigger": "IMG", "contents": "<IMG SRC=\"$1\">" },
 		{ "trigger": "INPUT", "contents": "<INPUT>" },
 		{ "trigger": "META", "contents": "<META>" },
-		{ "trigger": "PARAM", "contents": "<PARAM NAME=\"$1\" VALUE=\"$2\">" }
+		{ "trigger": "PARAM", "contents": "<PARAM NAME=\"$1\" VALUE=\"$2\">" },
+
+		{ "trigger": "ARTICLE", "contents": "<ARTICLE>$1</ARTICLE>" },
+		{ "trigger": "ASIDE", "contents": "<ASIDE>$1</ASIDE>" },
+		{ "trigger": "AUDIO", "contents": "<AUDIO>$1</AUDIO>" },
+		{ "trigger": "CANVAS", "contents": "<CANVAS>$1</CANVAS>" },
+		{ "trigger": "FOOTER", "contents": "<FOOTER>$1</FOOTER>" },
+		{ "trigger": "HEADER", "contents": "<HEADER>$1</HEADER>" },
+		{ "trigger": "NAV", "contents": "<NAV>$1</NAV>" },
+		{ "trigger": "SECTION", "contents": "<SECTION>$1</SECTION>" },
+		{ "trigger": "VIDEO", "contents": "<VIDEO>$1</VIDEO>" }
 	]
 }

@@ -52,6 +52,39 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Date</string>
+			<key>scope</key>
+			<string>datediff</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#9933CC</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Date</string>
+			<key>scope</key>
+			<string>date</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#555555</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Response</string>
+			<key>scope</key>
+			<string>response</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#3387CC</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>dots</string>
 			<key>scope</key>
 			<string>dots</string>

@@ -53,6 +53,9 @@
 	// Valid values are "system", "enabled" and "disabled"
 	"overlay_scroll_bars": "system",
 
+	// Files containing null bytes are opened as hexadecimal by default
+	"enable_hexadecimal_encoding": true,
+
 	// List any packages to ignore here. When removing entries from this list,
 	// a restart may be required if the package contains plugins.
 	"ignored_packages": ["Vintage"]

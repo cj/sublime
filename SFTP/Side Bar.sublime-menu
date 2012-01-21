@@ -1,12 +1,32 @@
 [
 	{ "caption": "-" },
-	{ "caption": "Edit SFTP/FTP Remote…", "command": "sftp_edit_config", "args": {"dirs": []} },
-	{ "caption": "Create SFTP/FTP Remote…", "command": "sftp_create_config", "args": {"dirs": []} },
-	{ "caption": "Create Subfolder SFTP/FTP Remote…", "command": "sftp_create_sub_config", "args": {"dirs": []} },
-	{ "caption": "Upload File", "command": "sftp_upload_file", "args": {"paths": []} },
-	{ "caption": "Diff Remote File", "command": "sftp_diff_remote_file", "args": {"paths": []} },
-	{ "caption": "Download File", "command": "sftp_download_file", "args": {"paths": []} },
-	{ "caption": "Upload Folder", "command": "sftp_upload_folder", "args": {"paths": []} },
-	{ "caption": "Download Folder", "command": "sftp_download_folder", "args": {"paths": []} },
+	{
+		"caption": "SFTP/FTP",
+		"children":
+		[
+			{ "caption": "Upload File", "command": "sftp_upload_file", "args": {"paths": []} },
+			{ "caption": "Download File", "command": "sftp_download_file", "args": {"paths": []} },
+			{ "caption": "-" },
+			{ "caption": "Upload Folder", "command": "sftp_upload_folder", "args": {"paths": []} },
+			{ "caption": "Download Folder", "command": "sftp_download_folder", "args": {"paths": []} },
+			{ "caption": "-" },
+			{ "caption": "Diff Remote File", "command": "sftp_diff_remote_file", "args": {"paths": []} },
+			{ "caption": "Rename Local and Remote Files", "command": "sftp_rename_local_and_remote_paths", "args": {"files": []} },
+			{ "caption": "Rename Local and Remote Folders", "command": "sftp_rename_local_and_remote_paths", "args": {"dirs": []} },
+			{ "caption": "Delete Remote File", "command": "sftp_delete_remote_path", "args": {"files": []} },
+			{ "caption": "Delete Remote Folder", "command": "sftp_delete_remote_path", "args": {"dirs": []} },
+			{ "caption": "-" },
+			{ "caption": "Sync Local -> Remote…", "command": "sftp_sync_up", "args": {"paths": []} },
+			{ "caption": "Sync Remote -> Local…", "command": "sftp_sync_down", "args": {"paths": []} },
+			{ "caption": "Sync Both Directions…", "command": "sftp_sync_both", "args": {"paths": []} },
+			{ "caption": "-" },
+			{ "caption": "Monitor File (Upload on External Save)", "command": "sftp_monitor_file", "args": {"paths": []} },
+			{ "caption": "-" },
+			{ "caption": "Browse Remote…", "command": "sftp_browse", "args": {"paths": []} },
+			{ "caption": "-" },
+			{ "caption": "Map to Remote…", "command": "sftp_create_config", "args": {"paths": []} },
+			{ "caption": "Edit Remote Mapping…", "command": "sftp_edit_config", "args": {"paths": []} }		
+		]
+	},
 	{ "caption": "-" }
 ]

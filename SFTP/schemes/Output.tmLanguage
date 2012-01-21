@@ -14,6 +14,12 @@
 	<array>
 		<dict>
 			<key>match</key>
+			<string>( Yes|No)\n</string>
+			<key>name</key>
+			<string>response.sftp</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string> \.+</string>
 			<key>name</key>
 			<string>dots.sftp</string>
@@ -38,18 +44,54 @@
 					<key>name</key>
 					<string>punctuation.definition.string.begin.sftp</string>
 				</dict>
-				<key>3</key>
+				<key>2</key>
 				<dict>
 					<key>name</key>
 					<string>punctuation.definition.string.end.sftp</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>this is faster than the next begin/end rule since sub-pattern will match till end-of-line and SQL files tend to have very long lines.</string>
 			<key>match</key>
 			<string>(")[^"#]*(")</string>
 			<key>name</key>
 			<string>string.sftp</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>datediff.begin.sftp</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>datediff.end.sftp</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(\()(\d+|same age)[^\)]*(\))</string>
+			<key>name</key>
+			<string>datediff.sftp</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>date.begin.sftp</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>date.end.sftp</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(\[)(\d+|same age)[^\]]*(\])</string>
+			<key>name</key>
+			<string>date.sftp</string>
 		</dict>
 	</array>
 	<key>scopeName</key>

@@ -1,5 +1,6 @@
 {
-	"cmd": ["ruby", "$file"],
+	"cmd": ["ruby", "-c", "$file"],
 	"file_regex": "^(...*?):([0-9]*):?([0-9]*)",
-	"selector": "source.ruby"
+	"selector": "source.ruby",
+  "path": "$HOME/.rvm/rubies/ruby-1.9.2-p290/bin"
 }

@@ -17,18 +17,25 @@
 	// mapping that is retrieved from the repository channels.
 	"package_name_map": {},
 
+	// If package install, upgrade and removal info should be submitted to
+	// the channel for aggregated statistics
+	"submit_usage": true,
+
+	// The URL to post install, upgrade and removal notices to 
+	"submit_url": "http://sublime.wbond.net/submit",
+
 	// If packages should be automatically upgraded when ST2 starts
 	"auto_upgrade": true,
 
 	// The minimum frequency in hours in which to check for automatic upgrades,
 	// setting this to 0 will always check for automatic upgrades
-	"auto_upgrade_frequency": 12,
+	"auto_upgrade_frequency": 1,
 
 	// Packages to not auto upgrade
 	"auto_upgrade_ignore": [],
 
 	// Timeout for downloading channels, repositories and packages
-	"timeout": 3,
+	"timeout": 30,
 
 	// The number of seconds to cache repository and package info for
 	"cache_length": 300,
@@ -55,7 +62,7 @@
 	// Files to ignore when creating a package
 	"files_to_ignore": [
 		".hgignore", ".gitignore", ".bzrignore", "*.pyc", "*.sublime-project",
-		"*.tmTheme.cache"
+		"*.sublime-workspace", "*.tmTheme.cache"
 	],
 	// Files to ignore when creating a binary package. By default binary
 	// packages ship with .pyc files instead of .py files. If an __init__.py
@@ -63,7 +70,7 @@
 	// these patterns.
 	"files_to_ignore_binary": [
 		".hgignore", ".gitignore", ".bzrignore", "*.py", "*.sublime-project",
-		"*.tmTheme.cache"
+		"*.sublime-workspace", "*.tmTheme.cache"
 	],
 	// When a package is created, copy it to this folder - defaults to Desktop 
 	"package_destination": ""

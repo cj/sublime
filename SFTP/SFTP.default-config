@@ -1,0 +1,32 @@
+{
+    // The tab key will cycle through the settings when first created
+    
+    // sftp or ftp
+    "type": "${1:sftp}",
+    "save_before_upload": ${2:true},
+    "upload_on_save": ${3:false},
+    "sync_down_on_open": ${4:false},
+    "sync_skip_deletes": ${5:false},
+    "confirm_sync": ${6:true},
+    "confirm_overwrite_newer": ${7:false},
+    
+    "host": "${8:example.com}",
+    "user": "${9:username}",
+    ${10://}"password": "${11:password}",
+    ${12://}"port": "${13:22}",
+    
+    "remote_path": "${14:/example/path/}",
+    "ignore_regex": "${15:(\\\.sublime-project|\\\.sublime-workspace|sftp-config\\\.json|sftp-settings\\\.json|\\\.svn|\\\.hg|\\\.git|\\\.bzr|_darcs|CVS|\\\.DS_Store|Thumbs\\\.db|desktop\\\.ini)}",
+    ${16://}"file_permissions": "${17:664}",
+    ${18://}"dir_permissions": "${19:775}",
+    
+    "connect_timeout": ${20:30},
+    ${21://}"ftp_passive_mode": ${22:true},
+    ${23://}"ssh_key_file": "${24:~/.ssh/id_rsa}",
+    ${25://}"sftp_flags": "${26:-F /path/to/ssh_config}",
+    
+    ${27://}"preserve_modification_times": ${28:false},
+    ${29://}"remote_time_offset_in_hours": ${30:0},
+    ${31://}"remote_encoding": "${32:utf-8}",
+    ${33://}"remote_locale": "${34:C}",
+}

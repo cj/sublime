@@ -676,18 +676,5 @@
       "match_all": true,
       "key": "following_text"
     }]
-  },
-  {
-      "keys"    : ["tab"],
-      "__doc__" : "Insert a completion when there is a snippet active as long as there's a valid abbrevation that doesn't end in a full stop.",
-      "command" : "insert_best_completion",
-      "args"    : {"exact" : false, "default": "\t"},
-      "context": [
-          { "key": "is_zen",                 "operator": "equal",              "operand": true },
-          { "key": "preceding_text",         "operator": "not_regex_contains", "operand": "\\.$",      "match_all": true },
-          { "key": "has_next_field",         "operator": "equal",              "operand": true },
-          { "key": "setting.tab_completion", "operator": "equal",              "operand": true },
-          { "key": "selector",               "operator": "equal",              "operand": "text.html", "match_all": true}
-      ]
-    }
-  ]
+  }
+]

@@ -21,7 +21,12 @@
 		"log-*.*",
 		"*.doc",
 		"*.xls",
-		"*.as"
+		"*.as",
+		"*.wav",
+		"*.mp4",
+		"*.pem",
+		"*.mgc",
+		"*.mime"
 	],
 	"file_exclude_patterns":
 	[
@@ -66,7 +71,12 @@
 		"*.xls",
 		"*.as",
 		"minified.*",
-		"log-*.*"
+		"log-*.*",
+		"*.wav",
+		"*.mp4",
+		"*.pem",
+		"*.mgc",
+		"*.mime"
 	],
 	"folder_exclude_patterns":
 	[

@@ -69,7 +69,6 @@ __authors__     = ['"Sergey Chikuyonok" <serge.che@gmail.com>'
 
 zen_settings = sublime.load_settings('zen-coding.sublime-settings')
 
-
 OPMAP = {
     sublime.OP_EQUAL     : operator.eq,
     sublime.OP_NOT_EQUAL : operator.ne,
@@ -126,20 +125,21 @@ if int(sublime.version()) >= 2092:
 ######################## REMOVE HTML/HTML_COMPLETIONS.PY #######################
 
 def remove_html_completions():
-    try:
-        import html_completions
-        hc = html_completions.HtmlCompletions
-    except (ImportError, AttributeError):
-        debug('Unable to find `html_completions.HtmlCompletions`')
-        return
+    for completer in "TagCompletions", "HtmlCompletions":
+        try:
+            import html_completions
+            cm = getattr(html_completions, completer)
+        except (ImportError, AttributeError):
+            debug('Unable to find `html_completions.HtmlCompletions`')
+            continue
 
-    completions = sublime_plugin.all_callbacks['on_query_completions']
-    for i, instance in enumerate (completions):
-        if isinstance(instance, hc):
-            debug('on_query_completion: removing: %s' % hc)
-            del completions[i]
+        completions = sublime_plugin.all_callbacks['on_query_completions']
+        for i, instance in enumerate (completions):
+            if isinstance(instance, cm):
+                debug('on_query_completion: removing: %s' % cm)
+                del completions[i]
 
-    debug('on_query_completion: callbacks: %r' % completions)
+        debug('on_query_completion: callbacks: %r' % completions)
 
 sublime.set_timeout(remove_html_completions, 2000)
 
@@ -246,6 +246,14 @@ class ZenListener(sublime_plugin.EventListener):
                 return [ ( prefix, (':' + p), p.replace('|', '$1') ) for p in
                            CSS_PSEUDO_CLASSES if
                            not prefix or p.startswith(prefix[0].lower() ) ]
+            elif selector.startswith('.'):
+                return []
+                # return []
+                return [(selector, v, v) for v in 
+                     set(map(view.substr, [
+                         r for r in view.find_by_selector('source.css '
+                       'meta.selector.css entity.other.attribute-name.class.css')
+                          if not r.contains(pos)] ))]
             else:
                 return elements
 
@@ -258,24 +266,25 @@ class ZenListener(sublime_plugin.EventListener):
 
         if values and prefix and prefix in values:
             oq_debug("zcprop:val prop: %r values: %r" % (prop, values))
-            return [(prefix, v, v) for d,v in sorted(values.items())]
+            return [(d, '%s\t(%s)' % (v, d), v) for d,v in sorted(values.items())]
         else:
             # Look for values relating to that property
             # Remove exact matches, so a \t is inserted
             values =  [v for v in CSS_PROP_VALUES.get(prop, []) if v != prefix]
             if values:
                 debug("zenmeta:val prop: %r values: %r" % (prop, values))
-                return [(prefix, ':' + v, v) for v in values]
+                return [(v,  v, v) for v in values]
+                # return [(v,  '%s\t(%s)' % (v, v), v) for v in values]
 
     def html_elements_attributes(self, view, prefix, pos):
         tag         = find_tag_name(view, pos)
         values      = HTML_ELEMENTS_ATTRIBUTES.get(tag, [])
-        return [(prefix, '@' + v, '%s="$1"' % v) for v in values]
+        return [(v,   '%s\t@%s' % (v,v), '%s="$1" ' % v) for v in values]
 
     def html_attributes_values(self, view, prefix, pos):
         attr        = find_attribute_name(view, pos)
         values      = HTML_ATTRIBUTES_VALUES.get(attr, [])
-        return [(prefix, '@=' + v, v) for v in values]
+        return [(v, '%s\t@=%s' % (v,v), v) for v in values]
 
     def on_query_completions(self, view, prefix, locations):
         if ( not self.correct_syntax(view) or
@@ -291,47 +300,53 @@ class ZenListener(sublime_plugin.EventListener):
 
         # A mapping of scopes, sub scopes and handlers, first matching of which
         # is used.
-        COMPLETIONS = (
-
-            (CSS,  ( (CSS_SELECTOR,              self.css_selectors),
-                     (CSS_VALUE,                 self.css_property_values) )),
-
-            (HTML, ( (HTML_INSIDE_TAG,           self.html_elements_attributes),
-                     (HTML_INSIDE_TAG_ATTRIBUTE, self.html_attributes_values) ))
-        )
+        COMPLETIONS = (  
+            (CSS_SELECTOR,              self.css_selectors),
+            (CSS_VALUE,                 self.css_property_values),
+            (HTML_INSIDE_TAG,           self.html_elements_attributes),
+            (HTML_INSIDE_TAG_ATTRIBUTE, self.html_attributes_values) )
 
         pos = view.sel()[0].b
 
         # Try to find some more specific contextual abbreviation
-        for root_selector, sub_selectors in COMPLETIONS:
-            for sub_selector, handler in sub_selectors:
-                h_name = handler.__name__
-                if h_name in black_list: continue
-                if view.match_selector(pos,  sub_selector):
+        for sub_selector, handler in COMPLETIONS:
+            h_name = handler.__name__
+            if h_name in black_list: continue
+            if view.match_selector(pos,  sub_selector):
 
-                    c = h_name, prefix
-                    oq_debug('handler: %r prefix: %r' % c)
-                    oq_debug('pos: %r scope: %r' % (pos, view.syntax_name(pos)))
+                c = h_name, prefix
+                oq_debug('handler: %r prefix: %r' % c)
+                oq_debug('pos: %r scope: %r' % (pos, view.syntax_name(pos)))
 
-                    completions = handler(view, prefix, pos)
-                    oq_debug('completions: %r' % completions)
-                    if completions: return completions
+                completions = handler(view, prefix, pos)
+                oq_debug('completions: %r' % completions)
+                if completions: return completions
 
-        # Expand Zen expressions such as `d:n+m:a` or `div*5`
-        try:
-            abbr = zencoding.actions.basic.find_abbreviation(editor)
-            oq_debug('abbr: %r' % abbr)
+        do_zen_expansion = True
+        html_scope_for_zen = ("text.html meta.tag "
+                "-meta.scope.between-tag-pair.html "
+                "-punctuation.definition.tag.begin.html")
 
-            if abbr:
-                result = expand_abbr(abbr)
-                oq_debug('expand_abbr abbr: %r result: %r' % (abbr, result))
+        if view.match_selector(pos, 'text.html'):
+            if view.match_selector(pos, html_scope_for_zen):
+                do_zen_expansion = False
 
-                if result:
-                    return [
-                        (abbr, abbr, result)]
+        if do_zen_expansion:
+            # Expand Zen expressions such as `d:n+m:a` or `div*5`
+            try:
 
-        except ZenInvalidAbbreviation:
-            pass
+                abbr = zencoding.actions.basic.find_abbreviation(editor)
+                oq_debug('abbr: %r' % abbr)
+                if abbr and not view.match_selector( locations[0], 
+                                                     HTML_INSIDE_TAG ):
+                    result = expand_abbr(abbr)
+                    oq_debug('expand_abbr abbr: %r result: %r' % (abbr, result))
+
+                    if result:
+                        return [(abbr, result, result)]
+
+            except ZenInvalidAbbreviation:
+                pass
 
         # If it wasn't a valid Zen css snippet, or the prefix is empty ''
         # then get warm and fuzzy with css properties.

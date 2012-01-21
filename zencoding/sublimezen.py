@@ -135,8 +135,9 @@ def find_css_property(view, start_pt):
 
 def find_css_selector(view, start_pt):
     conds = [track_scope(CSS_SELECTOR)]
-
-    if not view.match_selector(start_pt, CSS_SELECTOR):
+    
+    if not sublime.score_selector(view.scope_name(start_pt), CSS_SELECTOR):
+    # if not view.score_selector((start_pt), CSS_SELECTOR):
         conds.insert(0, track_scope(CSS_SELECTOR, False))
     
     selector = back_track(view, start_pt, *conds)[-1]

@@ -8,4 +8,5 @@ $0
 </body>
 </html>]]></content>
 	<tabTrigger>html</tabTrigger>
+	<scope>text.html</scope>
 </snippet>

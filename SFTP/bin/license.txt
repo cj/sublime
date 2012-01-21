@@ -1,2 +1,0 @@
-Please see the licenses subfolder for the license terms for all of the dll and
-exe files in this folder.

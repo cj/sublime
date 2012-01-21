@@ -14,6 +14,8 @@
                 "mnemonic": "R",
                 "children":
                 [
+                    { "command": "reopen_last_file", "caption": "Reopen Closed File" },
+                    { "caption": "-" },
                     { "command": "open_recent_file", "args": {"index": 0 } },
                     { "command": "open_recent_file", "args": {"index": 1 } },
                     { "command": "open_recent_file", "args": {"index": 2 } },
@@ -42,6 +44,7 @@
                     { "caption": "UTF-8", "command": "reopen", "args": {"encoding": "utf-8" } },
                     { "caption": "UTF-16 LE", "command": "reopen", "args": {"encoding": "utf-16 le" } },
                     { "caption": "UTF-16 BE", "command": "reopen", "args": {"encoding": "utf-16 be" } },
+                    { "caption": "-" },
                     { "caption": "Western (Windows 1252)", "command": "reopen", "args": {"encoding": "Western (Windows 1252)" } },
                     { "caption": "Western (ISO 8859-1)", "command": "reopen", "args": {"encoding": "Western (ISO 8859-1)" } },
                     { "caption": "Western (ISO 8859-3)", "command": "reopen", "args": {"encoding": "Western (ISO 8859-3)" } },
@@ -69,35 +72,9 @@
                     { "caption": "Romanian (ISO 8859-16)", "command": "reopen", "args": {"encoding": "Romanian (ISO 8859-16)" } },
                     { "caption": "Turkish (Windows 1254)", "command": "reopen", "args": {"encoding": "Turkish (Windows 1254)" } },
                     { "caption": "Turkish (ISO 8859-9)", "command": "reopen", "args": {"encoding": "Turkish (ISO 8859-9)" } },
-                    { "caption": "Vietnamese (Windows 1258)", "command": "reopen", "args": {"encoding": "Vietnamese (Windows 1258)" } }
-                ]
-            },
-            {
-                "caption": "Switch File",
-                "mnemonic": "t",
-                "id": "switch_file",
-                "children":
-                [
-                    { "command": "next_view", "caption": "Next File" },
-                    { "command": "prev_view", "caption": "Previous File" },
+                    { "caption": "Vietnamese (Windows 1258)", "command": "reopen", "args": {"encoding": "Vietnamese (Windows 1258)" } },
                     { "caption": "-" },
-                    { "command": "next_view_in_stack", "caption": "Next File in Stack" },
-                    { "command": "prev_view_in_stack", "caption": "Previous File in Stack" },
-                    { "caption": "-" },
-                    { "command": "switch_file", "args": {"extensions": ["cpp", "cxx", "cc", "c", "hpp", "hxx", "h", "ipp", "inl", "m", "mm"]}, "caption": "Switch Header/Implementation", "mnemonic": "H" },
-                    { "caption": "-" },
-                    { "command": "select_by_index", "args": { "index": 0 } },
-                    { "command": "select_by_index", "args": { "index": 1 } },
-                    { "command": "select_by_index", "args": { "index": 2 } },
-                    { "command": "select_by_index", "args": { "index": 3 } },
-                    { "command": "select_by_index", "args": { "index": 4 } },
-                    { "command": "select_by_index", "args": { "index": 5 } },
-                    { "command": "select_by_index", "args": { "index": 6 } },
-                    { "command": "select_by_index", "args": { "index": 7 } },
-                    { "command": "select_by_index", "args": { "index": 8 } },
-                    { "command": "select_by_index", "args": { "index": 9 } },
-                    { "caption": "-" },
-                    { "command": "show_overlay", "args": {"overlay": "goto", "show_files": true}, "caption": "Goto File", "mnemonic": "F" }
+                    { "caption": "Hexadecimal", "command": "reopen", "args": {"encoding": "Hexadecimal" } }
                 ]
             },
             { "command": "save", "caption": "Save", "mnemonic": "S" },
@@ -147,11 +124,7 @@
                     { "command": "swap_line_up" },
                     { "command": "swap_line_down" },
                     { "command": "duplicate_line" },
-                    { "command": "join_lines" },
-                    { "caption": "-" },
-                    { "command": "run_macro_file", "args": {"file": "Packages/Default/Delete Line.sublime-macro"}, "caption": "Delete Line" },
-                    { "command": "run_macro_file", "args": {"file": "Packages/Default/Delete to Hard EOL.sublime-macro"}, "caption": "Delete to End" },
-                    { "command": "run_macro_file", "args": {"file": "Packages/Default/Delete to Hard BOL.sublime-macro"}, "caption": "Delete to Beginning" }
+                    { "command": "join_lines" }
                 ]
             },
             {
@@ -170,8 +143,13 @@
                 [
                     { "command": "run_macro_file", "args": {"file": "Packages/Default/Add Line Before.sublime-macro"}, "caption": "Insert Line Before" },
                     { "command": "run_macro_file", "args": {"file": "Packages/Default/Add Line.sublime-macro"}, "caption": "Insert Line After" },
+                    { "caption": "-" },
                     { "command": "delete_word", "args": { "forward": true }, "caption": "Delete Word Forward" },
                     { "command": "delete_word", "args": { "forward": false }, "caption": "Delete Word Backward" },
+                    { "command": "run_macro_file", "args": {"file": "Packages/Default/Delete Line.sublime-macro"}, "caption": "Delete Line" },
+                    { "command": "run_macro_file", "args": {"file": "Packages/Default/Delete to Hard EOL.sublime-macro"}, "caption": "Delete to End" },
+                    { "command": "run_macro_file", "args": {"file": "Packages/Default/Delete to Hard BOL.sublime-macro"}, "caption": "Delete to Beginning" },
+                    { "caption": "-" },
                     { "command": "transpose" }
                 ]
             },
@@ -245,7 +223,7 @@
                     { "command": "wrap_lines", "args": {"width": 120}, "caption": "Wrap paragraph at 120 characters" }
                 ]
             },
-            { "command": "auto_complete" },
+            { "command": "auto_complete", "caption": "Show Completions" },
             { "caption": "-", "id": "permute" },
 
             { "command": "sort_lines", "args": {"case_sensitive": false}, "caption": "Sort Lines", "mnemonic": "S" },
@@ -279,62 +257,19 @@
         "id": "selection",
         "children":
         [
-            { "command": "find_under_expand", "caption": "Select More" },
             { "command": "split_selection_into_lines", "caption": "Split into Lines" },
             { "command": "select_lines", "args": {"forward": false}, "caption": "Add Previous Line" },
             { "command": "select_lines", "args": {"forward": true}, "caption": "Add Next Line" },
             { "command": "single_selection" },
-            {
-                "caption": "Expand Selection",
-                "mnemonic": "x",
-                "id": "expand_selection",
-                "children":
-                [
-                    { "command": "select_all" },
-                    { "command": "expand_selection", "args": {"to": "line"}, "caption": "Expand Selection to Line" },
-                    { "command": "expand_selection", "args": {"to": "word"}, "caption": "Expand Selection to Word" },
-                    { "command": "expand_selection_to_paragraph", "caption": "Expand Selection to Paragraph" },
-                    { "command": "expand_selection", "args": {"to": "scope"}, "caption": "Expand Selection to Scope" },
-                    { "command": "expand_selection", "args": {"to": "brackets"}, "caption": "Expand Selection to Brackets" },
-                    { "command": "expand_selection", "args": {"to": "indentation"}, "caption": "Expand Selection to Indentation" },
-                    { "command": "expand_selection", "args": {"to": "tag"}, "caption": "Expand Selection to Tag" }
-                ]
-            },
             { "caption": "-" },
-            { "command": "show_at_center", "caption": "Center Selection" },
-            { "caption": "-" },
-            { "command": "move_to", "args": {"to": "brackets"}, "caption": "Jump to Matching Bracket" },
-            { "caption": "-" },
-            {
-                "caption": "Bookmarks",
-                "mnemonic": "b",
-                "id": "bookmarks",
-                "children":
-                [
-                    { "command": "toggle_bookmark" },
-                    { "command": "next_bookmark" },
-                    { "command": "prev_bookmark" },
-                    { "command": "clear_bookmarks" },
-                    { "command": "select_all_bookmarks" },
-                    { "caption": "-" },
-                    { "command": "select_bookmark", "args": {"index": 0} },
-                    { "command": "select_bookmark", "args": {"index": 1} },
-                    { "command": "select_bookmark", "args": {"index": 2} },
-                    { "command": "select_bookmark", "args": {"index": 3} },
-                    { "command": "select_bookmark", "args": {"index": 4} },
-                    { "command": "select_bookmark", "args": {"index": 5} },
-                    { "command": "select_bookmark", "args": {"index": 6} },
-                    { "command": "select_bookmark", "args": {"index": 7} },
-                    { "command": "select_bookmark", "args": {"index": 8} },
-                    { "command": "select_bookmark", "args": {"index": 9} },
-                    { "command": "select_bookmark", "args": {"index": 10} },
-                    { "command": "select_bookmark", "args": {"index": 11} },
-                    { "command": "select_bookmark", "args": {"index": 12} },
-                    { "command": "select_bookmark", "args": {"index": 13} },
-                    { "command": "select_bookmark", "args": {"index": 14} },
-                    { "command": "select_bookmark", "args": {"index": 15} }
-                ]
-            }
+            { "command": "select_all" },
+            { "command": "expand_selection", "args": {"to": "line"}, "caption": "Expand Selection to Line" },
+            { "command": "find_under_expand", "caption": "Expand Selection to Word" },
+            { "command": "expand_selection_to_paragraph", "caption": "Expand Selection to Paragraph" },
+            { "command": "expand_selection", "args": {"to": "scope"}, "caption": "Expand Selection to Scope" },
+            { "command": "expand_selection", "args": {"to": "brackets"}, "caption": "Expand Selection to Brackets" },
+            { "command": "expand_selection", "args": {"to": "indentation"}, "caption": "Expand Selection to Indentation" },
+            { "command": "expand_selection", "args": {"to": "tag"}, "caption": "Expand Selection to Tag" }
         ]
     },
     {
@@ -343,18 +278,22 @@
         "id": "find",
         "children":
         [
-            { "command": "show_panel", "args": {"panel": "find"}, "caption": "Find" },
+            { "command": "show_panel", "args": {"panel": "find"}, "caption": "Find…" },
             { "command": "find_next" },
             { "command": "find_prev", "caption": "Find Previous" },
             { "command": "show_panel", "args": {"panel": "incremental_find", "reverse": false}, "caption": "Incremental Find" },
-            { "command": "show_panel", "args": {"panel": "incremental_find", "reverse": true}, "caption": "Reverse Incremental Find" },
             { "caption": "-" },
-            { "command": "find_under", "caption": "Find Next Using Selection" },
-            { "command": "find_all_under", "caption": "Find All Using Selection" },
+            { "command": "show_panel", "args": {"panel": "replace"}, "caption": "Replace…" },
+            { "command": "replace_next" },
             { "caption": "-" },
-            { "command": "show_panel", "args": {"panel": "replace"}, "caption": "Replace" },
+            { "command": "find_under", "caption": "Quick Find" },
+            { "command": "find_all_under", "caption": "Quick Find All" },
+            { "command": "find_under_expand", "caption": "Quick Add Next" },
             { "caption": "-" },
-            { "command": "show_panel", "args": {"panel": "find_in_files"}, "caption": "Find in Files" },
+            { "command": "slurp_find_string", "caption": "Use Selection for Find" },
+            { "command": "slurp_replace_string", "caption": "Use Selection for Replace" },
+            { "caption": "-" },
+            { "command": "show_panel", "args": {"panel": "find_in_files"}, "caption": "Find in Files…" },
             {
                 "caption": "Find Results",
                 "mnemonic": "R",
@@ -363,18 +302,6 @@
                     { "command": "show_panel", "args": {"panel": "output.find_results"}, "caption": "Show Results Panel" },
                     { "command": "next_result" },
                     { "command": "prev_result", "caption": "Previous Result" }
-                ]
-            },
-            { "caption": "-", "id": "goto" },
-            { "command": "show_overlay", "args": {"overlay": "goto", "show_files": true}, "caption": "Goto Anything", "mnemonic": "A" },
-            {
-                "caption": "Goto",
-                "mnemonic": "G",
-                "children":
-                [
-                    { "command": "show_overlay", "args": {"overlay": "goto", "text": "@"}, "caption": "Goto Symbol" },
-                    { "command": "show_overlay", "args": {"overlay": "goto", "text": "#"}, "caption": "Goto Word" },
-                    { "command": "show_overlay", "args": {"overlay": "goto", "text": ":"}, "caption": "Goto Line" }
                 ]
             }
         ]
@@ -546,7 +473,7 @@
                 [
                     { "command": "set_line_ending", "args": {"type": "windows"}, "caption": "Windows", "checkbox": true },
                     { "command": "set_line_ending", "args": {"type": "unix"}, "caption": "Unix", "checkbox": true },
-                    { "command": "set_line_ending", "args": {"type": "mac"}, "caption": "Mac OS 9", "checkbox": true }
+                    { "command": "set_line_ending", "args": {"type": "cr"}, "caption": "Mac OS 9", "checkbox": true }
                 ]
             },
             { "caption": "-", "id": "settings" },
@@ -588,18 +515,97 @@
         ]
     },
     {
+        "caption": "Goto",
+        "mnemonic": "G",
+        "id": "goto",
+        "children":
+        [
+            { "command": "show_overlay", "args": {"overlay": "goto", "show_files": true}, "caption": "Goto Anything…", "mnemonic": "A" },
+            { "caption": "-" },
+            { "command": "show_overlay", "args": {"overlay": "goto", "text": "@"}, "caption": "Goto Symbol…" },
+            // { "command": "show_overlay", "args": {"overlay": "goto", "text": "#"}, "caption": "Goto Word…" },
+            { "command": "show_overlay", "args": {"overlay": "goto", "text": ":"}, "caption": "Goto Line…" },
+            { "caption": "-" },
+            {
+                "caption": "Switch File",
+                "mnemonic": "t",
+                "id": "switch_file",
+                "children":
+                [
+                    { "command": "next_view", "caption": "Next File" },
+                    { "command": "prev_view", "caption": "Previous File" },
+                    { "caption": "-" },
+                    { "command": "next_view_in_stack", "caption": "Next File in Stack" },
+                    { "command": "prev_view_in_stack", "caption": "Previous File in Stack" },
+                    { "caption": "-" },
+                    { "command": "switch_file", "args": {"extensions": ["cpp", "cxx", "cc", "c", "hpp", "hxx", "h", "ipp", "inl", "m", "mm"]}, "caption": "Switch Header/Implementation", "mnemonic": "H" },
+                    { "caption": "-" },
+                    { "command": "select_by_index", "args": { "index": 0 } },
+                    { "command": "select_by_index", "args": { "index": 1 } },
+                    { "command": "select_by_index", "args": { "index": 2 } },
+                    { "command": "select_by_index", "args": { "index": 3 } },
+                    { "command": "select_by_index", "args": { "index": 4 } },
+                    { "command": "select_by_index", "args": { "index": 5 } },
+                    { "command": "select_by_index", "args": { "index": 6 } },
+                    { "command": "select_by_index", "args": { "index": 7 } },
+                    { "command": "select_by_index", "args": { "index": 8 } },
+                    { "command": "select_by_index", "args": { "index": 9 } }
+                ]
+            },
+            { "caption": "-" },
+            {
+                "caption": "Scroll",
+                "mnemonic": "S",
+                "id": "scroll",
+                "children":
+                [
+                    { "command": "show_at_center", "caption": "Scroll to Selection" },
+                    { "command": "scroll_lines", "args": {"amount": 1.0 }, "caption": "Line Up" },
+                    { "command": "scroll_lines", "args": {"amount": -1.0 }, "caption": "Line Down" }
+                ]
+            },
+            {
+                "caption": "Bookmarks",
+                "mnemonic": "b",
+                "id": "bookmarks",
+                "children":
+                [
+                    { "command": "toggle_bookmark" },
+                    { "command": "next_bookmark" },
+                    { "command": "prev_bookmark" },
+                    { "command": "clear_bookmarks" },
+                    { "command": "select_all_bookmarks" },
+                    { "caption": "-" },
+                    { "command": "select_bookmark", "args": {"index": 0} },
+                    { "command": "select_bookmark", "args": {"index": 1} },
+                    { "command": "select_bookmark", "args": {"index": 2} },
+                    { "command": "select_bookmark", "args": {"index": 3} },
+                    { "command": "select_bookmark", "args": {"index": 4} },
+                    { "command": "select_bookmark", "args": {"index": 5} },
+                    { "command": "select_bookmark", "args": {"index": 6} },
+                    { "command": "select_bookmark", "args": {"index": 7} },
+                    { "command": "select_bookmark", "args": {"index": 8} },
+                    { "command": "select_bookmark", "args": {"index": 9} },
+                    { "command": "select_bookmark", "args": {"index": 10} },
+                    { "command": "select_bookmark", "args": {"index": 11} },
+                    { "command": "select_bookmark", "args": {"index": 12} },
+                    { "command": "select_bookmark", "args": {"index": 13} },
+                    { "command": "select_bookmark", "args": {"index": 14} },
+                    { "command": "select_bookmark", "args": {"index": 15} }
+                ]
+            },
+            { "caption": "-" },
+            { "command": "move_to", "args": {"to": "brackets"}, "caption": "Jump to Matching Bracket" }
+        ]
+    },
+    {
         "caption": "Tools",
         "mnemonic": "T",
         "id": "tools",
         "children":
         [
-            { "command": "show_overlay", "args": {"overlay": "command_palette"}, "caption": "Command Palette" },
-            { "caption": "-" },
-            {
-                "caption": "Snippets",
-                "mnemonic": "S",
-                "children": [ { "command": "$snippets" } ]
-            },
+            { "command": "show_overlay", "args": {"overlay": "command_palette"}, "caption": "Command Palette…" },
+            { "command": "show_overlay", "args": {"overlay": "command_palette", "text": "Snippet: "}, "caption": "Snippets…" },
             { "caption": "-", "id": "build" },
             {
                 "caption": "Build System",

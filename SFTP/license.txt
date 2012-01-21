@@ -1,3 +1,10 @@
+Software contained in the "bin" directory is subject to the licenses in the
+"licenses" subdirectory. "sftp/ftplib2.pyc" is subject to the
+"python_license.txt" in this directory. All other files are subject to the
+following copyright.
+
+--------
+
 Sublime SFTP
 Copyright (c) 2011 William Bond <will@wbond.net>
 

@@ -55,3 +55,6 @@
 [submodule "less"]
 	path = less
 	url = https://github.com/appden/less.tmbundle.git
+[submodule "DetectSyntax"]
+	path = DetectSyntax
+	url = git://github.com/phillipkoebbe/DetectSyntax.git

@@ -36,14 +36,14 @@
     { "caption": "Project: Close", "command": "close_project" },
     { "caption": "Project: Add Folder", "command": "prompt_add_folder" },
 
-    { "caption": "Preferences: Default File Settings", "command": "open_file", "args": {"file": "${packages}/Default/Base File.sublime-settings"} },
-    { "caption": "Preferences: User File Settings", "command": "open_file", "args": {"file": "${packages}/User/Base File.sublime-settings"} },
-    { "caption": "Preferences: Default Global Settings", "command": "open_file", "args": {"file": "${packages}/Default/Global.sublime-settings"} },
-    { "caption": "Preferences: User Global Settings", "command": "open_file", "args": {"file": "${packages}/User/Global.sublime-settings"} },
+    { "caption": "Preferences: File Settings - Default", "command": "open_file", "args": {"file": "${packages}/Default/Base File.sublime-settings"} },
+    { "caption": "Preferences: File Settings - User", "command": "open_file", "args": {"file": "${packages}/User/Base File.sublime-settings"} },
+    { "caption": "Preferences: Global Settings - Default", "command": "open_file", "args": {"file": "${packages}/Default/Global.sublime-settings"} },
+    { "caption": "Preferences: Global Settings - User", "command": "open_file", "args": {"file": "${packages}/User/Global.sublime-settings"} },
     { "caption": "Preferences: Browse Packages", "command": "open_dir", "args": {"dir": "$packages"} },
 
     {
-        "caption": "Preferences: Default Key Bindings",
+        "caption": "Preferences: Key Bindings - Default",
         "command": "open_file", "args":
         {
             "file": "${packages}/Default/Default (Windows).sublime-keymap",
@@ -51,7 +51,7 @@
         }
     },
     {
-        "caption": "Preferences: Default Key Bindings",
+        "caption": "Preferences: Key Bindings - Default",
         "command": "open_file", "args":
         {
             "file": "${packages}/Default/Default (OSX).sublime-keymap",
@@ -59,7 +59,7 @@
         }
     },
     {
-        "caption": "Preferences: Default Key Bindings",
+        "caption": "Preferences: Key Bindings - Default",
         "command": "open_file", "args":
         {
             "file": "${packages}/Default/Default (Linux).sublime-keymap",
@@ -67,7 +67,7 @@
         }
     },
     {
-        "caption": "Preferences: User Key Bindings",
+        "caption": "Preferences: Key Bindings - User",
         "command": "open_file", "args":
         {
             "file": "${packages}/User/Default (Windows).sublime-keymap",
@@ -75,7 +75,7 @@
         }
     },
     {
-        "caption": "Preferences: User Key Bindings",
+        "caption": "Preferences: Key Bindings - User",
         "command": "open_file", "args":
         {
             "file": "${packages}/User/Default (OSX).sublime-keymap",
@@ -83,7 +83,7 @@
         }
     },
     {
-        "caption": "Preferences: User Key Bindings",
+        "caption": "Preferences: Key Bindings - User",
         "command": "open_file", "args":
         {
             "file": "${packages}/User/Default (Linux).sublime-keymap",
@@ -100,6 +100,9 @@
     { "caption": "HTML: Encode Special Characters", "command": "encode_html_entities" },
 
     { "caption": "Rot13 Selection", "command": "rot13" },
+
+    { "caption": "Sort Lines", "command": "sort_lines", "args": {"case_sensitive": false} },
+    { "caption": "Sort Lines (Case Sensitive)", "command": "sort_lines", "args": {"case_sensitive": true} },
 
     { "caption": "Code Folding: Unfold All", "command": "unfold_all" },
     { "caption": "Code Folding: Fold Tag Attributes", "command": "fold_tag_attributes" },

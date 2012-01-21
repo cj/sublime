@@ -5,16 +5,10 @@
 	//  - true   = always
 	"hide_output_panel": 1,
 
-	// Setting this value to true will cause unsaved changes to be saved
-	// before uploading the file
-	"save_before_upload": true,
-
-	// The connection timeout
-	"timeout": 5,
-
-	// FTP path cache length (in seconds) - this helps increase peformance
-	// of FTP connections
-	"ftp_cache_length": 300,
+	// Frequency in milliseconds that sftp_monitor_file command checks
+	// modification time of file. This uses lstat, so it is not an I/O
+	// intensive operation, especially since the OS has a filesystem cache
+	"monitoring_frequency": 200,
 
 	// If debug output should be printed to the console
 	// True or 1 outputs FTP/SFTP commands, 2 is more verbose
@@ -29,6 +23,7 @@
 	// equal to %2$s
 	//,"diff_command": ["/usr/bin/meld", "%1$s", "%2$s"]
 	//,"diff_command": ["C:\\Program Files (x86)\\WinMerge\\WinMergeU.exe", "%1$s", "%2$s"]
+	//,"diff_command": ["/usr/bin/opendiff", "%1$s", "%2$s"]
  
 	// On Windows machines, git and hg are often not in the path and if they
 	// are not in one of the default install locations, their path must be

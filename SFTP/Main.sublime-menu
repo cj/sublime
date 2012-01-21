@@ -1,5 +1,22 @@
 [
     {
+        "id": "file",
+        "children":
+        [
+            {
+                "caption": "SFTP/FTP",
+                "mnemonic": "b",
+                "children":
+                [
+                    { "command": "sftp_create_server", "caption": "Setup Server…" },
+                    { "command": "sftp_browse_server", "caption": "Browse Server…" },
+                    { "command": "sftp_edit_server", "caption": "Edit Server…" },
+                    { "command": "sftp_delete_server", "caption": "Delete Server…" }
+                ]
+            }
+        ]
+    },
+    {
         "caption": "Preferences",
         "mnemonic": "n",
         "id": "preferences",
@@ -17,6 +34,7 @@
                         [
                             { "command": "open_file", "args": {"file": "${packages}/SFTP/SFTP.sublime-settings"}, "caption": "Settings – Default" },
                             { "command": "open_file", "args": {"file": "${packages}/User/SFTP.sublime-settings"}, "caption": "Settings – User" },
+                            { "caption": "-" },
                             {
                                 "command": "open_file", "args":
                                 {

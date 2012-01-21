@@ -47,7 +47,40 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
+				<string>#2AA198</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Date</string>
+			<key>scope</key>
+			<string>datediff</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#5A74CF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Date</string>
+			<key>scope</key>
+			<string>date</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
 				<string>#819090</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Response</string>
+			<key>scope</key>
+			<string>response</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#268BD2</string>
 			</dict>
 		</dict>
 		<dict>
